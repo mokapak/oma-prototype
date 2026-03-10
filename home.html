@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Apps Details — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="home.html" class="header-logo">
+      <div class="logo-mark">O</div>
+      <div class="logo-text">OMA <span>APPS DETAILS</span></div>
+    </a>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" />
+    </div>
+    <div class="header-actions">
+      <div class="h-btn" id="notifBtn" title="Notifications" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-badge">3</span>
+        <!-- Notification panel -->
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-panel-header">Notifications <span class="notif-mark-read">Mark all read</span></div>
+          <div class="notif-item unread">
+            <div class="notif-dot"></div>
+            <div class="notif-body"><div class="notif-title">Orange et moi — New version available</div><div class="notif-time">2h ago</div></div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-dot"></div>
+            <div class="notif-body"><div class="notif-title">TV d'Orange — Rating dropped to 3.9</div><div class="notif-time">5h ago</div></div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-dot"></div>
+            <div class="notif-body"><div class="notif-title">Weekly report is ready</div><div class="notif-time">Yesterday</div></div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-dot" style="opacity:0"></div>
+            <div class="notif-body"><div class="notif-title">Simyo — Scoring improved +12</div><div class="notif-time">2 days ago</div></div>
+          </div>
+          <div class="notif-panel-footer"><a href="notifications.html" style="font-size:12px;color:var(--orange);font-weight:600;">View all notifications →</a></div>
+        </div>
+      </div>
+      <div class="h-user" id="userBtn" style="position:relative;">
+        <div class="h-avatar">TC</div>
+        <div class="h-user-info">
+          <div class="h-user-name">Théophile Cornuet</div>
+          <div class="h-user-role">Product Owner</div>
+        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:rgba(255,255,255,.4)"><polyline points="6 9 12 15 18 9"/></svg>
+        <!-- User menu -->
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-profile">
+            <div class="h-avatar" style="width:36px;height:36px;font-size:13px;background:var(--orange);">TC</div>
+            <div><div style="font-weight:700;font-size:13px;">Théophile Cornuet</div><div style="font-size:11px;color:var(--text-3);">theophile.cornuet@orange.com</div></div>
+          </div>
+          <div class="user-menu-sep"></div>
+          <a href="settings.html" class="user-menu-item">⚙️ Settings</a>
+          <a href="profile.html" class="user-menu-item">👤 My Profile</a>
+          <div class="user-menu-item">📊 My Reports</div>
+          <div class="user-menu-sep"></div>
+          <div class="user-menu-item" style="color:var(--red);">🚪 Sign out</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- PRIMARY SIDEBAR -->
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item active" title="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item" title="Catalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item" title="Statistics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item" title="Dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item" title="Favorites"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="content">
+
+        <!-- Welcome banner -->
+        <div class="welcome">
+          <div class="welcome-text">
+            <div class="welcome-greeting">Hello, <span>Théophile</span> 👋</div>
+            <div class="welcome-desc" style="margin-top:8px;">
+              Bienvenue sur <strong style="color:white">OMA Apps Details</strong> — le datalake des applications Orange déployées sur les stores mondiaux.<br>
+              Vous êtes identifié en tant que <span class="welcome-role">Product Owner</span> sur <strong style="color:white">4 applications</strong>.
+            </div>
+          </div>
+          <div class="welcome-stats">
+            <div class="welcome-stat"><div class="welcome-stat-val">416</div><div class="welcome-stat-lbl">Apps live</div></div>
+            <div class="welcome-stat"><div class="welcome-stat-val">335M</div><div class="welcome-stat-lbl">Downloads</div></div>
+            <div class="welcome-stat"><div class="welcome-stat-val">4.14</div><div class="welcome-stat-lbl">Avg rating</div></div>
+            <div class="welcome-stat"><div class="welcome-stat-val">38</div><div class="welcome-stat-lbl">Countries</div></div>
+          </div>
+        </div>
+
+        <!-- ===== SECTION: Global View ===== -->
+        <div class="home-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Global View
+        </div>
+        <div class="home-kpi-row mb-3">
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:var(--orange-light);color:var(--orange);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row">
+                <div class="home-kpi-val">416</div>
+                <div class="home-kpi-trend up">▲ +12</div>
+              </div>
+              <div class="home-kpi-lbl">Apps live</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:#e8f4fd;color:#0077b6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row">
+                <div class="home-kpi-val">335M</div>
+                <div class="home-kpi-trend up">▲ +8.4%</div>
+              </div>
+              <div class="home-kpi-lbl">Total downloads</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:var(--green-bg);color:var(--green);"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="18" height="18"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row">
+                <div class="home-kpi-val">4.14</div>
+                <div class="home-kpi-trend up">▲ +0.06</div>
+              </div>
+              <div class="home-kpi-lbl">Avg rating</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:#f3e8ff;color:#7c3aed;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row">
+                <div class="home-kpi-val">38</div>
+              </div>
+              <div class="home-kpi-lbl">Countries</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:#fef9e7;color:#f0a500;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row">
+                <div class="home-kpi-val">2.1M</div>
+                <div class="home-kpi-trend down">▼ -4%</div>
+              </div>
+              <div class="home-kpi-lbl">Reviews / year</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:var(--red-bg);color:var(--red);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row">
+                <div class="home-kpi-val">24</div>
+                <div class="home-kpi-trend down">▼ -3</div>
+              </div>
+              <div class="home-kpi-lbl">Offline apps</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global trend chart + store split -->
+        <div class="home-charts-row mb-4">
+          <div class="card home-chart-main">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+              <div style="font-size:13px;font-weight:700;">Downloads Trend — All Stores</div>
+              <div class="range-group">
+                <button class="range-btn" data-range="7d">7d</button>
+                <button class="range-btn active" data-range="30d">30d</button>
+                <button class="range-btn" data-range="90d">90d</button>
+                <button class="range-btn" data-range="1y">1y</button>
+              </div>
+            </div>
+            <div style="height:200px;"><canvas id="globalTrendChart"></canvas></div>
+          </div>
+          <div class="card home-chart-side">
+            <div style="font-size:13px;font-weight:700;margin-bottom:12px;">By Zone</div>
+            <div style="height:150px;"><canvas id="zoneChart"></canvas></div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;"><span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#ff7900;margin-right:6px;"></span>Europe</span><span style="font-weight:700;">50%</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;"><span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#1a1a1a;margin-right:6px;"></span>Africa &amp; MEA</span><span style="font-weight:700;">36%</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;"><span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#aaa;margin-right:6px;"></span>AMOA</span><span style="font-weight:700;">14%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SECTION: France KPIs ===== -->
+        <div class="home-section-title">
+          <span style="display:inline-flex;align-items:center;gap:6px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> France — Key Indicators</span>
+        </div>
+        <div class="home-kpi-row mb-3">
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:var(--orange-light);color:var(--orange);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row"><div class="home-kpi-val">144</div><div class="home-kpi-trend up">▲ +5</div></div>
+              <div class="home-kpi-lbl">Apps FR</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:#e8f4fd;color:#0077b6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row"><div class="home-kpi-val">168M</div><div class="home-kpi-trend up">▲ +11%</div></div>
+              <div class="home-kpi-lbl">Downloads FR</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:var(--green-bg);color:var(--green);"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="18" height="18"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row"><div class="home-kpi-val">4.22</div><div class="home-kpi-trend up">▲ +0.1</div></div>
+              <div class="home-kpi-lbl">Avg rating FR</div>
+            </div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:#fef9e7;color:#f0a500;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <div class="home-kpi-body">
+              <div class="home-kpi-val-row"><div class="home-kpi-val">1.4M</div></div>
+              <div class="home-kpi-lbl">Reviews FR / year</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-charts-row mb-4">
+          <div class="card" style="flex:2;">
+            <div style="font-size:13px;font-weight:700;margin-bottom:12px;">Rating Evolution — Top France Apps</div>
+            <div style="height:180px;"><canvas id="frRatingChart"></canvas></div>
+          </div>
+          <div class="card" style="flex:1;">
+            <div style="font-size:13px;font-weight:700;margin-bottom:12px;">Top FR Apps — Downloads</div>
+            <div style="height:180px;"><canvas id="frTopAppsChart"></canvas></div>
+          </div>
+        </div>
+
+        <!-- ===== SECTION: Favorite Apps Trends ===== -->
+        <div class="home-section-title" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align:middle;margin-right:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Favorite Apps Trends
+          </span>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <div class="dropdown-wrap">
+              <div class="select-btn" data-dropdown="favListMenu" style="font-size:12px;"><span class="dropdown-label">My Apps</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg></div>
+              <div class="dropdown-menu" id="favListMenu">
+                <div class="dropdown-item active" data-value="my-apps">My Apps</div>
+                <div class="dropdown-item" data-value="france-core">France Core Apps</div>
+                <div class="dropdown-item" data-value="africa-mea">Africa &amp; MEA</div>
+              </div>
+            </div>
+            <a href="favorites.html" style="font-size:12px;color:var(--orange);font-weight:600;">View all →</a>
+          </div>
+        </div>
+
+        <!-- Fav apps mini cards row -->
+        <div class="fav-trends-row mb-4">
+          <div class="fav-trend-card">
+            <div class="fav-trend-head">
+              <div class="fav-trend-icon" style="background:#ff7900;">OEM</div>
+              <div class="fav-trend-info">
+                <div class="fav-trend-name">Orange et Moi FR</div>
+                <div class="fav-trend-meta">Android · France</div>
+              </div>
+              <span class="r-badge r-high" style="margin-left:auto;">4.41</span>
+            </div>
+            <div style="height:60px;margin-top:8px;"><canvas id="spark1"></canvas></div>
+            <div class="fav-trend-footer">
+              <span class="text-green" style="font-size:12px;font-weight:700;">▲ +43</span>
+              <span style="font-size:11px;color:var(--text-3);">24.8M downloads</span>
+            </div>
+          </div>
+          <div class="fav-trend-card">
+            <div class="fav-trend-head">
+              <div class="fav-trend-icon" style="background:#6a1de8;">TV</div>
+              <div class="fav-trend-info">
+                <div class="fav-trend-name">TV d'Orange</div>
+                <div class="fav-trend-meta">Android · France</div>
+              </div>
+              <span class="r-badge r-high" style="margin-left:auto;">4.08</span>
+            </div>
+            <div style="height:60px;margin-top:8px;"><canvas id="spark2"></canvas></div>
+            <div class="fav-trend-footer">
+              <span class="text-green" style="font-size:12px;font-weight:700;">▲ +35</span>
+              <span style="font-size:11px;color:var(--text-3);">20.9M downloads</span>
+            </div>
+          </div>
+          <div class="fav-trend-card">
+            <div class="fav-trend-head">
+              <div class="fav-trend-icon" style="background:#e53935;">S</div>
+              <div class="fav-trend-info">
+                <div class="fav-trend-name">Simyo</div>
+                <div class="fav-trend-meta">iOS · France</div>
+              </div>
+              <span class="r-badge r-high" style="margin-left:auto;">4.76</span>
+            </div>
+            <div style="height:60px;margin-top:8px;"><canvas id="spark3"></canvas></div>
+            <div class="fav-trend-footer">
+              <span class="text-green" style="font-size:12px;font-weight:700;">▲ +67</span>
+              <span style="font-size:11px;color:var(--text-3);">983K downloads</span>
+            </div>
+          </div>
+          <div class="fav-trend-card">
+            <div class="fav-trend-head">
+              <div class="fav-trend-icon" style="background:#ff7900;">OB</div>
+              <div class="fav-trend-info">
+                <div class="fav-trend-name">My Orange BE</div>
+                <div class="fav-trend-meta">iOS · Belgium</div>
+              </div>
+              <span class="r-badge r-mid" style="margin-left:auto;">3.43</span>
+            </div>
+            <div style="height:60px;margin-top:8px;"><canvas id="spark4"></canvas></div>
+            <div class="fav-trend-footer">
+              <span class="text-red" style="font-size:12px;font-weight:700;">▼ -12</span>
+              <span style="font-size:11px;color:var(--text-3);">3.5M downloads</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SECTION: Apps I Manage ===== -->
+        <div class="home-section-title" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align:middle;margin-right:4px;"><rect x="5" y="2" width="14" height="20" rx="2"/></svg>
+            Apps I Manage
+            <span class="badge badge-orange" style="margin-left:6px;">4</span>
+          </span>
+          <button class="btn btn-secondary btn-sm btn-export" data-action="export">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export
+          </button>
+        </div>
+        <div class="card mb-4" style="padding:0;overflow:hidden;">
+          <div class="tbl-wrap">
+            <table class="tbl" id="myAppsTable">
+              <thead>
+                <tr>
+                  <th data-sort="name">App <span class="sort">↕</span></th>
+                  <th data-sort="store">Store <span class="sort">↕</span></th>
+                  <th data-sort="version">Version <span class="sort">↕</span></th>
+                  <th data-sort="release">Last Release <span class="sort">↕</span></th>
+                  <th data-sort="status">Status <span class="sort">↕</span></th>
+                  <th data-sort="country">Country <span class="sort">↕</span></th>
+                  <th data-sort="rating">Rating <span class="sort">↕</span></th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-name="Orange et moi France" data-store="android" data-version="12.12.4" data-release="2026-02-10" data-status="live" data-country="fr" data-rating="4.41">
+                  <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">OEM</div><div><div class="app-name">Orange et moi France</div><div class="app-sub">com.orange.orangeetmoi</div></div></div></td>
+                  <td><span class="badge badge-dark">Android</span></td>
+                  <td class="mono">12.12.4</td>
+                  <td>2026-02-10</td>
+                  <td><span class="dot dot-green"></span> <span style="font-size:12px;color:var(--green);font-weight:700;">Live</span></td>
+                  <td>🇫🇷 FR</td>
+                  <td><span class="r-badge r-high">4.41</span></td>
+                  <td><div class="actions"><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></div></td>
+                </tr>
+                <tr data-name="Orange et moi France iOS" data-store="ios" data-version="12.12.4" data-release="2026-02-10" data-status="live" data-country="fr" data-rating="4.38">
+                  <td><div class="app-cell"><div class="app-icon-sm" style="background:#007acd">OEM</div><div><div class="app-name">Orange et moi France</div><div class="app-sub">com.orange.orangeetmoi</div></div></div></td>
+                  <td><span class="badge badge-gray">iOS</span></td>
+                  <td class="mono">12.12.4</td>
+                  <td>2026-02-10</td>
+                  <td><span class="dot dot-green"></span> <span style="font-size:12px;color:var(--green);font-weight:700;">Live</span></td>
+                  <td>🇫🇷 FR</td>
+                  <td><span class="r-badge r-high">4.38</span></td>
+                  <td><div class="actions"><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></div></td>
+                </tr>
+                <tr data-name="TV d'Orange" data-store="android" data-version="10.6.5" data-release="2026-01-28" data-status="live" data-country="fr" data-rating="4.08">
+                  <td><div class="app-cell"><div class="app-icon-sm" style="background:#6a1de8">TV</div><div><div class="app-name">TV d'Orange • Direct &amp; Replay</div><div class="app-sub">com.orange.tv</div></div></div></td>
+                  <td><span class="badge badge-dark">Android</span></td>
+                  <td class="mono">10.6.5</td>
+                  <td>2026-01-28</td>
+                  <td><span class="dot dot-green"></span> <span style="font-size:12px;color:var(--green);font-weight:700;">Live</span></td>
+                  <td>🇫🇷 FR</td>
+                  <td><span class="r-badge r-high">4.08</span></td>
+                  <td><div class="actions"><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></div></td>
+                </tr>
+                <tr data-name="My Orange Belgium" data-store="ios" data-version="5.24.0" data-release="2026-01-15" data-status="live" data-country="be" data-rating="3.43">
+                  <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">OB</div><div><div class="app-name">My Orange Belgium</div><div class="app-sub">be.orange.myorange</div></div></div></td>
+                  <td><span class="badge badge-gray">iOS</span></td>
+                  <td class="mono">5.24.0</td>
+                  <td>2026-01-15</td>
+                  <td><span class="dot dot-green"></span> <span style="font-size:12px;color:var(--green);font-weight:700;">Live</span></td>
+                  <td>🇧🇪 BE</td>
+                  <td><span class="r-badge r-mid">3.43</span></td>
+                  <td><div class="actions"><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ===== SECTION: My Favorites Lists ===== -->
+        <div class="home-section-title" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align:middle;margin-right:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            My Favorites Lists
+            <span class="badge badge-orange" style="margin-left:6px;">2</span>
+          </span>
+          <a href="favorites.html" class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New list
+          </a>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div class="tbl-wrap">
+            <table class="tbl" id="favListTable">
+              <thead>
+                <tr>
+                  <th data-sort="name">List Name <span class="sort">↕</span></th>
+                  <th data-sort="count">Apps <span class="sort">↕</span></th>
+                  <th data-sort="downloads">Downloads <span class="sort">↕</span></th>
+                  <th data-sort="updated">Last Updated <span class="sort">↕</span></th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-name="My Apps" data-count="4" data-downloads="294865" data-updated="2026-03-01">
+                  <td><div style="display:flex;align-items:center;gap:8px;"><span style="font-size:16px;">❤️</span><span style="font-weight:700;">My Apps</span></div></td>
+                  <td><span class="badge badge-orange">4</span></td>
+                  <td class="num text-green">+294 865</td>
+                  <td>2026-03-01</td>
+                  <td><div class="actions"><a href="favorites.html" class="btn btn-secondary btn-sm">View</a></div></td>
+                </tr>
+                <tr data-name="New fav" data-count="3" data-downloads="103453" data-updated="2026-02-20">
+                  <td><div style="display:flex;align-items:center;gap:8px;"><span style="font-size:16px;">❤️</span><span style="font-weight:700;">New fav</span></div></td>
+                  <td><span class="badge badge-orange">3</span></td>
+                  <td class="num text-green">+103 453</td>
+                  <td>2026-02-20</td>
+                  <td><div class="actions"><a href="favorites.html" class="btn btn-secondary btn-sm">View</a></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">O</div>
+    <nav class="footer-nav">
+      <span class="footer-link">Contact</span>
+      <span class="footer-link">API V2</span>
+      <span class="footer-link">API V3</span>
+      <span class="footer-link">Legal Notices</span>
+      <span class="footer-link">Personal Data Notice</span>
+    </nav>
+    <span class="footer-copy">© Orange SA 2026 — All rights reserved</span>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+<script>
+/* Header interactions handled by app.js initHeader() */
+
+/* ---- Header search ---- */
+document.getElementById('headerSearch').addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){
+    window.location.href = 'catalog-list.html';
+  }
+});
+
+/* ---- Table sort: Apps I Manage ---- */
+(function(){
+  function makeSortable(tableId){
+    var table = document.getElementById(tableId);
+    if(!table) return;
+    var tbody = table.querySelector('tbody');
+    table.querySelectorAll('th[data-sort]').forEach(function(th){
+      th.style.cursor='pointer';
+      th.addEventListener('click', function(){
+        var col=th.dataset.sort;
+        var asc=th.dataset.sortDir!=='asc'; th.dataset.sortDir=asc?'asc':'desc';
+        table.querySelectorAll('th .sort').forEach(function(s){s.textContent='↕';});
+        var sp=th.querySelector('.sort'); if(sp) sp.textContent=asc?'▲':'▼';
+        var rows=Array.from(tbody.querySelectorAll('tr'));
+        rows.sort(function(a,b){
+          var av=a.dataset[col]||'', bv=b.dataset[col]||'';
+          var an=parseFloat(av), bn=parseFloat(bv);
+          if(!isNaN(an)&&!isNaN(bn)) return asc?an-bn:bn-an;
+          return asc?av.localeCompare(bv):bv.localeCompare(av);
+        });
+        rows.forEach(function(r){tbody.appendChild(r);});
+      });
+    });
+  }
+  makeSortable('myAppsTable');
+  makeSortable('favListTable');
+})();
+
+/* ---- Favorite list dropdown ---- */
+(function(){
+  var trigger = document.querySelector('[data-dropdown="favListMenu"]');
+  if(trigger){
+    trigger.addEventListener('dropdown-change', function(e){
+      var lbl=trigger.querySelector('.dropdown-label');
+      var map={'my-apps':'My Apps','france-core':'France Core Apps','africa-mea':'Africa & MEA'};
+      if(lbl) lbl.textContent=map[e.detail]||e.detail;
+      window.showToast && window.showToast('Showing: '+(map[e.detail]||e.detail));
+    });
+  }
+})();
+
+/* ---- Charts ---- */
+var months=['Sep','Oct','Nov','Dec','Jan','Feb','Mar'];
+var sparkOpts = {
+  type:'line',
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{enabled:false}},
+    scales:{ x:{display:false}, y:{display:false} }, elements:{ point:{radius:0}, line:{tension:0.4} } }
+};
+
+/* Global trend */
+new Chart(document.getElementById('globalTrendChart'),{
+  type:'line',
+  data:{ labels:months, datasets:[
+    { label:'Android', data:[28,31,29,34,38,42,40], borderColor:'#1a1a1a', backgroundColor:'rgba(26,26,26,.05)', tension:0.4, fill:true },
+    { label:'iOS', data:[22,24,23,26,28,30,29], borderColor:'#ff7900', backgroundColor:'rgba(255,121,0,.05)', tension:0.4, fill:true }
+  ]},
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{ position:'top', labels:{boxWidth:10,font:{size:11}} } },
+    scales:{ x:{ grid:{display:false}, ticks:{font:{size:11},color:'#999'} }, y:{ grid:{color:'rgba(0,0,0,.04)'}, ticks:{font:{size:11},color:'#999'} } }
+  }
+});
+
+/* Zone donut */
+new Chart(document.getElementById('zoneChart'),{
+  type:'doughnut',
+  data:{ labels:['Europe','Africa & MEA','AMOA'], datasets:[{ data:[50,36,14], backgroundColor:['#ff7900','#1a1a1a','#aaa'], borderWidth:2, borderColor:'#fff' }] },
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} } }
+});
+
+/* FR Rating chart */
+new Chart(document.getElementById('frRatingChart'),{
+  type:'line',
+  data:{ labels:months, datasets:[
+    { label:'Orange et Moi', data:[4.2,4.3,4.35,4.4,4.38,4.41,4.41], borderColor:'#ff7900', tension:0.4, pointRadius:3 },
+    { label:"TV d'Orange", data:[3.9,4.0,4.0,4.05,4.08,4.08,4.08], borderColor:'#6a1de8', tension:0.4, pointRadius:3 },
+    { label:'Simyo', data:[4.6,4.65,4.7,4.72,4.75,4.76,4.76], borderColor:'#e53935', tension:0.4, pointRadius:3 }
+  ]},
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{ position:'top', labels:{boxWidth:10,font:{size:11}} } },
+    scales:{ x:{grid:{display:false},ticks:{font:{size:11},color:'#999'}}, y:{min:3.5,grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#999'}} }
+  }
+});
+
+/* FR Top apps bar */
+new Chart(document.getElementById('frTopAppsChart'),{
+  type:'bar',
+  data:{ labels:['OEM','TV','Simyo','OMP','Téléphone'], datasets:[{ data:[24.8,20.9,0.98,0.89,1.89], backgroundColor:['#ff7900','#6a1de8','#e53935','#ff9833','#00b4d8'], borderRadius:4 }] },
+  options:{ responsive:true, maintainAspectRatio:false, indexAxis:'y',
+    plugins:{ legend:{display:false} },
+    scales:{ x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:10},color:'#999'}}, y:{grid:{display:false},ticks:{font:{size:11},color:'#999'}} }
+  }
+});
+
+/* Sparklines */
+function makeSpark(id, data, color, up){
+  new Chart(document.getElementById(id),{
+    type:'line',
+    data:{ labels:months, datasets:[{ data:data, borderColor:color, backgroundColor: up?'rgba(25,135,84,.08)':'rgba(220,53,69,.08)', tension:0.4, fill:true }] },
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{enabled:false}},
+      scales:{ x:{display:false}, y:{display:false} },
+      elements:{ point:{radius:0}, line:{borderWidth:2} }
+    }
+  });
+}
+makeSpark('spark1',[4.2,4.25,4.3,4.38,4.4,4.41,4.41],'#198754',true);
+makeSpark('spark2',[3.9,3.95,4.0,4.05,4.07,4.08,4.08],'#198754',true);
+makeSpark('spark3',[4.6,4.65,4.7,4.72,4.75,4.76,4.76],'#198754',true);
+makeSpark('spark4',[3.8,3.7,3.65,3.55,3.5,3.45,3.43],'#dc3545',false);
+</script>
+</body>
+</html>

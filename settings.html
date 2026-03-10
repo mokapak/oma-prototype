@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Apps Details — Settings</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="home.html" class="header-logo">
+      <div class="logo-mark">O</div>
+      <div class="logo-text">OMA <span>APPS DETAILS</span></div>
+    </a>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" />
+    </div>
+    <div class="header-actions">
+      <div class="h-btn" id="notifBtn" title="Notifications" style="position:relative;"></div>
+      <div class="h-user" id="userBtn" style="position:relative;">
+        <div class="h-avatar">TC</div>
+        <div class="h-user-info">
+          <div class="h-user-name">Théophile Cornuet</div>
+          <div class="h-user-role">Product Owner</div>
+        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:rgba(255,255,255,.4)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- PRIMARY SIDEBAR -->
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item" title="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item" title="Catalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item" title="Statistics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item" title="Dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item" title="Favorites"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="content" style="max-width:720px;">
+
+        <div class="page-header" style="margin-bottom:28px;">
+          <h1 class="page-title">Settings</h1>
+          <p style="font-size:13px;color:var(--text-3);margin-top:4px;">Manage your preferences and account configuration</p>
+        </div>
+
+        <!-- DISPLAY -->
+        <div class="card" style="margin-bottom:20px;">
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border-light);">🖥️ Display</div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Language</div>
+              <div class="settings-desc">Interface language for labels and dates</div>
+            </div>
+            <div style="position:relative;">
+              <div class="select-btn" data-dropdown="langMenu">
+                <span class="dropdown-label">English</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <ul id="langMenu" class="dropdown-menu" style="min-width:140px;right:0;left:auto;">
+                <li class="dropdown-item">English</li>
+                <li class="dropdown-item">Français</li>
+                <li class="dropdown-item">Español</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Default date range</div>
+              <div class="settings-desc">Period shown by default on charts and KPIs</div>
+            </div>
+            <div style="position:relative;">
+              <div class="select-btn" data-dropdown="dateRangeMenu">
+                <span class="dropdown-label">Last 30 days</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <ul id="dateRangeMenu" class="dropdown-menu" style="min-width:160px;right:0;left:auto;">
+                <li class="dropdown-item">Last 7 days</li>
+                <li class="dropdown-item">Last 30 days</li>
+                <li class="dropdown-item">Last 90 days</li>
+                <li class="dropdown-item">Last year</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Items per page</div>
+              <div class="settings-desc">Default number of rows in tables and grids</div>
+            </div>
+            <div style="position:relative;">
+              <div class="select-btn" data-dropdown="perPageMenu">
+                <span class="dropdown-label">25</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <ul id="perPageMenu" class="dropdown-menu" style="min-width:100px;right:0;left:auto;">
+                <li class="dropdown-item">10</li>
+                <li class="dropdown-item">25</li>
+                <li class="dropdown-item">50</li>
+                <li class="dropdown-item">100</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- NOTIFICATIONS -->
+        <div class="card" style="margin-bottom:20px;">
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border-light);">🔔 Notifications</div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Rating alerts</div>
+              <div class="settings-desc">Notify when an app's rating drops below a threshold</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">New version alerts</div>
+              <div class="settings-desc">Notify when a new app version is published on any store</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Error spike alerts</div>
+              <div class="settings-desc">Notify when crash rate increases significantly</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Weekly digest</div>
+              <div class="settings-desc">Receive a weekly summary email every Monday morning</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="settings-row" style="border-bottom:none;">
+            <div>
+              <div class="settings-label">Rating alert threshold</div>
+              <div class="settings-desc">Trigger an alert when rating falls below this value</div>
+            </div>
+            <div style="position:relative;">
+              <div class="select-btn" data-dropdown="thresholdMenu">
+                <span class="dropdown-label">4.0 ★</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <ul id="thresholdMenu" class="dropdown-menu" style="min-width:110px;right:0;left:auto;">
+                <li class="dropdown-item">3.0 ★</li>
+                <li class="dropdown-item">3.5 ★</li>
+                <li class="dropdown-item">4.0 ★</li>
+                <li class="dropdown-item">4.5 ★</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATA & EXPORT -->
+        <div class="card" style="margin-bottom:28px;">
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border-light);">📊 Data & Export</div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Default export format</div>
+              <div class="settings-desc">Format used when clicking Download / Export buttons</div>
+            </div>
+            <div style="position:relative;">
+              <div class="select-btn" data-dropdown="exportFmtMenu">
+                <span class="dropdown-label">CSV</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <ul id="exportFmtMenu" class="dropdown-menu" style="min-width:110px;right:0;left:auto;">
+                <li class="dropdown-item">CSV</li>
+                <li class="dropdown-item">XLSX</li>
+                <li class="dropdown-item">PDF</li>
+                <li class="dropdown-item">JSON</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="settings-row" style="border-bottom:none;">
+            <div>
+              <div class="settings-label">Auto-refresh data</div>
+              <div class="settings-desc">Automatically reload data every 15 minutes when the page is open</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button class="btn btn-secondary" onclick="history.back()">Cancel</button>
+          <button class="btn btn-primary" onclick="showToast('Settings saved successfully')">Save changes</button>
+        </div>
+
+      </div><!-- /content -->
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <a href="#" class="footer-link" data-footer-modal="contact">Contact</a>
+        <a href="#" class="footer-link" data-footer-modal="legal">Legal Notices</a>
+        <a href="#" class="footer-link" data-footer-modal="data">Personal Data</a>
+        <span style="color:rgba(255,255,255,.3);font-size:12px;">© Orange SA 2026</span>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<style>
+.settings-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; border-bottom: 1px solid var(--border-light); gap: 24px;
+}
+.settings-row:last-child { border-bottom: none; }
+.settings-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.settings-desc { font-size: 12px; color: var(--text-3); }
+/* Toggle switch */
+.toggle-switch { position: relative; display: inline-block; width: 40px; height: 22px; flex-shrink: 0; cursor: pointer; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-track {
+  position: absolute; inset: 0;
+  background: var(--border); border-radius: 11px;
+  transition: background .2s;
+}
+.toggle-switch input:checked + .toggle-track { background: var(--orange); }
+.toggle-track::before {
+  content: ''; position: absolute;
+  width: 16px; height: 16px; border-radius: 50%; background: white;
+  top: 3px; left: 3px; transition: transform .2s;
+}
+.toggle-switch input:checked + .toggle-track::before { transform: translateX(18px); }
+</style>
+
+<script src="app.js"></script>
+</body>
+</html>

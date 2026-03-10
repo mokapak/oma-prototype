@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA — Orange et moi France · Summary</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="home.html" class="header-logo"><div class="logo-mark">O</div><div class="logo-text">OMA <span>APPS DETAILS</span></div></a>
+    <div class="header-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" /></div>
+    <div class="header-actions">
+      <div class="h-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+      <div class="h-user"><div class="h-avatar">TC</div><div class="h-user-info"><div class="h-user-name">Théophile Cornuet</div><div class="h-user-role">Product Owner</div></div></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main app-detail-page">
+      <!-- App Info bar -->
+      <div class="app-info-bar">
+        <div class="app-info-icon" style="background:linear-gradient(135deg,#ff7900,#e56e00)">OEM</div>
+        <div>
+          <div class="app-info-name-row">
+            <span class="app-info-name">Orange et moi France</span>
+            <button class="app-family-chevron" data-app-family="appFamilyMenu" title="Other apps in this family">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <ul class="dropdown-menu app-family-menu" id="appFamilyMenu">
+              <li class="dropdown-item" data-href="app-summary.html">Orange et moi France</li>
+              <li class="dropdown-item" data-href="app-summary.html">Orange et moi Spain</li>
+              <li class="dropdown-item" data-href="app-summary.html">Orange et moi Belgium</li>
+              <li class="dropdown-item" data-href="app-summary.html">Orange et moi Africa</li>
+            </ul>
+          </div>
+          <div class="app-info-meta">
+            <span class="badge badge-dark">Android</span>
+            <span class="badge badge-gray">iOS</span>
+            <span class="badge badge-blue">Huawei</span>
+            <span class="dot dot-green"></span><span class="text-sm" style="color:var(--green);font-weight:700;">Live</span>
+            <span class="badge badge-gray">🇫🇷 France</span>
+            <span class="text-muted text-sm">v12.12.4</span>
+            <span class="r-badge r-high">4.41 ★</span>
+          </div>
+        </div>
+        <div class="app-info-fav" title="Add to favorites">♥</div>
+      </div>
+
+      <!-- App Detail Layout: Sidebar + Content -->
+      <div class="app-detail-layout">
+        <nav class="app-sidebar-nav">
+          <a href="app-summary.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Summary</a>
+          <a href="app-graphs.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Graphs</a>
+          <a href="app-reviews.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Reviews</a>
+          <a href="app-errors.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Errors</a>
+          <a href="app-store-view.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Store View</a>
+          <a href="app-devices.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Devices</a>
+          <a href="app-countries.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Countries</a>
+          <a href="app-competitors.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Competitors</a>
+        </nav>
+        <div class="content">
+
+        <!-- Info boxes -->
+        <div class="g2 mb-3">
+          <div class="info-box">
+            <div class="info-box-icon">🔗</div>
+            <div>
+              <div class="info-box-label">Application ID / Store Page</div>
+              <div class="info-box-link">com.orange.orangeetmoi</div>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-box-icon">📅</div>
+            <div>
+              <div class="info-box-label">Releases</div>
+              <div class="info-box-value">First: 2011-11-27 · Last: 2026-02-10</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Platform selector -->
+        <div style="display:flex;gap:10px;margin-bottom:20px;align-items:center;">
+          <span style="font-size:13px;color:var(--text-muted);">Platform:</span>
+          <button class="err-tab active" data-err-platform="all">All</button>
+          <button class="err-tab" data-err-platform="android">🤖 Android</button>
+          <button class="err-tab" data-err-platform="ios">🍎 iOS</button>
+          <button class="err-tab" data-err-platform="huawei">📱 Huawei</button>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpi-grid mb-3">
+          <div class="kpi-card">
+            <div class="kpi-label">App Store Page Visits</div>
+            <div class="kpi-value"
+              data-all-val="514 008"
+              data-android-val="312 440"
+              data-ios-val="176 230"
+              data-huawei-val="25 338">514 008</div>
+            <div class="kpi-trend trend-up"
+              data-all-trend="↑ +2.3%"
+              data-android-trend="↑ +3.1%"
+              data-ios-trend="↑ +1.4%"
+              data-huawei-trend="↓ -0.8%">↑ +2.3%</div>
+            <div class="kpi-help"
+              data-all-help="vs last 90 days"
+              data-android-help="vs last 90 days"
+              data-ios-help="vs last 90 days"
+              data-huawei-help="vs last 90 days">vs last 90 days</div>
+          </div>
+          <div class="kpi-card blue">
+            <div class="kpi-label">Total Downloads</div>
+            <div class="kpi-value"
+              data-all-val="24 814 711"
+              data-android-val="15 620 050"
+              data-ios-val="8 440 180"
+              data-huawei-val="754 481">24 814 711</div>
+            <div class="kpi-trend trend-down"
+              data-all-trend="↓ -4.8%"
+              data-android-trend="↓ -5.2%"
+              data-ios-trend="↓ -3.9%"
+              data-huawei-trend="↓ -6.1%">↓ -4.8%</div>
+            <div class="kpi-help"
+              data-all-help="vs last 90 days"
+              data-android-help="vs last 90 days"
+              data-ios-help="vs last 90 days"
+              data-huawei-help="vs last 90 days">vs last 90 days</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">Still Installed</div>
+            <div class="kpi-value"
+              data-all-val="8 432 100"
+              data-android-val="5 210 300"
+              data-ios-val="3 010 420"
+              data-huawei-val="211 380">8 432 100</div>
+            <div class="kpi-trend trend-up"
+              data-all-trend="↑ +1.1%"
+              data-android-trend="↑ +1.4%"
+              data-ios-trend="↑ +0.7%"
+              data-huawei-trend="↓ -1.3%">↑ +1.1%</div>
+            <div class="kpi-help"
+              data-all-help="Active installs"
+              data-android-help="Active installs"
+              data-ios-help="Active installs"
+              data-huawei-help="Active installs">Active installs</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">Monthly Active Users</div>
+            <div class="kpi-value"
+              data-all-val="6 120 000"
+              data-android-val="3 870 000"
+              data-ios-val="2 120 000"
+              data-huawei-val="130 000">6 120 000</div>
+            <div class="kpi-trend trend-down"
+              data-all-trend="↓ -1.2%"
+              data-android-trend="↓ -1.5%"
+              data-ios-trend="↓ -0.8%"
+              data-huawei-trend="↓ -2.4%">↓ -1.2%</div>
+            <div class="kpi-help"
+              data-all-help="Feb 2026"
+              data-android-help="Feb 2026"
+              data-ios-help="Feb 2026"
+              data-huawei-help="Feb 2026">Feb 2026</div>
+          </div>
+        </div>
+
+        <!-- Charts row -->
+        <div class="g2 mb-3">
+          <!-- Conversion Funnel -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Conversion Funnel</div>
+              <div class="select-btn" style="font-size:11px">Dec 2025 – Feb 2026 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><polyline points="6 9 12 15 18 9"/></svg></div>
+            </div>
+            <canvas id="funnelChart" height="200"></canvas>
+          </div>
+          <!-- Health Score -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">
+                Monthly Health Score
+                <span class="badge badge-gray">Feb 2026</span>
+              </div>
+              <button class="icon-btn" title="Download">⬇</button>
+            </div>
+            <div class="health-big mb-2">
+              78<span class="health-sep">/</span><span class="health-max">100</span>
+              <span class="badge badge-green" style="font-size:13px;margin-left:8px">↑ +6%</span>
+            </div>
+            <div class="radar-wrap">
+              <canvas id="radarChart" width="200" height="200"></canvas>
+              <div class="radar-legend">
+                <div class="radar-legend-item"><div class="radar-dot" style="background:#ff7900"></div>Acquisition</div>
+                <div class="radar-legend-item"><div class="radar-dot" style="background:#007acd"></div>Usage</div>
+                <div class="radar-legend-item"><div class="radar-dot" style="background:#198754"></div>Satisfaction</div>
+                <div class="radar-legend-item"><div class="radar-dot" style="background:#f0a500"></div>Agility</div>
+                <div class="radar-legend-item"><div class="radar-dot" style="background:#dc3545"></div>Compliance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Score Rating & Engagement -->
+        <div class="g2 mb-3">
+          <!-- Score Rating -->
+          <div class="card">
+            <div class="card-title mb-2">Score &amp; Rating</div>
+            <div class="flex items-center gap-4 mb-3">
+              <div>
+                <div style="font-size:36px;font-weight:800;color:var(--text);line-height:1">4.41</div>
+                <div style="color:#f0a500;font-size:20px;letter-spacing:2px">★★★★½</div>
+                <div class="text-muted text-sm mt-1">344 008 ratings total</div>
+              </div>
+              <div style="flex:1">
+                <div class="rating-breakdown">
+                  <div class="rating-row"><span class="rating-lbl">5★</span><div class="rating-track"><div class="rating-fill" style="width:72%"></div></div><span class="rating-cnt">248k</span></div>
+                  <div class="rating-row"><span class="rating-lbl">4★</span><div class="rating-track"><div class="rating-fill" style="width:14%"></div></div><span class="rating-cnt">48k</span></div>
+                  <div class="rating-row"><span class="rating-lbl">3★</span><div class="rating-track"><div class="rating-fill" style="width:6%"></div></div><span class="rating-cnt">20k</span></div>
+                  <div class="rating-row"><span class="rating-lbl">2★</span><div class="rating-track"><div class="rating-fill r-1" style="width:4%"></div></div><span class="rating-cnt">14k</span></div>
+                  <div class="rating-row"><span class="rating-lbl">1★</span><div class="rating-track"><div class="rating-fill r-1" style="width:4%"></div></div><span class="rating-cnt">14k</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="kpi-card" style="flex:1;padding:14px">
+                <div class="kpi-label">Scoring</div>
+                <div style="font-size:22px;font-weight:800;color:var(--green)">+43</div>
+              </div>
+              <div class="kpi-card" style="flex:1;padding:14px">
+                <div class="kpi-label">Reviews</div>
+                <div style="font-size:22px;font-weight:800">6 200</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quality & Agility -->
+          <div class="card">
+            <div class="card-title mb-2">Quality &amp; Agility</div>
+            <div class="section" style="margin-bottom:14px;padding:14px">
+              <div class="card-title-sm mb-2">QUALITY</div>
+              <div class="g2">
+                <div>
+                  <div class="kpi-label">Crash Count</div>
+                  <div style="font-size:20px;font-weight:800;color:var(--text)">N/A</div>
+                </div>
+                <div>
+                  <div class="kpi-label">Crash Rate</div>
+                  <div style="font-size:20px;font-weight:800;color:var(--text)">N/A</div>
+                </div>
+              </div>
+            </div>
+            <div class="section" style="padding:14px">
+              <div class="card-title-sm mb-2">AGILITY</div>
+              <div class="kpi-label mb-1">Publication Frequency</div>
+              <canvas id="pubFreqChart" height="100"></canvas>
+              <div class="flex gap-3 mt-2">
+                <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:50%;background:#ff7900"></div><span class="text-sm text-muted">This app</span></div>
+                <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:50%;background:#ccc"></div><span class="text-sm text-muted">Average</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">O</div>
+    <nav class="footer-nav"><span class="footer-link">Contact</span><span class="footer-link">API V2</span><span class="footer-link">API V3</span><span class="footer-link">Legal Notices</span></nav>
+    <span class="footer-copy">© Orange SA 2026</span>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+<script>
+// Funnel chart
+new Chart(document.getElementById('funnelChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Store Page Visits','Total Downloads','Still Installed','Monthly Active Users'],
+    datasets: [{
+      data: [514008, 24814711, 8432100, 6120000],
+      backgroundColor: ['#ff7900','#007acd','#198754','#6a1de8'],
+      borderRadius: 6,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 30 } },
+      y: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 10 }, callback: v => v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1000 ? (v/1000).toFixed(0)+'k' : v } }
+    }
+  }
+});
+
+// Radar chart
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['Acquisition','Usage','Satisfaction','Agility','Compliance'],
+    datasets: [{
+      label: 'Score',
+      data: [82, 74, 88, 65, 71],
+      backgroundColor: 'rgba(255,121,0,0.15)',
+      borderColor: '#ff7900',
+      borderWidth: 2,
+      pointBackgroundColor: '#ff7900',
+      pointRadius: 4,
+    }]
+  },
+  options: {
+    responsive: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: 100,
+        ticks: { stepSize: 25, font: { size: 9 } },
+        pointLabels: { font: { size: 11, weight: '600' } },
+        grid: { color: '#e0e0e0' },
+      }
+    }
+  }
+});
+
+// Publication frequency
+new Chart(document.getElementById('pubFreqChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    datasets: [
+      { label: 'This app', data: [2,3,2,4,3,2,5,3,4,3,2,3], backgroundColor: '#ff7900', borderRadius: 3 },
+      { label: 'Average', data: [1,2,1,2,2,1,2,2,2,2,1,2], backgroundColor: '#e0e0e0', borderRadius: 3 },
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 9 } } },
+      y: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 9 }, stepSize: 1 }, beginAtZero: true }
+    }
+  }
+});
+</script>
+</body>
+</html>

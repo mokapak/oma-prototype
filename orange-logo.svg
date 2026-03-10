@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <rect width="40" height="40" rx="9" fill="#ff7900"/>
+  <text
+    x="20" y="25"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="9.5"
+    font-weight="800"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="-0.2">orange</text>
+  <text
+    x="35.5" y="16"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="5.5"
+    fill="#ffffff"
+    text-anchor="middle">™</text>
+</svg>

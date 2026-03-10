@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Apps Details — Catalog</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="home.html" class="header-logo">
+      <div class="logo-mark">O</div>
+      <div class="logo-text">OMA <span>APPS DETAILS</span></div>
+    </a>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" />
+    </div>
+    <div class="header-actions">
+      <div class="h-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+      <div class="h-user">
+        <div class="h-avatar">TC</div>
+        <div class="h-user-info"><div class="h-user-name">Théophile Cornuet</div><div class="h-user-role">Product Owner</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:rgba(255,255,255,.4)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- PRIMARY SIDEBAR -->
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item" title="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item active" title="Catalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item" title="Statistics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item" title="Dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item" title="Favorites"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <!-- CATALOG LAYOUT -->
+    <div class="catalog-layout">
+      <!-- FILTER PANEL -->
+      <aside class="filter-panel" id="filterPanel">
+        <div class="filter-panel-head">
+          <div class="filter-panel-title">Filters</div>
+          <span class="filter-clear-all" id="clearAllFilters">Clear all</span>
+        </div>
+
+        <!-- Status -->
+        <div class="fgrp" data-filter-key="status">
+          <div class="fgrp-title">Status <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="live" /> <span class="fopt-label">Live</span> <span class="fopt-cnt">416</span></label>
+            <label class="fopt"><input type="checkbox" value="offline" /> <span class="fopt-label">Offline</span> <span class="fopt-cnt">24</span></label>
+            <label class="fopt"><input type="checkbox" value="suspended" /> <span class="fopt-label">Suspended</span> <span class="fopt-cnt">5</span></label>
+            <label class="fopt"><input type="checkbox" value="beta" /> <span class="fopt-label">Beta</span> <span class="fopt-cnt">8</span></label>
+          </div>
+        </div>
+
+        <!-- Store -->
+        <div class="fgrp" data-filter-key="store">
+          <div class="fgrp-title">Store <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="appstore" /> <span class="fopt-label">🍎 Apple AppStore</span> <span class="fopt-cnt">166</span></label>
+            <label class="fopt"><input type="checkbox" value="playstore" /> <span class="fopt-label">🤖 Google Play</span> <span class="fopt-cnt">193</span></label>
+            <label class="fopt"><input type="checkbox" value="huawei" /> <span class="fopt-label">📱 Huawei AppGallery</span> <span class="fopt-cnt">37</span></label>
+            <label class="fopt"><input type="checkbox" value="palmstore" /> <span class="fopt-label">🔶 Orange App Shop</span> <span class="fopt-cnt">20</span></label>
+          </div>
+        </div>
+
+        <!-- Zone -->
+        <div class="fgrp" data-filter-key="zone">
+          <div class="fgrp-title">Zone <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="europe" /> <span class="fopt-label">Europe</span> <span class="fopt-cnt">210</span></label>
+            <label class="fopt"><input type="checkbox" value="amea" /> <span class="fopt-label">Africa &amp; Middle East</span> <span class="fopt-cnt">148</span></label>
+            <label class="fopt"><input type="checkbox" value="amoa" /> <span class="fopt-label">AMOA</span> <span class="fopt-cnt">58</span></label>
+          </div>
+        </div>
+
+        <!-- Country (with popin) -->
+        <div class="fgrp" data-filter-key="country">
+          <div class="fgrp-title">Country <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="france" /> <span class="fopt-label">🇫🇷 France</span> <span class="fopt-cnt">144</span></label>
+            <label class="fopt"><input type="checkbox" value="spain" /> <span class="fopt-label">🇪🇸 Spain</span> <span class="fopt-cnt">32</span></label>
+            <label class="fopt"><input type="checkbox" value="belgium" /> <span class="fopt-label">🇧🇪 Belgium</span> <span class="fopt-cnt">24</span></label>
+            <label class="fopt"><input type="checkbox" value="poland" /> <span class="fopt-label">🇵🇱 Poland</span> <span class="fopt-cnt">18</span></label>
+            <label class="fopt"><input type="checkbox" value="senegal" /> <span class="fopt-label">🇸🇳 Senegal</span> <span class="fopt-cnt">12</span></label>
+            <label class="fopt"><input type="checkbox" value="morocco" /> <span class="fopt-label">🇲🇦 Morocco</span> <span class="fopt-cnt">8</span></label>
+            <div class="fgrp-seeall-wrap">
+              <span class="fgrp-seeall">+ See all (21)</span>
+            </div>
+          </div>
+          <!-- Country Popin -->
+          <div class="filter-popin" id="countryPopin">
+            <div class="filter-popin-header">
+              <span class="filter-popin-title">All Countries</span>
+              <span class="filter-popin-close">&times;</span>
+            </div>
+            <div class="filter-popin-search">
+              <input type="search" placeholder="Search countries…" class="popin-search-input" />
+            </div>
+            <div class="filter-popin-list">
+              <label class="fopt"><input type="checkbox" value="france" /> <span class="fopt-label">🇫🇷 France</span> <span class="fopt-cnt">144</span></label>
+              <label class="fopt"><input type="checkbox" value="spain" /> <span class="fopt-label">🇪🇸 Spain</span> <span class="fopt-cnt">32</span></label>
+              <label class="fopt"><input type="checkbox" value="belgium" /> <span class="fopt-label">🇧🇪 Belgium</span> <span class="fopt-cnt">24</span></label>
+              <label class="fopt"><input type="checkbox" value="poland" /> <span class="fopt-label">🇵🇱 Poland</span> <span class="fopt-cnt">18</span></label>
+              <label class="fopt"><input type="checkbox" value="senegal" /> <span class="fopt-label">🇸🇳 Senegal</span> <span class="fopt-cnt">12</span></label>
+              <label class="fopt"><input type="checkbox" value="morocco" /> <span class="fopt-label">🇲🇦 Morocco</span> <span class="fopt-cnt">8</span></label>
+              <label class="fopt"><input type="checkbox" value="germany" /> <span class="fopt-label">🇩🇪 Germany</span> <span class="fopt-cnt">7</span></label>
+              <label class="fopt"><input type="checkbox" value="uk" /> <span class="fopt-label">🇬🇧 United Kingdom</span> <span class="fopt-cnt">6</span></label>
+              <label class="fopt"><input type="checkbox" value="romania" /> <span class="fopt-label">🇷🇴 Romania</span> <span class="fopt-cnt">5</span></label>
+              <label class="fopt"><input type="checkbox" value="ivory-coast" /> <span class="fopt-label">🇨🇮 Côte d'Ivoire</span> <span class="fopt-cnt">5</span></label>
+              <label class="fopt"><input type="checkbox" value="egypt" /> <span class="fopt-label">🇪🇬 Egypt</span> <span class="fopt-cnt">4</span></label>
+              <label class="fopt"><input type="checkbox" value="jordan" /> <span class="fopt-label">🇯🇴 Jordan</span> <span class="fopt-cnt">4</span></label>
+              <label class="fopt"><input type="checkbox" value="cameroon" /> <span class="fopt-label">🇨🇲 Cameroon</span> <span class="fopt-cnt">3</span></label>
+              <label class="fopt"><input type="checkbox" value="tunisia" /> <span class="fopt-label">🇹🇳 Tunisia</span> <span class="fopt-cnt">3</span></label>
+              <label class="fopt"><input type="checkbox" value="luxembourg" /> <span class="fopt-label">🇱🇺 Luxembourg</span> <span class="fopt-cnt">2</span></label>
+              <label class="fopt"><input type="checkbox" value="slovakia" /> <span class="fopt-label">🇸🇰 Slovakia</span> <span class="fopt-cnt">2</span></label>
+              <label class="fopt"><input type="checkbox" value="moldova" /> <span class="fopt-label">🇲🇩 Moldova</span> <span class="fopt-cnt">2</span></label>
+              <label class="fopt"><input type="checkbox" value="botswana" /> <span class="fopt-label">🇧🇼 Botswana</span> <span class="fopt-cnt">1</span></label>
+              <label class="fopt"><input type="checkbox" value="liberia" /> <span class="fopt-label">🇱🇷 Liberia</span> <span class="fopt-cnt">1</span></label>
+              <label class="fopt"><input type="checkbox" value="sierra-leone" /> <span class="fopt-label">🇸🇱 Sierra Leone</span> <span class="fopt-cnt">1</span></label>
+              <label class="fopt"><input type="checkbox" value="drc" /> <span class="fopt-label">🇨🇩 DR Congo</span> <span class="fopt-cnt">1</span></label>
+            </div>
+            <div class="filter-popin-footer">
+              <button class="btn btn-sm btn-secondary popin-apply-btn">Apply</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category -->
+        <div class="fgrp" data-filter-key="category">
+          <div class="fgrp-title">Category <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="utilities" /> <span class="fopt-label">Utilities</span> <span class="fopt-cnt">124</span></label>
+            <label class="fopt"><input type="checkbox" value="entertainment" /> <span class="fopt-label">Entertainment</span> <span class="fopt-cnt">86</span></label>
+            <label class="fopt"><input type="checkbox" value="finance" /> <span class="fopt-label">Finance</span> <span class="fopt-cnt">54</span></label>
+            <label class="fopt"><input type="checkbox" value="lifestyle" /> <span class="fopt-label">Lifestyle</span> <span class="fopt-cnt">42</span></label>
+            <label class="fopt"><input type="checkbox" value="communication" /> <span class="fopt-label">Communication</span> <span class="fopt-cnt">38</span></label>
+          </div>
+        </div>
+
+        <!-- Account -->
+        <div class="fgrp" data-filter-key="account">
+          <div class="fgrp-title">Account <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="orange" /> <span class="fopt-label">Orange</span> <span class="fopt-cnt">284</span></label>
+            <label class="fopt"><input type="checkbox" value="primezone" /> <span class="fopt-label">PrimeZone</span> <span class="fopt-cnt">87</span></label>
+            <label class="fopt"><input type="checkbox" value="fnac-darty" /> <span class="fopt-label">Fnac-Darty</span> <span class="fopt-cnt">45</span></label>
+          </div>
+        </div>
+
+        <!-- Favorite List -->
+        <div class="fgrp" data-filter-key="favlist">
+          <div class="fgrp-title">Favorite List <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="france-core" /> <span class="fopt-label">France Core Apps</span> <span class="fopt-cnt">18</span></label>
+            <label class="fopt"><input type="checkbox" value="africa-mea" /> <span class="fopt-label">Africa &amp; MEA</span> <span class="fopt-cnt">42</span></label>
+            <label class="fopt"><input type="checkbox" value="watching" /> <span class="fopt-label">Watching closely</span> <span class="fopt-cnt">12</span></label>
+          </div>
+        </div>
+
+        <!-- Family -->
+        <div class="fgrp" data-filter-key="family">
+          <div class="fgrp-title">Family <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="orange" /> <span class="fopt-label">Orange</span> <span class="fopt-cnt">320</span></label>
+            <label class="fopt"><input type="checkbox" value="sosh" /> <span class="fopt-label">Sosh</span> <span class="fopt-cnt">24</span></label>
+            <label class="fopt"><input type="checkbox" value="mea" /> <span class="fopt-label">MEA</span> <span class="fopt-cnt">48</span></label>
+            <label class="fopt"><input type="checkbox" value="business" /> <span class="fopt-label">Business</span> <span class="fopt-cnt">24</span></label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN AREA -->
+      <div class="catalog-main">
+        <!-- Page header -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Catalog</h1>
+            <p class="page-subtitle">Browse and filter all Orange apps deployed on stores</p>
+          </div>
+        </div>
+        <!-- Toolbar -->
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button class="filter-toggle btn btn-secondary btn-sm" id="filterToggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+              Filtres
+            </button>
+          </div>
+          <div class="toolbar-right">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <input type="search" placeholder="Search apps…" id="catalogSearch" class="catalog-search" />
+            </div>
+            <div class="dropdown-wrap">
+              <div class="select-btn" data-dropdown="ippMenu"><span class="dropdown-label">Show 12</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg></div>
+              <div class="dropdown-menu right" id="ippMenu">
+                <div class="dropdown-item active" data-value="12">12</div>
+                <div class="dropdown-item" data-value="24">24</div>
+                <div class="dropdown-item" data-value="48">48</div>
+              </div>
+            </div>
+            <div class="dropdown-wrap">
+              <div class="select-btn" data-dropdown="sortMenu"><span class="dropdown-label">Sort by Last Release</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg></div>
+              <div class="dropdown-menu right" id="sortMenu">
+                <div class="dropdown-item active" data-value="release">Last Release</div>
+                <div class="dropdown-item" data-value="name-asc">Name A-Z</div>
+                <div class="dropdown-item" data-value="name-desc">Name Z-A</div>
+                <div class="dropdown-item" data-value="rating">Rating</div>
+                <div class="dropdown-item" data-value="downloads">Downloads</div>
+              </div>
+            </div>
+            <a href="catalog-grid.html" class="icon-btn active" title="Grid view">⊞</a>
+            <a href="catalog-list.html" class="icon-btn" title="List view">☰</a>
+          </div>
+        </div>
+
+        <!-- Active filter chips -->
+        <div class="filter-chip-bar" id="chipBar"></div>
+
+        <div class="toolbar-count mb-3"><strong id="resultCount">12</strong> applications found</div>
+
+        <!-- Grid -->
+        <div class="app-grid" id="appGrid">
+          <!-- Card 1 -->
+          <a href="app-summary.html" class="app-card" data-name="Orange Max It — Côte d'Ivoire" data-status="live" data-store="appstore" data-zone="amea" data-country="ivory-coast" data-category="utilities" data-account="orange" data-family="mea" data-rating="3.78" data-downloads="3240000" data-release="2025-02-10">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#ff7900,#e56e00)"><span>M</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-mid">3.78</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Orange Max It — Côte d'Ivoire</div>
+                <div class="app-card-meta">Côte d'Ivoire · v10.0.29<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 2 -->
+          <a href="app-summary.html" class="app-card" data-name="TuYo" data-status="live" data-store="appstore" data-zone="europe" data-country="spain" data-category="utilities" data-account="orange" data-family="orange" data-rating="4.58" data-downloads="1495" data-release="2025-01-20">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav active">♥</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#ff7900,#ff9833)"><span>T</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-high">4.58</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">TuYo</div>
+                <div class="app-card-meta">Spain · v2.1.1<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 3 -->
+          <a href="app-summary.html" class="app-card" data-name="Orange Maison Protégée" data-status="live" data-store="appstore" data-zone="europe" data-country="france" data-category="lifestyle" data-account="orange" data-family="orange" data-rating="3.0" data-downloads="890000" data-release="2025-01-15">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#ff7900,#e56e00)"><span>MP</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-mid">3.0</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Orange Maison Protégée</div>
+                <div class="app-card-meta">France · v5.6<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 4 -->
+          <a href="app-summary.html" class="app-card" data-name="Orange Money Maroc" data-status="live" data-store="appstore" data-zone="amea" data-country="morocco" data-category="finance" data-account="orange" data-family="mea" data-rating="2.72" data-downloads="2148300" data-release="2024-11-20">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#1a1a1a,#333)"><span style="font-size:16px">💰</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-vlow">2.72</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Orange Money Maroc</div>
+                <div class="app-card-meta">Morocco · v1.10<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 5 -->
+          <a href="app-summary.html" class="app-card" data-name="Téléphone — Identification" data-status="live" data-store="appstore" data-zone="europe" data-country="france" data-category="utilities" data-account="primezone" data-family="orange" data-rating="4.44" data-downloads="1895000" data-release="2025-02-01">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#00b4d8,#0077b6)"><span>📞</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-high">4.44</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Téléphone — Identification</div>
+                <div class="app-card-meta">France · v7.0<br>AppStore · PrimeZone</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 6 -->
+          <a href="app-summary.html" class="app-card" data-name="My Orange BE" data-status="live" data-store="appstore" data-zone="europe" data-country="belgium" data-category="utilities" data-account="orange" data-family="orange" data-rating="3.43" data-downloads="3559001" data-release="2024-12-10">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#ff7900,#ff9833)"><span>OB</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-mid">3.43</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">My Orange BE</div>
+                <div class="app-card-meta">Belgium · v5.24.0<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 7 -->
+          <a href="app-summary.html" class="app-card" data-name="TV d'Orange • Direct & Replay" data-status="live" data-store="appstore" data-zone="europe" data-country="france" data-category="entertainment" data-account="orange" data-family="orange" data-rating="4.52" data-downloads="20962292" data-release="2025-02-15">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#6a1de8,#4a00e0)"><span>📺</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-high">4.52</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">TV d'Orange • Direct &amp; Replay</div>
+                <div class="app-card-meta">France · v12.0.0<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 8 -->
+          <a href="app-summary.html" class="app-card" data-name="Simyo" data-status="live" data-store="appstore" data-zone="europe" data-country="france" data-category="utilities" data-account="orange" data-family="orange" data-rating="4.76" data-downloads="983200" data-release="2025-01-22">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#e53935,#c62828)"><span>S</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-high">4.76</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Simyo</div>
+                <div class="app-card-meta">France · v3.33.3<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 9 -->
+          <a href="app-summary.html" class="app-card" data-name="Orange et Moi France" data-status="live" data-store="playstore" data-zone="europe" data-country="france" data-category="utilities" data-account="orange" data-family="orange" data-rating="4.22" data-downloads="24814711" data-release="2025-02-20">
+            <div class="app-card-top"><span></span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#ff7900,#e56e00)"><span>OEM</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-high">4.22</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Orange et Moi France</div>
+                <div class="app-card-meta">France · v12.12.4<br>Play Store · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 10 -->
+          <a href="app-summary.html" class="app-card" data-name="Orange Money Sénégal" data-status="live" data-store="playstore" data-zone="amea" data-country="senegal" data-category="finance" data-account="orange" data-family="mea" data-rating="3.88" data-downloads="4200000" data-release="2025-01-30">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#43a047,#2e7d32)"><span>💸</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-mid">3.88</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Orange Money Sénégal</div>
+                <div class="app-card-meta">Senegal · v4.2.1<br>Play Store · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 11 -->
+          <a href="app-summary.html" class="app-card" data-name="Orange Flex – Offer with eSIM" data-status="live" data-store="appstore" data-zone="europe" data-country="poland" data-category="utilities" data-account="orange" data-family="orange" data-rating="4.22" data-downloads="1200000" data-release="2025-01-18">
+            <div class="app-card-top"><span></span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#ff7900,#ff9833)"><span>OF</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-high">4.22</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Orange Flex – Offer with eSIM</div>
+                <div class="app-card-meta">Poland · v3.1.0<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+          <!-- Card 12 -->
+          <a href="app-summary.html" class="app-card" data-name="Orange Travel World eSIMs" data-status="live" data-store="appstore" data-zone="europe" data-country="france" data-category="lifestyle" data-account="orange" data-family="orange" data-rating="3.65" data-downloads="520000" data-release="2025-02-05">
+            <div class="app-card-top"><span class="new-badge">New Version</span><span class="app-card-fav">♡</span></div>
+            <div class="app-card-body">
+              <div class="app-icon-wrap">
+                <div class="app-icon-xl" style="background:linear-gradient(135deg,#ff7900,#e56e00)"><span>OT</span></div>
+                <div class="app-icon-rating"><span class="r-badge r-mid">3.65</span></div>
+              </div>
+              <div class="app-card-info">
+                <div class="app-card-name">Orange Travel World eSIMs</div>
+                <div class="app-card-meta">France · v2.4.0<br>AppStore · Orange</div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="catalogPagination"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">O</div>
+    <nav class="footer-nav">
+      <span class="footer-link">Contact</span>
+      <span class="footer-link">API V2</span>
+      <span class="footer-link">API V3</span>
+      <span class="footer-link">Legal Notices</span>
+      <span class="footer-link">Personal Data Notice</span>
+    </nav>
+    <span class="footer-copy">© Orange SA 2026 — All rights reserved</span>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+<script>
+(function(){
+  /* ---- Catalog Filter Engine ---- */
+  var panel = document.getElementById('filterPanel');
+  var grid = document.getElementById('appGrid');
+  var chipBar = document.getElementById('chipBar');
+  var searchInput = document.getElementById('catalogSearch');
+  var countEl = document.getElementById('resultCount');
+  var paginationEl = document.getElementById('catalogPagination');
+  var allCards = Array.from(grid.querySelectorAll('.app-card'));
+  var perPage = 12;
+  var currentPage = 1;
+  var currentSort = 'release';
+
+  /* Collapsible groups */
+  panel.querySelectorAll('.fgrp-title').forEach(function(title){
+    title.addEventListener('click', function(){
+      var grp = title.closest('.fgrp');
+      grp.classList.toggle('collapsed');
+      var arrow = title.querySelector('.fgrp-arrow');
+      if(arrow) arrow.textContent = grp.classList.contains('collapsed') ? '▸' : '▾';
+    });
+  });
+
+  /* Checkbox change → filter */
+  panel.querySelectorAll('.fgrp-options input[type=checkbox]').forEach(function(cb){
+    cb.addEventListener('change', function(){ currentPage=1; applyAll(); });
+  });
+
+  /* Search input */
+  searchInput.addEventListener('input', function(){ currentPage=1; applyAll(); });
+
+  /* Clear all */
+  document.getElementById('clearAllFilters').addEventListener('click', function(){
+    panel.querySelectorAll('input[type=checkbox]').forEach(function(cb){ cb.checked=false; });
+    searchInput.value = '';
+    currentPage=1;
+    applyAll();
+  });
+
+  /* Popin: Country "See all" — mark wired so app.js skips it */
+  var seeAllBtn = panel.querySelector('.fgrp-seeall');
+  var countryPopin = document.getElementById('countryPopin');
+  if(seeAllBtn && countryPopin){
+    seeAllBtn.dataset.wired = '1';
+    seeAllBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      countryPopin.classList.toggle('open');
+      // Sync popin checkboxes with sidebar checkboxes
+      syncPopinToSidebar('country');
+    });
+    countryPopin.querySelector('.filter-popin-close').addEventListener('click', function(){
+      countryPopin.classList.remove('open');
+    });
+    // Popin search
+    var popinSearch = countryPopin.querySelector('.popin-search-input');
+    popinSearch.addEventListener('input', function(){
+      var q = popinSearch.value.toLowerCase();
+      countryPopin.querySelectorAll('.filter-popin-list .fopt').forEach(function(opt){
+        opt.style.display = opt.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+      });
+    });
+    // Popin apply
+    countryPopin.querySelector('.popin-apply-btn').addEventListener('click', function(){
+      syncSidebarFromPopin('country');
+      countryPopin.classList.remove('open');
+      currentPage=1;
+      applyAll();
+    });
+  }
+
+  function syncPopinToSidebar(key){
+    var sidebarGrp = panel.querySelector('[data-filter-key="'+key+'"]');
+    var popin = document.getElementById(key+'Popin') || countryPopin;
+    if(!sidebarGrp || !popin) return;
+    var sidebarChecked = {};
+    sidebarGrp.querySelectorAll('.fgrp-options input[type=checkbox]').forEach(function(cb){ sidebarChecked[cb.value]=cb.checked; });
+    popin.querySelectorAll('.filter-popin-list input[type=checkbox]').forEach(function(cb){
+      if(cb.value in sidebarChecked) cb.checked = sidebarChecked[cb.value];
+    });
+  }
+
+  function syncSidebarFromPopin(key){
+    var sidebarGrp = panel.querySelector('[data-filter-key="'+key+'"]');
+    var popin = document.getElementById(key+'Popin') || countryPopin;
+    if(!sidebarGrp || !popin) return;
+    var popinState = {};
+    popin.querySelectorAll('.filter-popin-list input[type=checkbox]').forEach(function(cb){ popinState[cb.value]=cb.checked; });
+    sidebarGrp.querySelectorAll('.fgrp-options input[type=checkbox]').forEach(function(cb){
+      if(cb.value in popinState) cb.checked = popinState[cb.value];
+    });
+  }
+
+  /* Sort dropdown change */
+  var sortTrigger = document.querySelector('[data-dropdown="sortMenu"]');
+  if(sortTrigger){
+    sortTrigger.addEventListener('dropdown-change', function(e){
+      currentSort = e.detail;
+      var label = sortTrigger.querySelector('.dropdown-label');
+      var map = {release:'Last Release','name-asc':'Name A-Z','name-desc':'Name Z-A',rating:'Rating',downloads:'Downloads'};
+      if(label) label.textContent = 'Sort by '+(map[currentSort]||currentSort);
+      currentPage=1;
+      applyAll();
+    });
+  }
+
+  /* Items per page dropdown */
+  var ippTrigger = document.querySelector('[data-dropdown="ippMenu"]');
+  if(ippTrigger){
+    ippTrigger.addEventListener('dropdown-change', function(e){
+      perPage = parseInt(e.detail) || 12;
+      var label = ippTrigger.querySelector('.dropdown-label');
+      if(label) label.textContent = 'Show '+perPage;
+      currentPage=1;
+      applyAll();
+    });
+  }
+
+  /* ---- Core: Filter + Sort + Paginate ---- */
+  function getActiveFilters(){
+    var filters = {};
+    panel.querySelectorAll('.fgrp[data-filter-key]').forEach(function(grp){
+      var key = grp.dataset.filterKey;
+      var checked = [];
+      grp.querySelectorAll('.fgrp-options input[type=checkbox]:checked').forEach(function(cb){ checked.push(cb.value); });
+      if(checked.length) filters[key] = checked;
+    });
+    return filters;
+  }
+
+  function filterCards(){
+    var filters = getActiveFilters();
+    var q = searchInput.value.toLowerCase().trim();
+    return allCards.filter(function(card){
+      // Check filters
+      for(var key in filters){
+        var cardVal = (card.dataset[key]||'').toLowerCase();
+        var match = filters[key].some(function(v){ return cardVal.indexOf(v.toLowerCase())>-1; });
+        if(!match) return false;
+      }
+      // Check search
+      if(q && card.textContent.toLowerCase().indexOf(q)===-1) return false;
+      return true;
+    });
+  }
+
+  function sortCards(cards){
+    return cards.slice().sort(function(a,b){
+      switch(currentSort){
+        case 'name-asc': return (a.dataset.name||'').localeCompare(b.dataset.name||'');
+        case 'name-desc': return (b.dataset.name||'').localeCompare(a.dataset.name||'');
+        case 'rating': return parseFloat(b.dataset.rating||0)-parseFloat(a.dataset.rating||0);
+        case 'downloads': return parseFloat(b.dataset.downloads||0)-parseFloat(a.dataset.downloads||0);
+        case 'release': default:
+          return (b.dataset.release||'').localeCompare(a.dataset.release||'');
+      }
+    });
+  }
+
+  function applyAll(){
+    var filtered = filterCards();
+    var sorted = sortCards(filtered);
+    var total = sorted.length;
+    var totalPages = Math.max(1, Math.ceil(total/perPage));
+    if(currentPage>totalPages) currentPage=totalPages;
+
+    // Hide all, then show page
+    allCards.forEach(function(c){ c.style.display='none'; });
+    var start = (currentPage-1)*perPage;
+    sorted.slice(start, start+perPage).forEach(function(c){ c.style.display=''; });
+
+    // Reorder DOM
+    sorted.forEach(function(c){ grid.appendChild(c); });
+
+    // Update count
+    countEl.textContent = total;
+
+    // Update chips
+    updateChips();
+
+    // Update pagination
+    renderPagination(totalPages);
+  }
+
+  function updateChips(){
+    chipBar.innerHTML = '';
+    var filters = getActiveFilters();
+    var hasAny = false;
+    for(var key in filters){
+      filters[key].forEach(function(val){
+        hasAny = true;
+        var chip = document.createElement('span');
+        chip.className = 'filter-chip';
+        chip.innerHTML = '<span class="filter-chip-label">'+key+': '+val+'</span> <span class="filter-chip-x" data-key="'+key+'" data-val="'+val+'">&times;</span>';
+        chipBar.appendChild(chip);
+        chip.querySelector('.filter-chip-x').addEventListener('click', function(){
+          // Uncheck matching checkbox
+          var grp = panel.querySelector('[data-filter-key="'+key+'"]');
+          if(grp){
+            var cb = grp.querySelector('input[value="'+val+'"]');
+            if(cb){ cb.checked=false; currentPage=1; applyAll(); }
+          }
+        });
+      });
+    }
+    if(hasAny){
+      var clearChip = document.createElement('span');
+      clearChip.className = 'filter-clear';
+      clearChip.textContent = 'Clear all';
+      clearChip.addEventListener('click', function(){
+        panel.querySelectorAll('input[type=checkbox]').forEach(function(cb){ cb.checked=false; });
+        currentPage=1; applyAll();
+      });
+      chipBar.appendChild(clearChip);
+    }
+  }
+
+  function renderPagination(totalPages){
+    paginationEl.innerHTML = '';
+    if(totalPages<=1) return;
+    var prev = document.createElement('button');
+    prev.className='page-btn'; prev.textContent='‹'; prev.disabled=currentPage<=1;
+    prev.addEventListener('click',function(){ if(currentPage>1){ currentPage--; applyAll(); } });
+    paginationEl.appendChild(prev);
+    for(var i=1;i<=totalPages;i++){
+      (function(p){
+        var btn=document.createElement('button');
+        btn.className='page-btn'+(p===currentPage?' active':'');
+        btn.textContent=p;
+        btn.addEventListener('click',function(){ currentPage=p; applyAll(); });
+        paginationEl.appendChild(btn);
+      })(i);
+    }
+    var next=document.createElement('button');
+    next.className='page-btn'; next.textContent='›'; next.disabled=currentPage>=totalPages;
+    next.addEventListener('click',function(){ if(currentPage<totalPages){ currentPage++; applyAll(); } });
+    paginationEl.appendChild(next);
+  }
+
+  /* Mobile filter toggle — mark wired so app.js skips duplicate binding */
+  var filterToggle = document.getElementById('filterToggle');
+  filterToggle.dataset.wired = '1';
+  var filterBackdrop = document.createElement('div');
+  filterBackdrop.className = 'filter-backdrop';
+  document.body.appendChild(filterBackdrop);
+  filterToggle.addEventListener('click', function(){
+    var isOpen = panel.classList.toggle('open');
+    filterBackdrop.classList.toggle('show', isOpen);
+  });
+  filterBackdrop.addEventListener('click', function(){
+    panel.classList.remove('open');
+    filterBackdrop.classList.remove('show');
+  });
+
+  // Initial render
+  applyAll();
+})();
+</script>
+</body>
+</html>

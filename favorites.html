@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Apps Details — Favorites</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="home.html" class="header-logo">
+      <div class="logo-mark">O</div>
+      <div class="logo-text">OMA <span>APPS DETAILS</span></div>
+    </a>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" />
+    </div>
+    <div class="header-actions">
+      <div class="h-btn" id="notifBtn" title="Notifications" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-badge">3</span>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-panel-header">Notifications <span class="notif-mark-read">Mark all read</span></div>
+          <div class="notif-item unread"><div class="notif-dot"></div><div class="notif-body"><div class="notif-title">Orange et moi — New version available</div><div class="notif-time">2h ago</div></div></div>
+          <div class="notif-item unread"><div class="notif-dot"></div><div class="notif-body"><div class="notif-title">TV d'Orange — Rating dropped to 3.9</div><div class="notif-time">5h ago</div></div></div>
+          <div class="notif-item unread"><div class="notif-dot"></div><div class="notif-body"><div class="notif-title">Weekly report is ready</div><div class="notif-time">Yesterday</div></div></div>
+          <div class="notif-panel-footer"><a href="#" style="font-size:12px;color:var(--orange);font-weight:600;">View all →</a></div>
+        </div>
+      </div>
+      <div class="h-user" id="userBtn" style="position:relative;">
+        <div class="h-avatar">TC</div>
+        <div class="h-user-info"><div class="h-user-name">Théophile Cornuet</div><div class="h-user-role">Product Owner</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:rgba(255,255,255,.4)"><polyline points="6 9 12 15 18 9"/></svg>
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-profile">
+            <div class="h-avatar" style="width:36px;height:36px;font-size:13px;background:var(--orange);">TC</div>
+            <div><div style="font-weight:700;font-size:13px;">Théophile Cornuet</div><div style="font-size:11px;color:var(--text-3);">theophile.cornuet@orange.com</div></div>
+          </div>
+          <div class="user-menu-sep"></div>
+          <a href="settings.html" class="user-menu-item">⚙️ Settings</a>
+          <a href="profile.html" class="user-menu-item">👤 My Profile</a>
+          <div class="user-menu-sep"></div>
+          <div class="user-menu-item" style="color:var(--red);">🚪 Sign out</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- PRIMARY SIDEBAR -->
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item" title="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item" title="Catalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item" title="Statistics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item" title="Dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item active" title="Favorites"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="content">
+
+        <!-- Page header -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Favorites</h1>
+            <p class="page-subtitle">Monitor your saved app lists and track their trends</p>
+          </div>
+        </div>
+
+        <!-- ===== TOOLBAR ===== -->
+        <div class="dash-toolbar mb-3">
+          <!-- List selector -->
+          <div class="dropdown-wrap">
+            <div class="select-btn" data-dropdown="favListMenu" style="min-width:220px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:var(--orange);"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="dropdown-label" id="favListLabel">🇫🇷 France Core Apps</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" style="margin-left:auto;"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="dropdown-menu" id="favListMenu">
+              <div class="dropdown-item active" data-fav-list="france">🇫🇷 France Core Apps</div>
+              <div class="dropdown-item" data-fav-list="africa">🌍 Africa &amp; MEA</div>
+              <div class="dropdown-item" data-fav-list="watching">👀 Watching closely</div>
+            </div>
+          </div>
+
+          <!-- New list + Add favorite -->
+          <button class="btn btn-secondary btn-sm" id="openNewListModal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New List
+          </button>
+          <button class="btn btn-primary btn-sm" id="openAddFavModal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Add Favorite
+          </button>
+
+          <!-- Export (right) -->
+          <div style="margin-left:auto;">
+            <button class="btn btn-secondary btn-sm" data-action="export">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== KPI ROW ===== -->
+        <div class="home-kpi-row mb-3" id="favKpiRow">
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:var(--orange-light);color:var(--orange);">❤️</div>
+            <div class="home-kpi-body"><div class="home-kpi-val" id="kpiFavApps">6</div><div class="home-kpi-lbl">Favorited apps</div></div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:var(--green-bg);color:var(--green);">⭐</div>
+            <div class="home-kpi-body"><div class="home-kpi-val" id="kpiFavRating">4.28</div><div class="home-kpi-lbl">Avg rating</div></div>
+            <div class="home-kpi-trend up">▲ +0.08</div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:#e8f4fd;color:#0077b6;">📥</div>
+            <div class="home-kpi-body"><div class="home-kpi-val" id="kpiFavDl">52.8M</div><div class="home-kpi-lbl">Total downloads</div></div>
+            <div class="home-kpi-trend up">▲ +8.1%</div>
+          </div>
+          <div class="home-kpi-card">
+            <div class="home-kpi-icon" style="background:#fef9e7;color:#f0a500;">📊</div>
+            <div class="home-kpi-body"><div class="home-kpi-val" id="kpiFavErrors">47</div><div class="home-kpi-lbl">Total errors (7d)</div></div>
+            <div class="home-kpi-trend down">▼ -12</div>
+          </div>
+        </div>
+
+        <!-- ===== APPS TABLE ===== -->
+        <div class="card mb-3" style="padding:0;overflow:hidden;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border);">
+            <div style="font-size:14px;font-weight:700;" id="favTableTitle">France Core Apps <span class="badge badge-orange" id="favTableCount">6</span></div>
+            <div style="display:flex;gap:8px;">
+              <input class="fav-table-search" type="text" placeholder="Filter apps…" id="favSearch" />
+            </div>
+          </div>
+          <div class="tbl-wrap">
+            <table class="tbl tbl-sticky" id="favTable">
+              <thead>
+                <tr>
+                  <th data-sort="name">App <span class="sort">↕</span></th>
+                  <th data-sort="store">Store <span class="sort">↕</span></th>
+                  <th data-sort="country">Country <span class="sort">↕</span></th>
+                  <th data-sort="version">Version <span class="sort">↕</span></th>
+                  <th data-sort="status">Status <span class="sort">↕</span></th>
+                  <th data-sort="downloads" class="text-right">Downloads <span class="sort">↕</span></th>
+                  <th data-sort="daily" class="text-right">Daily DL <span class="sort">↕</span></th>
+                  <th data-sort="errors" class="text-right">Errors <span class="sort">↕</span></th>
+                  <th data-sort="rating" class="text-right">Rating <span class="sort">↕</span></th>
+                  <th data-sort="nps" class="text-right">NPS <span class="sort">↕</span></th>
+                  <th style="width:60px;"></th>
+                </tr>
+              </thead>
+              <tbody id="favTbody">
+                <!-- JS rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ===== TREND CHART ===== -->
+        <div class="card mb-3">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-size:13px;font-weight:700;">Rating trends — Last 12 months</div>
+            <div class="range-group">
+              <button class="range-btn" data-range="3m">3m</button>
+              <button class="range-btn active" data-range="6m">6m</button>
+              <button class="range-btn" data-range="12m">12m</button>
+            </div>
+          </div>
+          <div style="height:200px;"><canvas id="favTrendChart"></canvas></div>
+        </div>
+
+        <!-- ===== EMAIL SUBSCRIPTION ===== -->
+        <div class="card fav-email-section">
+          <div style="font-size:14px;font-weight:700;margin-bottom:12px;">
+            📧 Email Subscription
+          </div>
+          <div class="fav-email-row">
+            <label class="fav-checkbox-label">
+              <input type="checkbox" id="emailSubCheck" />
+              <span>Receive email reports for this list</span>
+            </label>
+            <div class="fav-email-controls" id="emailControls" style="display:none;">
+              <div class="dropdown-wrap">
+                <div class="select-btn" data-dropdown="emailPeriodMenu" style="min-width:130px;font-size:12px;">
+                  <span class="dropdown-label">Weekly</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11" style="margin-left:auto;"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="dropdown-menu" id="emailPeriodMenu">
+                  <div class="dropdown-item" data-period="daily">Daily</div>
+                  <div class="dropdown-item active" data-period="weekly">Weekly</div>
+                  <div class="dropdown-item" data-period="monthly">Monthly</div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm" id="saveEmailBtn">Save</button>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--text-3);margin-top:8px;">Reports will be sent to <strong>theophile.cornuet@orange.com</strong></div>
+        </div>
+
+      </div><!-- /content -->
+    </main>
+  </div><!-- /layout -->
+
+  <footer class="footer">
+    <div class="footer-logo">O</div>
+    <nav class="footer-nav">
+      <span class="footer-link">Contact</span>
+      <span class="footer-link">API V2</span>
+      <span class="footer-link">API V3</span>
+      <span class="footer-link">Legal Notices</span>
+    </nav>
+    <span class="footer-copy">© Orange SA 2026 — All rights reserved</span>
+  </footer>
+</div><!-- /shell -->
+
+<!-- ========================================
+     NEW LIST MODAL
+     ======================================== -->
+<div class="modal-backdrop" id="newListModal">
+  <div class="modal" style="max-width:400px;">
+    <div class="modal-header">
+      <span class="modal-title">New Favorites List</span>
+      <button class="modal-close" data-close="newListModal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">List Name</label>
+        <input type="text" class="form-input" id="newListName" placeholder="e.g. Africa Core Apps" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Icon / Emoji</label>
+        <div class="emoji-picker">
+          <span class="emoji-opt active" data-emoji="⭐">⭐</span>
+          <span class="emoji-opt" data-emoji="🌍">🌍</span>
+          <span class="emoji-opt" data-emoji="🇫🇷">🇫🇷</span>
+          <span class="emoji-opt" data-emoji="📊">📊</span>
+          <span class="emoji-opt" data-emoji="👀">👀</span>
+          <span class="emoji-opt" data-emoji="🔥">🔥</span>
+          <span class="emoji-opt" data-emoji="🚀">🚀</span>
+          <span class="emoji-opt" data-emoji="💼">💼</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px;">
+        <button class="btn btn-secondary" data-close="newListModal">Cancel</button>
+        <button class="btn btn-primary" id="createListBtn">Create List</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     ADD FAVORITE MODAL
+     ======================================== -->
+<div class="modal-backdrop" id="addFavModal">
+  <div class="modal" style="max-width:520px;">
+    <div class="modal-header">
+      <span class="modal-title">Add Favorite</span>
+      <button class="modal-close" data-close="addFavModal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group" style="margin-bottom:12px;">
+        <label class="form-label">Search apps</label>
+        <input type="text" class="form-input" id="addFavSearch" placeholder="Type app name or bundle ID…" autocomplete="off" />
+      </div>
+      <div id="addFavResults" class="fav-add-results">
+        <div class="fav-add-hint">Start typing to search across 416 apps…</div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
+        <button class="btn btn-secondary" data-close="addFavModal">Cancel</button>
+        <button class="btn btn-primary" id="confirmAddFavBtn">Add Selected</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  /* ==============================
+     DATA
+     ============================== */
+  const ALL_APPS = [
+    { name: 'Orange et moi France', bundle: 'com.orange.orangeetmoi', icon: 'OEM', color: '#ff7900', store: 'Android', country: 'FR', flag: '🇫🇷', version: '12.12.4', status: 'Live', downloads: 24814711, daily: 81200, errors: 12, rating: 4.41, nps: 72 },
+    { name: 'TV d\'Orange', bundle: 'com.orange.tv', icon: 'TV', color: '#6a1de8', store: 'Android', country: 'FR', flag: '🇫🇷', version: '7.4.2', status: 'Live', downloads: 20962292, daily: 63400, errors: 8, rating: 4.08, nps: 58 },
+    { name: 'Téléphone — Identification', bundle: 'fr.primezone.tel', icon: 'Ti', color: '#00b4d8', store: 'iOS', country: 'FR', flag: '🇫🇷', version: '3.1.0', status: 'Live', downloads: 1895000, daily: 5400, errors: 3, rating: 4.44, nps: 78 },
+    { name: 'Simyo', bundle: 'fr.orange.simyo', icon: 'S', color: '#e53935', store: 'iOS', country: 'FR', flag: '🇫🇷', version: '3.2.0', status: 'Live', downloads: 983200, daily: 3200, errors: 1, rating: 4.76, nps: 82 },
+    { name: 'TuYo', bundle: 'es.orange.tuyo', icon: 'T', color: '#ff7900', store: 'iOS', country: 'FR', flag: '🇫🇷', version: '2.0.1', status: 'Live', downloads: 1495, daily: 0, errors: 0, rating: 4.58, nps: 65 },
+    { name: 'Orange Wifi Connect', bundle: 'fr.orange.wificonnect', icon: 'OW', color: '#1a1a1a', store: 'Android', country: 'FR', flag: '🇫🇷', version: '5.3.1', status: 'Live', downloads: 4120800, daily: 12600, errors: 23, rating: 3.82, nps: 42 },
+    { name: 'Orange Money Africa', bundle: 'com.orange.money.africa', icon: 'OMA', color: '#28a745', store: 'Android', country: 'SN', flag: '🇸🇳', version: '4.2.0', status: 'Live', downloads: 8200000, daily: 22000, errors: 5, rating: 4.12, nps: 61 },
+    { name: 'My Orange Senegal', bundle: 'sn.orange.myorange', icon: 'MOS', color: '#ff7900', store: 'Android', country: 'SN', flag: '🇸🇳', version: '3.1.2', status: 'Live', downloads: 3400000, daily: 9800, errors: 2, rating: 4.28, nps: 54 },
+    { name: 'Orange CI', bundle: 'ci.orange.myorange', icon: 'OCI', color: '#ff7900', store: 'Android', country: 'CI', flag: '🇨🇮', version: '2.8.0', status: 'Live', downloads: 2100000, daily: 5600, errors: 4, rating: 3.95, nps: 48 },
+    { name: 'Orange Bank', bundle: 'fr.orangebank.app', icon: 'OB', color: '#007acd', store: 'iOS', country: 'FR', flag: '🇫🇷', version: '6.0.3', status: 'Live', downloads: 2880000, daily: 7400, errors: 9, rating: 4.19, nps: 55 }
+  ];
+
+  const LISTS = {
+    france:   { label: '🇫🇷 France Core Apps',  apps: [0,1,2,3,4,5], kpi: { apps: 6, rating: '4.28', dl: '52.8M', errors: 47 } },
+    africa:   { label: '🌍 Africa & MEA',         apps: [6,7,8],       kpi: { apps: 3, rating: '4.12', dl: '13.7M', errors: 11 } },
+    watching: { label: '👀 Watching closely',      apps: [1,5,9],       kpi: { apps: 3, rating: '4.03', dl: '27.9M', errors: 40 } }
+  };
+
+  let currentList = 'france';
+  let sortCol = null, sortDir = 1;
+
+  /* ==============================
+     RENDER TABLE
+     ============================== */
+  function fmtNum(n) {
+    if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+    if (n >= 1e3) return (n/1e3).toFixed(0)+'K';
+    return n.toString();
+  }
+
+  function renderTable(filter) {
+    const list = LISTS[currentList];
+    let rows = list.apps.map(i => ALL_APPS[i]);
+    if (filter) {
+      const q = filter.toLowerCase();
+      rows = rows.filter(r => r.name.toLowerCase().includes(q) || r.bundle.toLowerCase().includes(q));
+    }
+    if (sortCol) {
+      rows.sort((a, b) => {
+        let va = a[sortCol], vb = b[sortCol];
+        if (typeof va === 'string') return sortDir * va.localeCompare(vb);
+        return sortDir * (va - vb);
+      });
+    }
+    const tbody = document.getElementById('favTbody');
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="11" style="text-align:center;padding:24px;color:var(--text-3);">No apps match your search.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = rows.map(r => {
+      const storeClass = r.store === 'Android' ? 'badge-dark' : 'badge-gray';
+      const statusDot = r.status === 'Live' ? 'dot-green' : 'dot-red';
+      const rBadge = r.rating >= 4.3 ? 'r-high' : r.rating >= 3.8 ? 'r-mid' : 'r-low';
+      return `<tr>
+        <td><div class="app-cell"><div class="app-icon-sm" style="background:${r.color};">${r.icon}</div><div><div class="app-name">${r.name}</div><div class="app-sub">${r.bundle}</div></div></div></td>
+        <td><span class="badge ${storeClass}">${r.store}</span></td>
+        <td>${r.flag} ${r.country}</td>
+        <td class="mono">${r.version}</td>
+        <td><span class="dot ${statusDot}"></span> <span style="font-size:12px;color:var(--green);font-weight:700;">${r.status}</span></td>
+        <td class="text-right mono">${fmtNum(r.downloads)}</td>
+        <td class="text-right mono">${fmtNum(r.daily)}</td>
+        <td class="text-right"><span style="color:${r.errors > 10 ? 'var(--red)' : 'var(--text-2)'};">${r.errors}</span></td>
+        <td class="text-right"><span class="r-badge ${rBadge}">${r.rating.toFixed(2)}</span></td>
+        <td class="text-right"><span style="font-weight:700;">${r.nps}</span></td>
+        <td>
+          <div class="actions">
+            <a href="app-summary.html" class="btn btn-secondary btn-sm">View</a>
+            <button class="btn btn-ghost btn-sm fav-remove-btn" title="Remove from list" data-bundle="${r.bundle}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+    document.getElementById('favTableCount').textContent = rows.length;
+
+    // Remove button
+    tbody.querySelectorAll('.fav-remove-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('tr').style.opacity = '0';
+        btn.closest('tr').style.transition = 'opacity .2s';
+        setTimeout(() => { btn.closest('tr').remove(); if (window.showToast) showToast('App removed from list'); }, 220);
+      });
+    });
+  }
+
+  /* ==============================
+     LIST SELECTOR
+     ============================== */
+  function switchList(key) {
+    currentList = key;
+    const list = LISTS[key];
+    document.getElementById('favListLabel').textContent = list.label;
+    document.getElementById('favTableTitle').innerHTML = list.label.replace(/^[^\w]+/, '') + ' <span class="badge badge-orange" id="favTableCount">' + list.apps.length + '</span>';
+    // KPI
+    document.getElementById('kpiFavApps').textContent = list.kpi.apps;
+    document.getElementById('kpiFavRating').textContent = list.kpi.rating;
+    document.getElementById('kpiFavDl').textContent = list.kpi.dl;
+    document.getElementById('kpiFavErrors').textContent = list.kpi.errors;
+    // Table
+    sortCol = null; sortDir = 1;
+    document.getElementById('favSearch').value = '';
+    renderTable('');
+    document.querySelectorAll('#favListMenu .dropdown-item').forEach(el => el.classList.toggle('active', el.dataset.favList === key));
+    if (window.showToast) showToast('Switched to: ' + list.label);
+  }
+
+  document.querySelectorAll('#favListMenu .dropdown-item[data-fav-list]').forEach(el => {
+    el.addEventListener('click', () => {
+      el.closest('.dropdown-menu').classList.remove('open');
+      switchList(el.dataset.favList);
+    });
+  });
+
+  /* ==============================
+     TABLE SORT
+     ============================== */
+  document.querySelectorAll('#favTable th[data-sort]').forEach(th => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortDir *= -1; else { sortCol = col; sortDir = 1; }
+      document.querySelectorAll('#favTable .sort').forEach(s => s.textContent = '↕');
+      th.querySelector('.sort').textContent = sortDir === 1 ? '↑' : '↓';
+      renderTable(document.getElementById('favSearch').value);
+    });
+  });
+
+  /* ==============================
+     TABLE SEARCH
+     ============================== */
+  document.getElementById('favSearch').addEventListener('input', e => {
+    renderTable(e.target.value);
+  });
+
+  /* ==============================
+     MODALS
+     ============================== */
+  function openModal(id) { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+  document.getElementById('openNewListModal').addEventListener('click', () => openModal('newListModal'));
+  document.getElementById('openAddFavModal').addEventListener('click', () => openModal('addFavModal'));
+
+  document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeModal(btn.dataset.close)));
+  document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+    backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(backdrop.id); });
+  });
+
+  /* Create list */
+  let selectedEmoji = '⭐';
+  document.querySelectorAll('.emoji-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.emoji-opt').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      selectedEmoji = opt.dataset.emoji;
+    });
+  });
+
+  document.getElementById('createListBtn').addEventListener('click', () => {
+    const name = document.getElementById('newListName').value.trim();
+    if (!name) { document.getElementById('newListName').focus(); return; }
+    // Add to selector
+    const menu = document.getElementById('favListMenu');
+    const key = 'custom_' + Date.now();
+    const newItem = document.createElement('div');
+    newItem.className = 'dropdown-item';
+    newItem.dataset.favList = key;
+    newItem.textContent = selectedEmoji + ' ' + name;
+    menu.appendChild(newItem);
+    LISTS[key] = { label: selectedEmoji + ' ' + name, apps: [], kpi: { apps: 0, rating: '—', dl: '0', errors: 0 } };
+    newItem.addEventListener('click', () => { newItem.closest('.dropdown-menu').classList.remove('open'); switchList(key); });
+    closeModal('newListModal');
+    document.getElementById('newListName').value = '';
+    if (window.showToast) showToast('List "' + name + '" created');
+  });
+
+  /* Add Favorite search */
+  const addFavSearch = document.getElementById('addFavSearch');
+  const addFavResults = document.getElementById('addFavResults');
+  const selectedApps = new Set();
+
+  addFavSearch.addEventListener('input', () => {
+    const q = addFavSearch.value.trim().toLowerCase();
+    if (!q) { addFavResults.innerHTML = '<div class="fav-add-hint">Start typing to search across 416 apps…</div>'; return; }
+    const matches = ALL_APPS.filter(a => a.name.toLowerCase().includes(q) || a.bundle.toLowerCase().includes(q)).slice(0, 8);
+    if (!matches.length) { addFavResults.innerHTML = '<div class="fav-add-hint">No apps found.</div>'; return; }
+    addFavResults.innerHTML = matches.map(a => `
+      <label class="fav-add-row">
+        <input type="checkbox" class="fav-add-check" value="${a.bundle}" ${selectedApps.has(a.bundle) ? 'checked' : ''} />
+        <div class="app-icon-sm" style="background:${a.color};font-size:10px;">${a.icon}</div>
+        <div style="flex:1;min-width:0;"><div class="app-name">${a.name}</div><div class="app-sub">${a.bundle}</div></div>
+        <span class="r-badge ${a.rating >= 4.3 ? 'r-high' : 'r-mid'}">${a.rating.toFixed(2)}</span>
+      </label>
+    `).join('');
+    addFavResults.querySelectorAll('.fav-add-check').forEach(cb => {
+      cb.addEventListener('change', () => { cb.checked ? selectedApps.add(cb.value) : selectedApps.delete(cb.value); });
+    });
+  });
+
+  document.getElementById('confirmAddFavBtn').addEventListener('click', () => {
+    if (!selectedApps.size) { if (window.showToast) showToast('No apps selected'); return; }
+    closeModal('addFavModal');
+    addFavSearch.value = '';
+    addFavResults.innerHTML = '<div class="fav-add-hint">Start typing to search across 416 apps…</div>';
+    selectedApps.clear();
+    if (window.showToast) showToast(selectedApps.size || 1 + ' app(s) added to ' + LISTS[currentList].label);
+  });
+
+  /* ==============================
+     EMAIL SUBSCRIPTION
+     ============================== */
+  const emailCheck = document.getElementById('emailSubCheck');
+  const emailControls = document.getElementById('emailControls');
+  emailCheck.addEventListener('change', () => {
+    emailControls.style.display = emailCheck.checked ? 'flex' : 'none';
+  });
+
+  document.querySelectorAll('#emailPeriodMenu .dropdown-item').forEach(el => {
+    el.addEventListener('click', () => {
+      document.querySelectorAll('#emailPeriodMenu .dropdown-item').forEach(e => e.classList.remove('active'));
+      el.classList.add('active');
+      el.closest('.dropdown-menu').previousElementSibling.querySelector('.dropdown-label').textContent = el.textContent;
+      el.closest('.dropdown-menu').classList.remove('open');
+    });
+  });
+
+  document.getElementById('saveEmailBtn').addEventListener('click', () => {
+    if (window.showToast) showToast('Email subscription saved');
+  });
+
+  /* ==============================
+     EXPORT
+     ============================== */
+  document.querySelector('[data-action="export"]').addEventListener('click', () => {
+    if (window.showToast) showToast('Export started — CSV ready shortly');
+  });
+
+  /* Header interactions handled by app.js initHeader() */
+
+  /* ==============================
+     TREND CHART
+     ============================== */
+  const favCtx = document.getElementById('favTrendChart');
+  const trendData = {
+    '12m': { labels: ['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb'], datasets: [
+      { label: 'Orange et moi', data: [4.10,4.15,4.20,4.18,4.22,4.25,4.28,4.30,4.35,4.38,4.40,4.41], borderColor:'#ff7900', tension:.4, pointRadius:0, borderWidth:2 },
+      { label: 'TV d\'Orange', data: [3.90,3.95,4.00,3.98,4.02,4.05,4.06,4.08,4.06,4.08,4.08,4.08], borderColor:'#6a1de8', tension:.4, pointRadius:0, borderWidth:2 },
+      { label: 'Simyo', data: [4.60,4.62,4.65,4.68,4.70,4.72,4.74,4.74,4.75,4.76,4.76,4.76], borderColor:'#e53935', tension:.4, pointRadius:0, borderWidth:2 },
+      { label: 'Téléphone ID', data: [4.30,4.35,4.38,4.40,4.42,4.44,4.44,4.44,4.44,4.44,4.44,4.44], borderColor:'#00b4d8', tension:.4, pointRadius:0, borderWidth:2 }
+    ]},
+    '6m': { labels: ['Sep','Oct','Nov','Dec','Jan','Feb'], datasets: [
+      { label: 'Orange et moi', data: [4.28,4.30,4.35,4.38,4.40,4.41], borderColor:'#ff7900', tension:.4, pointRadius:2, borderWidth:2 },
+      { label: 'TV d\'Orange', data: [4.06,4.08,4.06,4.08,4.08,4.08], borderColor:'#6a1de8', tension:.4, pointRadius:2, borderWidth:2 },
+      { label: 'Simyo', data: [4.74,4.74,4.75,4.76,4.76,4.76], borderColor:'#e53935', tension:.4, pointRadius:2, borderWidth:2 },
+      { label: 'Téléphone ID', data: [4.44,4.44,4.44,4.44,4.44,4.44], borderColor:'#00b4d8', tension:.4, pointRadius:2, borderWidth:2 }
+    ]},
+    '3m': { labels: ['Dec','Jan','Feb'], datasets: [
+      { label: 'Orange et moi', data: [4.38,4.40,4.41], borderColor:'#ff7900', tension:.4, pointRadius:3, borderWidth:2 },
+      { label: 'TV d\'Orange', data: [4.08,4.08,4.08], borderColor:'#6a1de8', tension:.4, pointRadius:3, borderWidth:2 },
+      { label: 'Simyo', data: [4.76,4.76,4.76], borderColor:'#e53935', tension:.4, pointRadius:3, borderWidth:2 },
+      { label: 'Téléphone ID', data: [4.44,4.44,4.44], borderColor:'#00b4d8', tension:.4, pointRadius:3, borderWidth:2 }
+    ]}
+  };
+  const chartOpts = {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12, boxWidth: 20 } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#999' } },
+      y: { min: 3.5, max: 5, grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11 }, color: '#999', callback: v => v.toFixed(1) + '★' } }
+    }
+  };
+  const favChart = new Chart(favCtx, { type: 'line', data: trendData['6m'], options: chartOpts });
+
+  // Range buttons
+  document.querySelectorAll('.range-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const range = btn.dataset.range;
+      favChart.data = trendData[range];
+      favChart.update();
+    });
+  });
+
+  /* ==============================
+     INITIAL RENDER
+     ============================== */
+  renderTable('');
+
+})();
+</script>
+
+<style>
+/* ====== FAVORITES PAGE LOCAL ====== */
+.fav-table-search {
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  padding: 5px 10px; font-size: 12px; color: var(--text);
+  outline: none; width: 200px; background: var(--bg);
+}
+.fav-table-search:focus { border-color: var(--orange); background: white; }
+
+.fav-email-section { }
+.fav-email-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.fav-checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+.fav-checkbox-label input[type=checkbox] { width: 15px; height: 15px; accent-color: var(--orange); }
+.fav-email-controls { display: flex; align-items: center; gap: 8px; }
+
+/* Emoji picker */
+.emoji-picker { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.emoji-opt {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; border-radius: var(--r-sm); border: 2px solid var(--border);
+  cursor: pointer; transition: border-color .12s, background .12s;
+}
+.emoji-opt:hover { border-color: var(--orange); background: var(--orange-light); }
+.emoji-opt.active { border-color: var(--orange); background: var(--orange-light); }
+
+/* Add favorite results */
+.fav-add-results { max-height: 280px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--r-sm); }
+.fav-add-hint { padding: 20px; text-align: center; color: var(--text-3); font-size: 13px; }
+.fav-add-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-bottom: 1px solid var(--border-light);
+  cursor: pointer; transition: background .12s;
+}
+.fav-add-row:last-child { border-bottom: none; }
+.fav-add-row:hover { background: var(--orange-light); }
+.fav-add-row input[type=checkbox] { width: 15px; height: 15px; accent-color: var(--orange); flex-shrink: 0; }
+</style>
+</body>
+</html>

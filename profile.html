@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Apps Details — My Profile</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="home.html" class="header-logo">
+      <div class="logo-mark">O</div>
+      <div class="logo-text">OMA <span>APPS DETAILS</span></div>
+    </a>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" />
+    </div>
+    <div class="header-actions">
+      <div class="h-btn" id="notifBtn" title="Notifications" style="position:relative;"></div>
+      <div class="h-user" id="userBtn" style="position:relative;">
+        <div class="h-avatar">TC</div>
+        <div class="h-user-info">
+          <div class="h-user-name">Théophile Cornuet</div>
+          <div class="h-user-role">Product Owner</div>
+        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:rgba(255,255,255,.4)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- PRIMARY SIDEBAR -->
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item" title="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item" title="Catalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item" title="Statistics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item" title="Dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item" title="Favorites"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="content" style="max-width:720px;">
+
+        <div class="page-header" style="margin-bottom:28px;">
+          <h1 class="page-title">My Profile</h1>
+          <p style="font-size:13px;color:var(--text-3);margin-top:4px;">View and update your personal information and OMA account details</p>
+        </div>
+
+        <!-- AVATAR + NAME CARD -->
+        <div class="card" style="margin-bottom:20px;display:flex;align-items:center;gap:24px;">
+          <div style="width:72px;height:72px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:white;flex-shrink:0;">TC</div>
+          <div style="flex:1;">
+            <div style="font-size:20px;font-weight:800;color:var(--text);">Théophile Cornuet</div>
+            <div style="font-size:13px;color:var(--text-3);margin-top:4px;">theophile.cornuet@orange.com</div>
+            <div style="display:flex;gap:8px;margin-top:10px;">
+              <span class="badge" style="background:var(--orange-light);color:var(--orange);font-size:12px;padding:4px 10px;border-radius:var(--r-pill);">Product Owner</span>
+              <span class="badge badge-gray" style="font-size:12px;padding:4px 10px;">France — Paris</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary" style="flex-shrink:0;" onclick="showToast('Avatar update coming soon')">Change photo</button>
+        </div>
+
+        <!-- PERSONAL INFO -->
+        <div class="card" style="margin-bottom:20px;">
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border-light);">👤 Personal Information</div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div class="form-group">
+              <label class="form-label">First name</label>
+              <input type="text" class="form-control" value="Théophile" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last name</label>
+              <input type="text" class="form-control" value="Cornuet" />
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:16px;">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" value="theophile.cornuet@orange.com" readonly style="background:var(--bg);color:var(--text-3);" />
+            <div style="font-size:11px;color:var(--text-3);margin-top:4px;">Email is managed by your Orange account and cannot be changed here.</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label">Job title</label>
+              <input type="text" class="form-control" value="Product Owner" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Business unit</label>
+              <input type="text" class="form-control" value="Orange France — Digital" />
+            </div>
+          </div>
+        </div>
+
+        <!-- OMA ACCESS -->
+        <div class="card" style="margin-bottom:20px;">
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border-light);">🔐 OMA Access</div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Role</div>
+              <div class="settings-desc">Your access level on the OMA platform</div>
+            </div>
+            <span class="badge" style="background:var(--orange-light);color:var(--orange);font-size:12px;padding:5px 12px;border-radius:var(--r-pill);">Product Owner</span>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Apps managed</div>
+              <div class="settings-desc">Applications you are responsible for in OMA</div>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+              <span class="badge badge-gray" style="font-size:12px;">Orange et moi France</span>
+              <span class="badge badge-gray" style="font-size:12px;">Orange Bank</span>
+              <span class="badge badge-gray" style="font-size:12px;">TV d'Orange</span>
+              <span class="badge badge-gray" style="font-size:12px;">Mail Orange</span>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <div class="settings-label">Account created</div>
+              <div class="settings-desc">Date your OMA account was provisioned</div>
+            </div>
+            <span style="font-size:13px;color:var(--text-2);">January 12, 2024</span>
+          </div>
+
+          <div class="settings-row" style="border-bottom:none;">
+            <div>
+              <div class="settings-label">Last login</div>
+              <div class="settings-desc">Most recent session start</div>
+            </div>
+            <span style="font-size:13px;color:var(--text-2);">Today, 09:07 — Chrome / Windows</span>
+          </div>
+        </div>
+
+        <!-- FAVORITE LISTS SUMMARY -->
+        <div class="card" style="margin-bottom:28px;">
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border-light);">⭐ My Favorite Lists</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+              <div>
+                <div style="font-size:14px;font-weight:600;">France Core Apps</div>
+                <div style="font-size:12px;color:var(--text-3);">4 apps · Last updated 2 days ago</div>
+              </div>
+              <a href="favorites.html" class="btn btn-secondary" style="font-size:12px;">View →</a>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+              <div>
+                <div style="font-size:14px;font-weight:600;">Africa &amp; MEA</div>
+                <div style="font-size:12px;color:var(--text-3);">7 apps · Last updated 5 days ago</div>
+              </div>
+              <a href="favorites.html" class="btn btn-secondary" style="font-size:12px;">View →</a>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+              <div>
+                <div style="font-size:14px;font-weight:600;">Watching closely</div>
+                <div style="font-size:12px;color:var(--text-3);">2 apps · Last updated today</div>
+              </div>
+              <a href="favorites.html" class="btn btn-secondary" style="font-size:12px;">View →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button class="btn btn-secondary" onclick="history.back()">Cancel</button>
+          <button class="btn btn-primary" onclick="showToast('Profile saved successfully')">Save changes</button>
+        </div>
+
+      </div><!-- /content -->
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <a href="#" class="footer-link" data-footer-modal="contact">Contact</a>
+        <a href="#" class="footer-link" data-footer-modal="legal">Legal Notices</a>
+        <a href="#" class="footer-link" data-footer-modal="data">Personal Data</a>
+        <span style="color:rgba(255,255,255,.3);font-size:12px;">© Orange SA 2026</span>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<style>
+.settings-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; border-bottom: 1px solid var(--border-light); gap: 24px;
+}
+.settings-row:last-child { border-bottom: none; }
+.settings-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.settings-desc { font-size: 12px; color: var(--text-3); }
+</style>
+
+<script src="app.js"></script>
+</body>
+</html>

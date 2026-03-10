@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Apps Details — Notifications</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="home.html" class="header-logo">
+      <div class="logo-mark">O</div>
+      <div class="logo-text">OMA <span>APPS DETAILS</span></div>
+    </a>
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" />
+    </div>
+    <div class="header-actions">
+      <div class="h-btn" id="notifBtn" title="Notifications" style="position:relative;"></div>
+      <div class="h-user" id="userBtn" style="position:relative;">
+        <div class="h-avatar">TC</div>
+        <div class="h-user-info">
+          <div class="h-user-name">Théophile Cornuet</div>
+          <div class="h-user-role">Product Owner</div>
+        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:rgba(255,255,255,.4)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- PRIMARY SIDEBAR -->
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item" title="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item" title="Catalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item" title="Statistics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item" title="Dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item" title="Favorites"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="content">
+
+        <!-- Page header -->
+        <div class="page-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <div>
+            <h1 class="page-title">Notifications</h1>
+            <p style="font-size:13px;color:var(--text-3);margin-top:4px;">Your latest alerts and updates from the OMA platform</p>
+          </div>
+          <button id="markAllReadBtn" class="btn btn-secondary" style="font-size:13px;">✓ Mark all as read</button>
+        </div>
+
+        <!-- TODAY -->
+        <div class="section-label" style="font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Today</div>
+        <div class="card" style="margin-bottom:20px;overflow:hidden;padding:0;">
+
+          <div class="notif-row unread" data-id="n1">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:var(--orange-light);color:var(--orange);padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">New Version</span>
+                <span style="font-size:11px;color:var(--text-3);">2 hours ago — 09:14</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">Orange et moi — New version available (v12.13.0)</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">Version 12.13.0 has been published on Google Play. Review the changelog and update tracking data.</div>
+            </div>
+            <a href="app-summary.html" class="btn btn-secondary" style="font-size:12px;flex-shrink:0;">View app →</a>
+          </div>
+
+          <div class="notif-row unread" data-id="n2">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:#fff0f0;color:var(--red);padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">Rating Alert</span>
+                <span style="font-size:11px;color:var(--text-3);">5 hours ago — 06:22</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">TV d'Orange — Rating dropped to 3.9 ★</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">The average rating decreased from 4.1 to 3.9 over the past 7 days. 12 new 1-star reviews detected.</div>
+            </div>
+            <a href="app-reviews.html" class="btn btn-secondary" style="font-size:12px;flex-shrink:0;">View reviews →</a>
+          </div>
+
+          <div class="notif-row unread" data-id="n3">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:#f0f8ff;color:#0070c0;padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">Report</span>
+                <span style="font-size:11px;color:var(--text-3);">Yesterday — 08:00</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">Weekly report is ready</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">Your weekly summary covering 4 apps is available. Downloads: +3.2%, Ratings: stable, Errors: −8%.</div>
+            </div>
+            <button class="btn btn-secondary" style="font-size:12px;flex-shrink:0;" onclick="showToast('Report download started')">Download PDF</button>
+          </div>
+
+        </div>
+
+        <!-- THIS WEEK -->
+        <div class="section-label" style="font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">This week</div>
+        <div class="card" style="margin-bottom:20px;overflow:hidden;padding:0;">
+
+          <div class="notif-row" data-id="n4">
+            <div style="width:8px;height:8px;border-radius:50%;background:transparent;border:1.5px solid var(--border);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:#f0fff4;color:var(--green);padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">Score</span>
+                <span style="font-size:11px;color:var(--text-3);">2 days ago</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">Simyo — Scoring improved +12 points</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">Simyo's OMA scoring increased from 68 to 80 following store optimization work. Now ranked #3 in Spain.</div>
+            </div>
+            <a href="app-summary.html" class="btn btn-secondary" style="font-size:12px;flex-shrink:0;">View app →</a>
+          </div>
+
+          <div class="notif-row" data-id="n5">
+            <div style="width:8px;height:8px;border-radius:50%;background:transparent;border:1.5px solid var(--border);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:#fff9e6;color:#b45309;padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">Error Spike</span>
+                <span style="font-size:11px;color:var(--text-3);">3 days ago</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">Orange Bank — Crash rate spike on iOS 17.3</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">Crash rate increased to 2.1% on iOS 17.3 devices. An engineering ticket has been opened automatically.</div>
+            </div>
+            <a href="app-errors.html" class="btn btn-secondary" style="font-size:12px;flex-shrink:0;">View errors →</a>
+          </div>
+
+          <div class="notif-row" data-id="n6">
+            <div style="width:8px;height:8px;border-radius:50%;background:transparent;border:1.5px solid var(--border);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:#f0f8ff;color:#0070c0;padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">Milestone</span>
+                <span style="font-size:11px;color:var(--text-3);">4 days ago</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">Orange et moi reached 50M downloads</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">Orange et moi France crossed the 50 million cumulative downloads milestone across all stores.</div>
+            </div>
+            <a href="app-summary.html" class="btn btn-secondary" style="font-size:12px;flex-shrink:0;">View app →</a>
+          </div>
+
+        </div>
+
+        <!-- OLDER -->
+        <div class="section-label" style="font-size:11px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Older</div>
+        <div class="card" style="padding:0;overflow:hidden;">
+
+          <div class="notif-row" data-id="n7">
+            <div style="width:8px;height:8px;border-radius:50%;background:transparent;border:1.5px solid var(--border);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:var(--bg);color:var(--text-3);padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">System</span>
+                <span style="font-size:11px;color:var(--text-3);">Feb 28</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">Platform maintenance completed</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">Scheduled maintenance was completed successfully. Data is back and fully refreshed.</div>
+            </div>
+          </div>
+
+          <div class="notif-row" data-id="n8">
+            <div style="width:8px;height:8px;border-radius:50%;background:transparent;border:1.5px solid var(--border);flex-shrink:0;margin-top:5px;"></div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                <span style="font-size:12px;background:var(--bg);color:var(--text-3);padding:2px 8px;border-radius:var(--r-pill);font-weight:600;">System</span>
+                <span style="font-size:11px;color:var(--text-3);">Feb 25</span>
+              </div>
+              <div style="font-size:14px;font-weight:600;color:var(--text);">Monthly report for February is available</div>
+              <div style="font-size:13px;color:var(--text-2);margin-top:3px;">Your monthly performance report for February 2026 has been generated and is ready to download.</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!-- /content -->
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <a href="#" class="footer-link" data-footer-modal="contact">Contact</a>
+        <a href="#" class="footer-link" data-footer-modal="legal">Legal Notices</a>
+        <a href="#" class="footer-link" data-footer-modal="data">Personal Data</a>
+        <span style="color:rgba(255,255,255,.3);font-size:12px;">© Orange SA 2026</span>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<style>
+.notif-row {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 20px; border-bottom: 1px solid var(--border-light);
+  transition: background .12s;
+}
+.notif-row:last-child { border-bottom: none; }
+.notif-row:hover { background: var(--bg); }
+.notif-row.unread { background: #fff9f5; }
+.notif-row.unread:hover { background: #fff3eb; }
+</style>
+
+<script src="app.js"></script>
+<script>
+  document.getElementById('markAllReadBtn').addEventListener('click', function() {
+    document.querySelectorAll('.notif-row.unread').forEach(function(el) { el.classList.remove('unread'); });
+    document.querySelectorAll('[id^="notifBadge"]').forEach(function(el) { el.remove(); });
+    if (typeof showToast === 'function') showToast('All notifications marked as read');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Apps Details — Catalog (List)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="shell">
+  <header class="header">
+    <a href="home.html" class="header-logo"><div class="logo-mark">O</div><div class="logo-text">OMA <span>APPS DETAILS</span></div></a>
+    <div class="header-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" /></div>
+    <div class="header-actions">
+      <div class="h-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+      <div class="h-user"><div class="h-avatar">TC</div><div class="h-user-info"><div class="h-user-name">Théophile Cornuet</div><div class="h-user-role">Product Owner</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:rgba(255,255,255,.4)"><polyline points="6 9 12 15 18 9"/></svg></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <a href="home.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></a>
+      <a href="catalog-grid.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="nav-label">Catalog</span></a>
+      <div class="sidebar-divider"></div>
+      <a href="statistics.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="nav-label">Stats</span></a>
+      <a href="dashboard.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="nav-label">Dash</span></a>
+      <a href="favorites.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="nav-label">Favs</span></a>
+    </nav>
+
+    <div class="catalog-layout">
+      <!-- FILTER PANEL -->
+      <aside class="filter-panel" id="filterPanel">
+        <div class="filter-panel-head">
+          <div class="filter-panel-title">Filters</div>
+          <span class="filter-clear-all" id="clearAllFilters">Clear all</span>
+        </div>
+
+        <div class="fgrp" data-filter-key="status">
+          <div class="fgrp-title">Status <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="live" /><span class="fopt-label">Live</span><span class="fopt-cnt">416</span></label>
+            <label class="fopt"><input type="checkbox" value="offline" /><span class="fopt-label">Offline</span><span class="fopt-cnt">24</span></label>
+            <label class="fopt"><input type="checkbox" value="suspended" /><span class="fopt-label">Suspended</span><span class="fopt-cnt">5</span></label>
+          </div>
+        </div>
+
+        <div class="fgrp" data-filter-key="store">
+          <div class="fgrp-title">Store <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="android" /><span class="fopt-label">🤖 Android</span><span class="fopt-cnt">193</span></label>
+            <label class="fopt"><input type="checkbox" value="ios" /><span class="fopt-label">🍎 iOS</span><span class="fopt-cnt">166</span></label>
+            <label class="fopt"><input type="checkbox" value="huawei" /><span class="fopt-label">📱 Huawei</span><span class="fopt-cnt">37</span></label>
+          </div>
+        </div>
+
+        <div class="fgrp" data-filter-key="zone">
+          <div class="fgrp-title">Zone <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="europe" /><span class="fopt-label">Europe</span><span class="fopt-cnt">210</span></label>
+            <label class="fopt"><input type="checkbox" value="amea" /><span class="fopt-label">Africa &amp; Middle East</span><span class="fopt-cnt">148</span></label>
+            <label class="fopt"><input type="checkbox" value="amoa" /><span class="fopt-label">AMOA</span><span class="fopt-cnt">58</span></label>
+          </div>
+        </div>
+
+        <div class="fgrp" data-filter-key="country">
+          <div class="fgrp-title">Country <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="fr" /><span class="fopt-label">🇫🇷 France</span><span class="fopt-cnt">144</span></label>
+            <label class="fopt"><input type="checkbox" value="es" /><span class="fopt-label">🇪🇸 Spain</span><span class="fopt-cnt">32</span></label>
+            <label class="fopt"><input type="checkbox" value="be" /><span class="fopt-label">🇧🇪 Belgium</span><span class="fopt-cnt">24</span></label>
+            <label class="fopt"><input type="checkbox" value="pl" /><span class="fopt-label">🇵🇱 Poland</span><span class="fopt-cnt">18</span></label>
+            <label class="fopt"><input type="checkbox" value="sn" /><span class="fopt-label">🇸🇳 Senegal</span><span class="fopt-cnt">12</span></label>
+            <label class="fopt"><input type="checkbox" value="ma" /><span class="fopt-label">🇲🇦 Morocco</span><span class="fopt-cnt">8</span></label>
+            <div class="fgrp-seeall-wrap"><span class="fgrp-seeall">+ See all (21)</span></div>
+          </div>
+          <div class="filter-popin" id="countryPopin">
+            <div class="filter-popin-header"><span class="filter-popin-title">All Countries</span><span class="filter-popin-close">&times;</span></div>
+            <div class="filter-popin-search"><input type="search" placeholder="Search countries…" class="popin-search-input" /></div>
+            <div class="filter-popin-list">
+              <label class="fopt"><input type="checkbox" value="fr" /><span class="fopt-label">🇫🇷 France</span><span class="fopt-cnt">144</span></label>
+              <label class="fopt"><input type="checkbox" value="es" /><span class="fopt-label">🇪🇸 Spain</span><span class="fopt-cnt">32</span></label>
+              <label class="fopt"><input type="checkbox" value="be" /><span class="fopt-label">🇧🇪 Belgium</span><span class="fopt-cnt">24</span></label>
+              <label class="fopt"><input type="checkbox" value="pl" /><span class="fopt-label">🇵🇱 Poland</span><span class="fopt-cnt">18</span></label>
+              <label class="fopt"><input type="checkbox" value="sn" /><span class="fopt-label">🇸🇳 Senegal</span><span class="fopt-cnt">12</span></label>
+              <label class="fopt"><input type="checkbox" value="ma" /><span class="fopt-label">🇲🇦 Morocco</span><span class="fopt-cnt">8</span></label>
+              <label class="fopt"><input type="checkbox" value="de" /><span class="fopt-label">🇩🇪 Germany</span><span class="fopt-cnt">7</span></label>
+              <label class="fopt"><input type="checkbox" value="gb" /><span class="fopt-label">🇬🇧 United Kingdom</span><span class="fopt-cnt">6</span></label>
+              <label class="fopt"><input type="checkbox" value="ro" /><span class="fopt-label">🇷🇴 Romania</span><span class="fopt-cnt">5</span></label>
+              <label class="fopt"><input type="checkbox" value="ci" /><span class="fopt-label">🇨🇮 Côte d'Ivoire</span><span class="fopt-cnt">5</span></label>
+              <label class="fopt"><input type="checkbox" value="eg" /><span class="fopt-label">🇪🇬 Egypt</span><span class="fopt-cnt">4</span></label>
+              <label class="fopt"><input type="checkbox" value="jo" /><span class="fopt-label">🇯🇴 Jordan</span><span class="fopt-cnt">4</span></label>
+              <label class="fopt"><input type="checkbox" value="cm" /><span class="fopt-label">🇨🇲 Cameroon</span><span class="fopt-cnt">3</span></label>
+              <label class="fopt"><input type="checkbox" value="tn" /><span class="fopt-label">🇹🇳 Tunisia</span><span class="fopt-cnt">3</span></label>
+              <label class="fopt"><input type="checkbox" value="lu" /><span class="fopt-label">🇱🇺 Luxembourg</span><span class="fopt-cnt">2</span></label>
+              <label class="fopt"><input type="checkbox" value="sk" /><span class="fopt-label">🇸🇰 Slovakia</span><span class="fopt-cnt">2</span></label>
+            </div>
+            <div class="filter-popin-footer"><button class="btn btn-sm btn-secondary popin-apply-btn">Apply</button></div>
+          </div>
+        </div>
+
+        <div class="fgrp" data-filter-key="category">
+          <div class="fgrp-title">Category <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="utilities" /><span class="fopt-label">Utilities</span><span class="fopt-cnt">124</span></label>
+            <label class="fopt"><input type="checkbox" value="entertainment" /><span class="fopt-label">Entertainment</span><span class="fopt-cnt">86</span></label>
+            <label class="fopt"><input type="checkbox" value="finance" /><span class="fopt-label">Finance</span><span class="fopt-cnt">54</span></label>
+            <label class="fopt"><input type="checkbox" value="lifestyle" /><span class="fopt-label">Lifestyle</span><span class="fopt-cnt">42</span></label>
+          </div>
+        </div>
+
+        <div class="fgrp" data-filter-key="account">
+          <div class="fgrp-title">Account <span class="fgrp-arrow">▾</span></div>
+          <div class="fgrp-options">
+            <label class="fopt"><input type="checkbox" value="orange" /><span class="fopt-label">Orange</span><span class="fopt-cnt">284</span></label>
+            <label class="fopt"><input type="checkbox" value="primezone" /><span class="fopt-label">PrimeZone</span><span class="fopt-cnt">87</span></label>
+            <label class="fopt"><input type="checkbox" value="fnac" /><span class="fopt-label">Fnac-Darty</span><span class="fopt-cnt">45</span></label>
+          </div>
+        </div>
+      </aside>
+
+      <div class="catalog-main">
+        <!-- Page header -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Catalog</h1>
+            <p class="page-subtitle">Browse and filter all Orange apps deployed on stores</p>
+          </div>
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button class="filter-toggle btn btn-secondary btn-sm" id="filterToggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+              Filtres
+            </button>
+          </div>
+          <div class="toolbar-right">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <input type="search" placeholder="Search apps…" id="listSearch" class="catalog-search" />
+            </div>
+            <div class="dropdown-wrap">
+              <div class="select-btn" data-dropdown="ippMenuList"><span class="dropdown-label">Show 25</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg></div>
+              <div class="dropdown-menu right" id="ippMenuList">
+                <div class="dropdown-item" data-value="10">10</div>
+                <div class="dropdown-item active" data-value="25">25</div>
+                <div class="dropdown-item" data-value="50">50</div>
+                <div class="dropdown-item" data-value="100">100</div>
+              </div>
+            </div>
+            <div class="dropdown-wrap">
+              <div class="select-btn" data-dropdown="sortMenuList"><span class="dropdown-label">Sort by Downloads</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg></div>
+              <div class="dropdown-menu right" id="sortMenuList">
+                <div class="dropdown-item active" data-value="downloads">Downloads</div>
+                <div class="dropdown-item" data-value="name-asc">Name A-Z</div>
+                <div class="dropdown-item" data-value="name-desc">Name Z-A</div>
+                <div class="dropdown-item" data-value="rating">Rating</div>
+                <div class="dropdown-item" data-value="scoring">Scoring</div>
+                <div class="dropdown-item" data-value="release">Last Release</div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-export" data-action="export">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export
+            </button>
+            <a href="catalog-grid.html" class="icon-btn" title="Grid view">⊞</a>
+            <a href="catalog-list.html" class="icon-btn active" title="List view">☰</a>
+          </div>
+        </div>
+
+        <!-- Active chips -->
+        <div class="filter-chip-bar" id="chipBar"></div>
+
+        <div class="toolbar-count mb-3"><strong id="resultCount">8</strong> applications found</div>
+
+        <div class="tbl-wrap">
+          <table class="tbl tbl-sticky" id="appTable">
+            <thead>
+              <tr>
+                <th data-sort="name">App <span class="sort">↕</span></th>
+                <th data-sort="store">Store <span class="sort">↕</span></th>
+                <th data-sort="country">Country <span class="sort">↕</span></th>
+                <th>Targeted</th>
+                <th data-sort="version">Version <span class="sort">↕</span></th>
+                <th data-sort="status">Status <span class="sort">↕</span></th>
+                <th data-sort="downloads">Downloads <span class="sort">↕</span></th>
+                <th data-sort="rating">Rating <span class="sort">↕</span></th>
+                <th data-sort="scoring">Scoring <span class="sort">↕</span></th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr data-name="Orange et moi France" data-store="android" data-zone="europe" data-country="fr" data-category="utilities" data-account="orange" data-status="live" data-downloads="24814711" data-rating="4.22" data-scoring="43" data-version="12.12.4">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">OEM</div><div><div class="app-name">Orange et moi France</div><div class="app-sub">com.orange.orangeetmoi</div></div></div></td>
+                <td><span class="badge badge-dark">Android</span></td>
+                <td>🇫🇷 FR</td>
+                <td>FR, CH, +3</td>
+                <td class="mono">12.12.4</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">24 814 711</td>
+                <td><span class="r-badge r-high">4.22</span></td>
+                <td class="num text-green">+43</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="TV d'Orange" data-store="android" data-zone="europe" data-country="fr" data-category="entertainment" data-account="orange" data-status="live" data-downloads="20962292" data-rating="4.08" data-scoring="35" data-version="10.6.5">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#6a1de8">TV</div><div><div class="app-name">TV d'Orange • film, streaming</div><div class="app-sub">com.orange.tv</div></div></div></td>
+                <td><span class="badge badge-dark">Android</span></td>
+                <td>🇫🇷 FR</td>
+                <td>FR</td>
+                <td class="mono">10.6.5</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">20 962 292</td>
+                <td><span class="r-badge r-high">4.08</span></td>
+                <td class="num text-green">+35</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Orange Money Sénégal" data-store="android" data-zone="amea" data-country="sn" data-category="finance" data-account="orange" data-status="live" data-downloads="4200000" data-rating="3.88" data-scoring="12" data-version="4.2.1">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#43a047">OM</div><div><div class="app-name">Orange Money Sénégal</div><div class="app-sub">sn.orange.money</div></div></div></td>
+                <td><span class="badge badge-dark">Android</span></td>
+                <td>🇸🇳 SN</td>
+                <td>SN</td>
+                <td class="mono">4.2.1</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">4 200 000</td>
+                <td><span class="r-badge r-mid">3.88</span></td>
+                <td class="num text-green">+12</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Orange TV Go Poland" data-store="ios" data-zone="europe" data-country="pl" data-category="entertainment" data-account="orange" data-status="live" data-downloads="4103200" data-rating="4.65" data-scoring="58" data-version="9.2.1">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">OT</div><div><div class="app-name">Orange TV Go – Poland</div><div class="app-sub">pl.orange.tv</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇵🇱 PL</td>
+                <td>PL</td>
+                <td class="mono">9.2.1</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">4 103 200</td>
+                <td><span class="r-badge r-high">4.65</span></td>
+                <td class="num text-green">+58</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="My Orange Belgium" data-store="ios" data-zone="europe" data-country="be" data-category="utilities" data-account="orange" data-status="live" data-downloads="3559001" data-rating="3.43" data-scoring="-12" data-version="5.24.0">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">OB</div><div><div class="app-name">My Orange Belgium</div><div class="app-sub">be.orange.myorange</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇧🇪 BE</td>
+                <td>BE</td>
+                <td class="mono">5.24.0</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">3 559 001</td>
+                <td><span class="r-badge r-mid">3.43</span></td>
+                <td class="num text-red">-12</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Orange Money Maroc" data-store="ios" data-zone="amea" data-country="ma" data-category="finance" data-account="orange" data-status="live" data-downloads="2148300" data-rating="2.72" data-scoring="-28" data-version="1.10">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#1a1a1a">MM</div><div><div class="app-name">Orange Money Maroc</div><div class="app-sub">ma.orange.money</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇲🇦 MA</td>
+                <td>MA</td>
+                <td class="mono">1.10</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">2 148 300</td>
+                <td><span class="r-badge r-vlow">2.72</span></td>
+                <td class="num text-red">-28</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Téléphone Identification" data-store="ios" data-zone="europe" data-country="fr" data-category="utilities" data-account="primezone" data-status="live" data-downloads="1895000" data-rating="4.44" data-scoring="21" data-version="7.0">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#00b4d8">Ti</div><div><div class="app-name">Téléphone – Identification</div><div class="app-sub">fr.primezone.tel</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇫🇷 FR</td>
+                <td>FR</td>
+                <td class="mono">7.0</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">1 895 000</td>
+                <td><span class="r-badge r-high">4.44</span></td>
+                <td class="num text-green">+21</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="TuYo" data-store="ios" data-zone="europe" data-country="es" data-category="utilities" data-account="orange" data-status="live" data-downloads="1495" data-rating="4.58" data-scoring="-100" data-version="2.1.1">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">T</div><div><div class="app-name">TuYo</div><div class="app-sub">es.orange.tuyo</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇪🇸 ES</td>
+                <td>ES</td>
+                <td class="mono">2.1.1</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">1 495</td>
+                <td><span class="r-badge r-high">4.58</span></td>
+                <td class="num text-red">-100</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Simyo" data-store="ios" data-zone="europe" data-country="fr" data-category="utilities" data-account="orange" data-status="live" data-downloads="983200" data-rating="4.76" data-scoring="67" data-version="3.33.3">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#e53935">S</div><div><div class="app-name">Simyo</div><div class="app-sub">fr.orange.simyo</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇫🇷 FR</td>
+                <td>FR</td>
+                <td class="mono">3.33.3</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">983 200</td>
+                <td><span class="r-badge r-high">4.76</span></td>
+                <td class="num text-green">+67</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Orange Max It Côte d'Ivoire" data-store="ios" data-zone="amea" data-country="ci" data-category="utilities" data-account="orange" data-status="live" data-downloads="3240000" data-rating="3.78" data-scoring="8" data-version="10.0.29">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">M</div><div><div class="app-name">Orange Max It — Côte d'Ivoire</div><div class="app-sub">ci.orange.maxit</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇨🇮 CI</td>
+                <td>CI</td>
+                <td class="mono">10.0.29</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">3 240 000</td>
+                <td><span class="r-badge r-mid">3.78</span></td>
+                <td class="num text-green">+8</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Orange Flex eSIM" data-store="ios" data-zone="europe" data-country="pl" data-category="utilities" data-account="orange" data-status="live" data-downloads="1200000" data-rating="4.22" data-scoring="15" data-version="3.1.0">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff9833">OF</div><div><div class="app-name">Orange Flex – Offer with eSIM</div><div class="app-sub">pl.orange.flex</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇵🇱 PL</td>
+                <td>PL</td>
+                <td class="mono">3.1.0</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">1 200 000</td>
+                <td><span class="r-badge r-high">4.22</span></td>
+                <td class="num text-green">+15</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+              <tr data-name="Orange Maison Protégée" data-store="ios" data-zone="europe" data-country="fr" data-category="lifestyle" data-account="orange" data-status="live" data-downloads="890000" data-rating="3.0" data-scoring="-5" data-version="5.6">
+                <td><div class="app-cell"><div class="app-icon-sm" style="background:#ff7900">MP</div><div><div class="app-name">Orange Maison Protégée</div><div class="app-sub">fr.orange.maison</div></div></div></td>
+                <td><span class="badge badge-gray">iOS</span></td>
+                <td>🇫🇷 FR</td>
+                <td>FR</td>
+                <td class="mono">5.6</td>
+                <td><span class="dot dot-green"></span></td>
+                <td class="num">890 000</td>
+                <td><span class="r-badge r-mid">3.0</span></td>
+                <td class="num text-red">-5</td>
+                <td><a href="app-summary.html" class="btn btn-secondary btn-sm">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="listPagination"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">O</div>
+    <nav class="footer-nav"><span class="footer-link">Contact</span><span class="footer-link">API V2</span><span class="footer-link">API V3</span><span class="footer-link">Legal Notices</span></nav>
+    <span class="footer-copy">© Orange SA 2026 — All rights reserved</span>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+<script>
+(function(){
+  var panel = document.getElementById('filterPanel');
+  var tbody = document.getElementById('tableBody');
+  var chipBar = document.getElementById('chipBar');
+  var searchInput = document.getElementById('listSearch');
+  var countEl = document.getElementById('resultCount');
+  var paginationEl = document.getElementById('listPagination');
+  var allRows = Array.from(tbody.querySelectorAll('tr'));
+  var perPage = 25;
+  var currentPage = 1;
+  var currentSort = 'downloads';
+  var sortDir = 'desc';
+
+  /* Collapsible groups */
+  panel.querySelectorAll('.fgrp-title').forEach(function(title){
+    title.addEventListener('click', function(){
+      var grp = title.closest('.fgrp');
+      grp.classList.toggle('collapsed');
+      var arrow = title.querySelector('.fgrp-arrow');
+      if(arrow) arrow.textContent = grp.classList.contains('collapsed') ? '▸' : '▾';
+    });
+  });
+
+  /* Checkbox → filter */
+  panel.querySelectorAll('.fgrp-options input[type=checkbox]').forEach(function(cb){
+    cb.addEventListener('change', function(){ currentPage=1; applyAll(); });
+  });
+
+  /* Search */
+  searchInput.addEventListener('input', function(){ currentPage=1; applyAll(); });
+
+  /* Clear all */
+  document.getElementById('clearAllFilters').addEventListener('click', function(){
+    panel.querySelectorAll('input[type=checkbox]').forEach(function(cb){ cb.checked=false; });
+    searchInput.value='';
+    currentPage=1; applyAll();
+  });
+
+  /* Popin: Country */
+  var seeAllBtn = panel.querySelector('.fgrp-seeall');
+  var countryPopin = document.getElementById('countryPopin');
+  if(seeAllBtn && countryPopin){
+    seeAllBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      syncPopinToSidebar();
+      countryPopin.classList.toggle('open');
+    });
+    countryPopin.querySelector('.filter-popin-close').addEventListener('click', function(){
+      countryPopin.classList.remove('open');
+    });
+    var popinSearch = countryPopin.querySelector('.popin-search-input');
+    popinSearch.addEventListener('input', function(){
+      var q = popinSearch.value.toLowerCase();
+      countryPopin.querySelectorAll('.filter-popin-list .fopt').forEach(function(opt){
+        opt.style.display = opt.textContent.toLowerCase().indexOf(q)>-1 ? '':'none';
+      });
+    });
+    countryPopin.querySelector('.popin-apply-btn').addEventListener('click', function(){
+      syncSidebarFromPopin();
+      countryPopin.classList.remove('open');
+      currentPage=1; applyAll();
+    });
+  }
+  function syncPopinToSidebar(){
+    var sidebarGrp = panel.querySelector('[data-filter-key="country"]');
+    var checked = {};
+    sidebarGrp.querySelectorAll('.fgrp-options input').forEach(function(cb){ checked[cb.value]=cb.checked; });
+    countryPopin.querySelectorAll('.filter-popin-list input').forEach(function(cb){ if(cb.value in checked) cb.checked=checked[cb.value]; });
+  }
+  function syncSidebarFromPopin(){
+    var sidebarGrp = panel.querySelector('[data-filter-key="country"]');
+    var state = {};
+    countryPopin.querySelectorAll('.filter-popin-list input').forEach(function(cb){ state[cb.value]=cb.checked; });
+    sidebarGrp.querySelectorAll('.fgrp-options input').forEach(function(cb){ if(cb.value in state) cb.checked=state[cb.value]; });
+  }
+
+  /* Column sort */
+  document.querySelectorAll('#appTable th[data-sort]').forEach(function(th){
+    th.style.cursor='pointer';
+    th.addEventListener('click', function(){
+      var col = th.dataset.sort;
+      if(currentSort===col){ sortDir = sortDir==='asc'?'desc':'asc'; }
+      else { currentSort=col; sortDir='desc'; }
+      document.querySelectorAll('#appTable th .sort').forEach(function(s){ s.textContent='↕'; });
+      var sortSpan = th.querySelector('.sort');
+      if(sortSpan) sortSpan.textContent = sortDir==='asc'?'▲':'▼';
+      currentPage=1; applyAll();
+    });
+  });
+
+  /* Sort dropdown */
+  var sortTrigger = document.querySelector('[data-dropdown="sortMenuList"]');
+  if(sortTrigger){
+    sortTrigger.addEventListener('dropdown-change', function(e){
+      currentSort = e.detail; sortDir='desc';
+      var label = sortTrigger.querySelector('.dropdown-label');
+      var map = {downloads:'Downloads','name-asc':'Name A-Z','name-desc':'Name Z-A',rating:'Rating',scoring:'Scoring',release:'Last Release'};
+      if(label) label.textContent='Sort by '+(map[currentSort]||currentSort);
+      currentPage=1; applyAll();
+    });
+  }
+
+  /* IPP dropdown */
+  var ippTrigger = document.querySelector('[data-dropdown="ippMenuList"]');
+  if(ippTrigger){
+    ippTrigger.addEventListener('dropdown-change', function(e){
+      perPage=parseInt(e.detail)||25;
+      var label = ippTrigger.querySelector('.dropdown-label');
+      if(label) label.textContent='Show '+perPage;
+      currentPage=1; applyAll();
+    });
+  }
+
+  function getActiveFilters(){
+    var filters={};
+    panel.querySelectorAll('.fgrp[data-filter-key]').forEach(function(grp){
+      var key=grp.dataset.filterKey;
+      var checked=[];
+      grp.querySelectorAll('.fgrp-options input:checked').forEach(function(cb){ checked.push(cb.value); });
+      if(checked.length) filters[key]=checked;
+    });
+    return filters;
+  }
+
+  function filterRows(){
+    var filters=getActiveFilters();
+    var q=searchInput.value.toLowerCase().trim();
+    return allRows.filter(function(row){
+      for(var key in filters){
+        var val=(row.dataset[key]||'').toLowerCase();
+        var match=filters[key].some(function(f){ return val.indexOf(f.toLowerCase())>-1; });
+        if(!match) return false;
+      }
+      if(q && row.textContent.toLowerCase().indexOf(q)===-1) return false;
+      return true;
+    });
+  }
+
+  function sortRows(rows){
+    return rows.slice().sort(function(a,b){
+      var asc = sortDir==='asc';
+      switch(currentSort){
+        case 'name': case 'name-asc': {
+          var r=(a.dataset.name||'').localeCompare(b.dataset.name||'');
+          return asc?r:-r;
+        }
+        case 'name-desc': return (b.dataset.name||'').localeCompare(a.dataset.name||'');
+        case 'store': { var r=(a.dataset.store||'').localeCompare(b.dataset.store||''); return asc?r:-r; }
+        case 'country': { var r=(a.dataset.country||'').localeCompare(b.dataset.country||''); return asc?r:-r; }
+        case 'version': { var r=(a.dataset.version||'').localeCompare(b.dataset.version||''); return asc?r:-r; }
+        case 'status': { var r=(a.dataset.status||'').localeCompare(b.dataset.status||''); return asc?r:-r; }
+        case 'downloads': return asc ? parseFloat(a.dataset.downloads||0)-parseFloat(b.dataset.downloads||0) : parseFloat(b.dataset.downloads||0)-parseFloat(a.dataset.downloads||0);
+        case 'rating': return asc ? parseFloat(a.dataset.rating||0)-parseFloat(b.dataset.rating||0) : parseFloat(b.dataset.rating||0)-parseFloat(a.dataset.rating||0);
+        case 'scoring': return asc ? parseFloat(a.dataset.scoring||0)-parseFloat(b.dataset.scoring||0) : parseFloat(b.dataset.scoring||0)-parseFloat(a.dataset.scoring||0);
+        default: return 0;
+      }
+    });
+  }
+
+  function applyAll(){
+    var filtered=filterRows();
+    var sorted=sortRows(filtered);
+    var total=sorted.length;
+    var totalPages=Math.max(1,Math.ceil(total/perPage));
+    if(currentPage>totalPages) currentPage=totalPages;
+
+    allRows.forEach(function(r){ r.style.display='none'; });
+    var start=(currentPage-1)*perPage;
+    sorted.slice(start,start+perPage).forEach(function(r){ r.style.display=''; });
+    sorted.forEach(function(r){ tbody.appendChild(r); });
+
+    countEl.textContent=total;
+    updateChips();
+    renderPagination(totalPages);
+  }
+
+  function updateChips(){
+    chipBar.innerHTML='';
+    var filters=getActiveFilters();
+    var hasAny=false;
+    for(var key in filters){
+      filters[key].forEach(function(val){
+        hasAny=true;
+        var chip=document.createElement('span');
+        chip.className='filter-chip';
+        chip.innerHTML='<span>'+key+': '+val+'</span> <span class="filter-chip-x" data-key="'+key+'" data-val="'+val+'">&times;</span>';
+        chipBar.appendChild(chip);
+        chip.querySelector('.filter-chip-x').addEventListener('click', function(){
+          var grp=panel.querySelector('[data-filter-key="'+key+'"]');
+          if(grp){ var cb=grp.querySelector('input[value="'+val+'"]'); if(cb){ cb.checked=false; currentPage=1; applyAll(); } }
+        });
+      });
+    }
+    if(hasAny){
+      var cl=document.createElement('span'); cl.className='filter-clear'; cl.textContent='Clear all';
+      cl.addEventListener('click',function(){ panel.querySelectorAll('input[type=checkbox]').forEach(function(cb){cb.checked=false;}); currentPage=1; applyAll(); });
+      chipBar.appendChild(cl);
+    }
+  }
+
+  function renderPagination(totalPages){
+    paginationEl.innerHTML='';
+    if(totalPages<=1) return;
+    var prev=document.createElement('button'); prev.className='page-btn'; prev.textContent='‹'; prev.disabled=currentPage<=1;
+    prev.addEventListener('click',function(){ if(currentPage>1){currentPage--;applyAll();} });
+    paginationEl.appendChild(prev);
+    for(var i=1;i<=totalPages;i++){
+      (function(p){
+        var btn=document.createElement('button'); btn.className='page-btn'+(p===currentPage?' active':''); btn.textContent=p;
+        btn.addEventListener('click',function(){ currentPage=p; applyAll(); });
+        paginationEl.appendChild(btn);
+      })(i);
+    }
+    var next=document.createElement('button'); next.className='page-btn'; next.textContent='›'; next.disabled=currentPage>=totalPages;
+    next.addEventListener('click',function(){ if(currentPage<totalPages){currentPage++;applyAll();} });
+    paginationEl.appendChild(next);
+  }
+
+  /* Mobile filter toggle — mark wired so app.js skips duplicate binding */
+  var filterToggle=document.getElementById('filterToggle');
+  filterToggle.dataset.wired='1';
+  var filterBackdrop=document.createElement('div'); filterBackdrop.className='filter-backdrop'; document.body.appendChild(filterBackdrop);
+  filterToggle.addEventListener('click',function(){ var o=panel.classList.toggle('open'); filterBackdrop.classList.toggle('show',o); });
+  filterBackdrop.addEventListener('click',function(){ panel.classList.remove('open'); filterBackdrop.classList.remove('show'); });
+
+  applyAll();
+})();
+</script>
+</body>
+</html>
