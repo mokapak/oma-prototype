@@ -1087,7 +1087,8 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
 
 /* ========== APP DETAIL VERTICAL SIDEBAR NAV ========== */
 .app-detail-layout { display: block; }
-.app-detail-layout > .content { margin-left: var(--app-sidebar-nav-w); }
+.app-detail-layout > .content,
+.app-detail-layout > .app-detail-content { margin-left: var(--app-sidebar-nav-w); }
 .app-sidebar-nav {
   background: var(--surface);
   border-right: 1px solid var(--border);
@@ -1536,7 +1537,8 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
 
   /* === APP DETAIL SIDEBAR → HORIZONTAL SCROLL STRIP === */
   .app-detail-layout { display: block; }
-  .app-detail-layout > .content { margin-left: 0; }
+  .app-detail-layout > .content,
+  .app-detail-layout > .app-detail-content { margin-left: 0; }
   .app-sidebar-nav {
     position: static; height: auto;
     display: flex; flex-direction: row;
