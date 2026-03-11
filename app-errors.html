@@ -72,7 +72,7 @@
         </nav>
         <div class="app-detail-content" style="overflow-y:auto;padding:24px 28px;">
       <!-- Store selector -->
-      <div style="display:flex;gap:10px;margin-bottom:24px;align-items:center;">
+      <div style="display:flex;gap:10px;margin-bottom:24px;align-items:center;flex-wrap:wrap;">
         <span style="font-size:13px;color:var(--text-muted);">Platform:</span>
         <button class="err-tab active" data-err-platform="ios">iOS (Xcode)</button>
         <button class="err-tab" data-err-platform="android">Android</button>
@@ -259,6 +259,10 @@
 .mb-4 { margin-bottom:20px; }
 .text-green { color:#198754; }
 .mono { font-family: 'Courier New', monospace; }
+@media (max-width: 768px) {
+  .errors-section-head { flex-wrap: wrap; gap: 8px; }
+  .errors-section-title { font-size: 13px; }
+}
 </style>
 <script src="app.js"></script>
 </body>

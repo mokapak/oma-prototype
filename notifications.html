@@ -48,12 +48,12 @@
       <div class="content">
 
         <!-- Page header -->
-        <div class="page-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+        <div class="page-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
           <div>
             <h1 class="page-title">Notifications</h1>
             <p style="font-size:13px;color:var(--text-3);margin-top:4px;">Your latest alerts and updates from the OMA platform</p>
           </div>
-          <button id="markAllReadBtn" class="btn btn-secondary" style="font-size:13px;">✓ Mark all as read</button>
+          <button id="markAllReadBtn" class="btn btn-secondary" style="font-size:13px;flex-shrink:0;">✓ Mark all as read</button>
         </div>
 
         <!-- TODAY -->
@@ -199,6 +199,10 @@
 .notif-row:hover { background: var(--bg); }
 .notif-row.unread { background: #fff9f5; }
 .notif-row.unread:hover { background: #fff3eb; }
+@media (max-width: 480px) {
+  .notif-row { flex-wrap: wrap; }
+  .notif-row > a.btn, .notif-row > button.btn { width: 100%; text-align: center; margin-top: 8px; }
+}
 </style>
 
 <script src="app.js"></script>

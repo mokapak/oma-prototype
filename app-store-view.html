@@ -72,7 +72,7 @@
         </nav>
         <div class="app-detail-content" style="overflow-y:auto;padding:24px 28px;">
       <!-- Store selector tabs -->
-      <div style="display:flex;gap:10px;margin-bottom:24px;align-items:center;">
+      <div style="display:flex;gap:10px;margin-bottom:24px;align-items:center;flex-wrap:wrap;">
         <span style="font-size:13px;color:var(--text-muted);">Store:</span>
         <button class="err-tab active" data-err-platform="google-play">🤖 Google Play</button>
         <button class="err-tab" data-err-platform="app-store">🍎 App Store</button>
@@ -430,6 +430,8 @@
 @media (max-width: 768px) {
   .store-layout { grid-template-columns: 1fr; }
   .store-meta-panel { margin-top: 0; }
+  .store-app-header { flex-wrap: wrap; }
+  .store-app-header > div:last-child { min-width: 0; }
 }
 </style>
 <script src="app.js"></script>
