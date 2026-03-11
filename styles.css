@@ -1573,7 +1573,7 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
   /* === TOOLBAR === */
   .toolbar      { gap: 8px; flex-wrap: wrap; }
   .toolbar-left { flex-wrap: wrap; width: 100%; }
-  .toolbar-right { width: 100%; justify-content: flex-end; }
+  .toolbar-right { width: 100%; justify-content: flex-end; flex-wrap: wrap; }
   .search-box   { width: 100%; max-width: 100%; }
 
   /* === CARDS / SECTIONS === */
@@ -1641,6 +1641,10 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
 
   /* Home KPI → 1 col on very small */
   .home-kpi-grid { grid-template-columns: 1fr; }
+
+  /* Catalog toolbar: truncate dropdown labels so controls fit on one row */
+  .catalog-main .toolbar-right .select-btn { max-width: 105px; overflow: hidden; }
+  .catalog-main .toolbar-right .dropdown-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
 
 /* ========================================================
