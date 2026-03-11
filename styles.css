@@ -1501,29 +1501,35 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
     border-radius: 0 0 3px 3px;
   }
 
-  /* Push all page content above the bottom nav bar */
-  .layout { padding-bottom: var(--footer-h); }
+  /* Sidebar est en bas → supprimer le padding-left, garder padding-bottom */
+  .layout { padding-left: 0; padding-bottom: var(--footer-h); }
 
   /* Hide the regular footer (bottom nav takes its place) */
   .footer { display: none; }
 
   /* === CATALOG FILTER: full-screen overlay on mobile === */
-  .filter-panel {
-    left: 0;
-    width: 280px;
-  }
+  .filter-panel { left: 0; width: 280px; }
 
   /* === CONTENT PADDING === */
   .content      { padding: 16px; }
   .content-full { padding: 16px; }
 
   /* === PAGE HEADER === */
+  .page-header   { margin-bottom: 16px; flex-direction: column; gap: 8px; }
   .page-title    { font-size: 20px; }
-  .page-subtitle { font-size: 13px; }
+  .page-subtitle { font-size: 13px; white-space: normal; }
 
   /* === KPI GRID === */
   .kpi-grid  { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
   .kpi-value { font-size: 24px; }
+
+  /* === HOME KPI CARDS === */
+  .home-kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .home-kpi-card { padding: 14px; }
+  .home-kpi-value { font-size: 22px; }
+
+  /* === CATALOG GRID → 1 COL === */
+  .app-grid { grid-template-columns: 1fr; }
 
   /* === WELCOME BANNER === */
   .welcome          { flex-direction: column; align-items: flex-start; padding: 18px 16px; gap: 14px; }
@@ -1531,41 +1537,48 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
   .welcome-greeting { font-size: 20px; }
 
   /* === APP DETAIL HEADER === */
-  .app-info-bar { padding: 10px 16px; flex-wrap: wrap; }
+  .app-info-bar  { padding: 10px 16px; flex-wrap: wrap; gap: 10px; }
   .app-info-name { font-size: 14px; }
-  .app-nav   { padding: 0 16px; }
+  .app-info-meta { flex-wrap: wrap; gap: 6px; }
+  .app-info-fav  { margin-left: 0; }
+  .app-nav       { padding: 0 16px; }
 
   /* === APP DETAIL SIDEBAR → HORIZONTAL SCROLL STRIP === */
   .app-detail-layout { display: block; }
   .app-detail-layout > .content,
-  .app-detail-layout > .app-detail-content { margin-left: 0; }
+  .app-detail-layout > .app-detail-content { margin-left: 0; padding: 16px; }
   .app-sidebar-nav {
     position: static; height: auto;
     display: flex; flex-direction: row;
     overflow-x: auto; border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 0; gap: 0;
+    padding: 0; gap: 0; width: 100%;
     scrollbar-width: none;
   }
   .app-sidebar-nav::-webkit-scrollbar { display: none; }
   .app-sidebar-nav a {
     border-left: none; border-bottom: 2.5px solid transparent;
-    white-space: nowrap; padding: 10px 14px;
+    white-space: nowrap; padding: 10px 14px; flex-shrink: 0;
   }
   .app-sidebar-nav a.active { border-left-color: transparent; border-bottom-color: var(--orange); }
+
+  /* === CHART & TABLE OVERFLOW === */
+  .tbl-wrap      { overflow-x: auto; }
+  canvas         { max-width: 100%; }
 
   /* === BRICKS GRID → 1 COL === */
   .brick-grid { grid-template-columns: 1fr; }
   .brick-wide { grid-column: 1; }
 
   /* === TOOLBAR === */
-  .toolbar      { gap: 8px; }
-  .toolbar-left { flex-wrap: wrap; }
+  .toolbar      { gap: 8px; flex-wrap: wrap; }
+  .toolbar-left { flex-wrap: wrap; width: 100%; }
+  .toolbar-right { width: 100%; justify-content: flex-end; }
   .search-box   { width: 100%; max-width: 100%; }
 
   /* === CARDS / SECTIONS === */
-  .card    { padding: 16px; }
-  .section { padding: 16px; }
+  .card    { padding: 14px; }
+  .section { padding: 14px; }
 
   /* === ALL MULTI-COL GRIDS → 1 COL === */
   .g2          { grid-template-columns: 1fr; }
@@ -1573,7 +1586,13 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
   .charts-2col { grid-template-columns: 1fr; }
   .charts-3col { grid-template-columns: 1fr; }
 
-  /* Page-specific layouts (also overridden in their <style> blocks) */
+  /* === TABLES === */
+  .tbl th, .tbl td { padding: 8px 10px; font-size: 12px; }
+
+  /* === POPIN / DROPDOWN === */
+  .popin { width: calc(100vw - 32px); right: 16px; left: 16px; }
+
+  /* Page-specific layouts */
   .fav-layout      { grid-template-columns: 1fr; }
   .fav-kpi-grid    { grid-template-columns: repeat(2, 1fr); }
   .dash-layout     { grid-template-columns: 1fr; }
