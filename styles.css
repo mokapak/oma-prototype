@@ -1436,7 +1436,7 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
     overflow-y: auto;
     display: none;
   }
-  .filter-panel.open  { display: flex; }
+  .filter-panel.open  { display: flex; flex-direction: column; }
   .filter-toggle      { display: inline-flex; } /* show toggle button */
   .catalog-layout     { flex-wrap: wrap; }
   .catalog-main       { margin-left: 0; }        /* no filter panel offset on tablet */
@@ -1508,7 +1508,10 @@ body.has-app-sidebar  .footer { margin-left: calc(var(--sidebar-w) + var(--app-s
   .footer { display: none; }
 
   /* === CATALOG FILTER: full-screen overlay on mobile === */
-  .filter-panel { left: 0; width: 280px; }
+  /* bottom: footer-h keeps the panel above the bottom nav bar */
+  .filter-panel { left: 0; width: 280px; bottom: var(--footer-h); }
+  /* Toolbar items must align to the left so they stay on-screen */
+  .catalog-main .toolbar-right { justify-content: flex-start; }
 
   /* === CONTENT PADDING === */
   .content      { padding: 16px; }
