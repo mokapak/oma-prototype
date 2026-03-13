@@ -12,7 +12,7 @@
 
   <header class="header">
     <a href="home.html" class="header-logo"><div class="logo-mark">O</div><div class="logo-text">OMA <span>APPS DETAILS</span></div></a>
-    <div class="header-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="search" placeholder="Search apps, countries, stores…" id="headerSearch" /></div>
+    <div class="header-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="search" placeholder="Search apps, countries, stores…" /></div>
     <div class="header-actions">
       <div class="h-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-badge">3</span></div>
       <div class="h-user"><div class="h-avatar">TC</div><div class="h-user-info"><div class="h-user-name">Théophile Cornuet</div><div class="h-user-role">Product Owner</div></div></div>
@@ -35,14 +35,14 @@
         <div>
           <div class="app-info-name-row">
             <span class="app-info-name">Orange et moi France</span>
-            <button class="app-family-chevron" data-app-family="appFamilyMenu" title="Other apps in this family">
+            <button class="app-family-chevron" data-app-family="appFamilyMenu">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <ul class="dropdown-menu app-family-menu" id="appFamilyMenu">
-              <li class="dropdown-item" data-href="app-summary.html">Orange et moi France</li>
-              <li class="dropdown-item" data-href="app-summary.html">Orange et moi Spain</li>
-              <li class="dropdown-item" data-href="app-summary.html">Orange et moi Belgium</li>
-              <li class="dropdown-item" data-href="app-summary.html">Orange et moi Africa</li>
+              <li class="dropdown-item">Orange et moi France</li>
+              <li class="dropdown-item">Orange et moi Spain</li>
+              <li class="dropdown-item">Orange et moi Belgium</li>
+              <li class="dropdown-item">Orange et moi Africa</li>
             </ul>
           </div>
           <div class="app-info-meta">
@@ -70,1344 +70,828 @@
           <a href="app-competitors.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Competitors</a>
         </nav>
 
-        <div class="app-detail-content" id="graphContent">
+        <div class="app-detail-content gc-page">
 
-          <!-- Platform tabs -->
-          <div class="g-plat-tabs">
-            <button class="g-plat-btn active" data-plat="all">All Platforms</button>
-            <button class="g-plat-btn" data-plat="android">🤖 Android</button>
-            <button class="g-plat-btn" data-plat="ios">🍎 iOS</button>
-            <button class="g-plat-btn" data-plat="huawei">📱 Huawei</button>
+          <!-- ── PLATFORM TABS ── -->
+          <div class="gc-plat">
+            <button class="gc-plat-btn active" data-plat="all">All Platforms</button>
+            <button class="gc-plat-btn" data-plat="android">🤖 Android</button>
+            <button class="gc-plat-btn" data-plat="ios">🍎 iOS</button>
+            <button class="gc-plat-btn" data-plat="huawei">📱 Huawei</button>
           </div>
 
-          <!-- Controls panel -->
-          <div class="g-controls">
+          <!-- ── METRICS CHECKLIST ── -->
+          <div class="gc-metrics-card">
+            <span class="gc-metrics-label">Metrics</span>
+            <div class="gc-metrics-grid" id="metricsGrid"></div>
+          </div>
 
-            <!-- Row 1: Date range -->
-            <div class="ctrl-row ctrl-date">
-              <span class="ctrl-lbl">Period</span>
-              <div class="date-presets">
-                <button class="range-btn active" data-range="7d">7d</button>
-                <button class="range-btn" data-range="30d">30d</button>
-                <button class="range-btn" data-range="90d">90d</button>
-                <button class="range-btn" data-range="1y">1y</button>
-                <button class="range-btn" data-range="custom">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                  Custom
-                </button>
-              </div>
-              <div class="date-custom-wrap" id="customDateWrap">
-                <input type="date" id="dateFrom" value="2025-01-01" min="2025-01-01" max="2025-12-31" />
-                <span class="date-arrow">→</span>
-                <input type="date" id="dateTo" value="2025-03-31" min="2025-01-01" max="2025-12-31" />
-              </div>
-              <span class="date-display" id="dateDisplay">Jan 1 → Mar 31, 2025</span>
-              <button class="btn btn-secondary btn-sm g-export-btn" id="exportBtn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Export CSV
-              </button>
-            </div>
+          <!-- ── CHART CARD ── -->
+          <div class="gc-card card">
 
-            <!-- Row 2: Filters -->
-            <div class="ctrl-row ctrl-filters">
-              <span class="ctrl-lbl">Filters</span>
-
-              <!-- Country multi-select -->
-              <div class="f-wrap" id="countryWrap">
-                <button class="f-trigger" id="countryTrigger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  <span id="countryLabel">All Countries</span>
-                  <svg class="f-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="f-dropdown f-country-dd" id="countryDropdown">
-                  <div class="fdd-top">
-                    <input class="fdd-search" type="search" placeholder="Search country…" id="countrySearch" autocomplete="off" />
-                    <div class="fdd-quick">
-                      <button class="fdd-q" id="countryAll">Select all</button>
-                      <button class="fdd-q" id="countryClear">Clear</button>
-                    </div>
-                  </div>
-                  <div class="fdd-list" id="countryList"></div>
+            <!-- Header row: active metric chips + date controls -->
+            <div class="gc-card-top">
+              <div class="gc-active-chips" id="activeMetricChips"></div>
+              <div class="gc-date-area">
+                <div class="gc-period-btns">
+                  <button class="gc-period active" data-period="7d">7D</button>
+                  <button class="gc-period" data-period="30d">30D</button>
+                  <button class="gc-period" data-period="90d">90D</button>
+                  <button class="gc-period" data-period="1y">1Y</button>
                 </div>
-              </div>
-
-              <!-- Version filter -->
-              <div class="f-wrap" id="versionWrap">
-                <button class="f-trigger" id="versionTrigger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                  <span id="versionLabel">All Versions</span>
-                  <svg class="f-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="f-dropdown f-simple-dd" id="versionDropdown"></div>
-              </div>
-
-              <!-- OS filter -->
-              <div class="f-wrap" id="osWrap">
-                <button class="f-trigger" id="osTrigger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                  <span id="osLabel">All OS</span>
-                  <svg class="f-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="f-dropdown f-simple-dd" id="osDropdown"></div>
-              </div>
-
-              <!-- Device filter -->
-              <div class="f-wrap" id="deviceWrap">
-                <button class="f-trigger" id="deviceTrigger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="12" y2="13"/></svg>
-                  <span id="deviceLabel">All Devices</span>
-                  <svg class="f-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="f-dropdown f-simple-dd" id="deviceDropdown"></div>
-              </div>
-
-              <!-- Campaign filter -->
-              <div class="f-wrap" id="campaignWrap">
-                <button class="f-trigger" id="campaignTrigger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                  <span id="campaignLabel">No Campaign</span>
-                  <svg class="f-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="f-dropdown f-simple-dd" id="campaignDropdown"></div>
-              </div>
-
-              <!-- Active filter chips -->
-              <div class="active-chips" id="activeChips"></div>
-            </div>
-
-            <!-- Row 3: KPI selector -->
-            <div class="ctrl-row ctrl-kpi">
-              <span class="ctrl-lbl">KPIs</span>
-              <div class="kpi-pills" id="kpiPills"></div>
-              <span class="kpi-hint" id="kpiHint"></span>
-            </div>
-
-          </div><!-- .g-controls -->
-
-          <!-- Chart card -->
-          <div class="card g-card">
-            <div class="card-header g-card-header">
-              <div class="g-card-title" id="gCardTitle">Performance Analysis</div>
-              <div class="g-card-actions">
-                <!-- Chart type buttons -->
-                <div class="chart-type-group" id="chartTypeGroup">
-                  <button class="ctb active" data-type="spline" title="Spline">
-                    <svg viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="18">
-                      <path d="M2 16 C5 16 5 4 9 4 C13 4 11 14 15 10 C17 8 19 6 22 4"/>
-                    </svg>
-                  </button>
-                  <button class="ctb" data-type="line" title="Line">
-                    <svg viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="18">
-                      <polyline points="2,16 7,8 12,12 17,4 22,7"/>
-                    </svg>
-                  </button>
-                  <button class="ctb" data-type="bar" title="Bar">
-                    <svg viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="2" width="22" height="18">
-                      <rect x="2" y="10" width="5" height="8" rx="1" fill="currentColor" stroke="none"/>
-                      <rect x="9.5" y="5" width="5" height="13" rx="1" fill="currentColor" stroke="none"/>
-                      <rect x="17" y="2" width="5" height="16" rx="1" fill="currentColor" stroke="none"/>
-                    </svg>
-                  </button>
-                  <button class="ctb" data-type="area" title="Area">
-                    <svg viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="22" height="18">
-                      <path d="M2 16 C5 16 5 4 9 4 C13 4 11 14 15 10 C17 8 19 6 22 4" />
-                      <path d="M2 16 C5 16 5 4 9 4 C13 4 11 14 15 10 C17 8 19 6 22 4 L22 18 L2 18 Z" fill="currentColor" opacity="0.15" stroke="none"/>
-                    </svg>
-                  </button>
+                <div class="gc-date-picker" id="gcDatePicker">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span id="gcDateLabel">Jan 1 – Mar 31, 2025</span>
+                  <svg class="gc-date-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="10" height="10"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="gc-date-inputs" id="gcDateInputs">
+                  <input type="date" id="gcFrom" value="2025-01-01" min="2025-01-01" max="2025-12-31"/>
+                  <span>→</span>
+                  <input type="date" id="gcTo" value="2025-12-31" min="2025-01-01" max="2025-12-31"/>
+                  <button class="gc-date-clear" id="gcDateClear" title="Clear custom range">×</button>
                 </div>
               </div>
             </div>
 
-            <!-- KPI summary stats -->
-            <div class="g-summary" id="gSummary"></div>
-
-            <!-- Main chart -->
-            <div class="g-chart-wrap" id="mainChartWrap">
-              <canvas id="mainChart"></canvas>
-            </div>
-
-            <!-- Empty state -->
-            <div class="g-empty" id="gEmpty" style="display:none">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              <p>Select at least one KPI above to display data.</p>
-            </div>
-
-            <!-- Star distribution chart -->
-            <div class="g-star-wrap" id="starDistWrap" style="display:none">
-              <div class="g-star-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                Star Distribution
+            <!-- Controls row: chart type (left) + breakdown filters (right) -->
+            <div class="gc-card-controls">
+              <div class="gc-chart-types" id="gcChartTypes">
+                <button class="gc-ctype active" data-type="spline" title="Spline">
+                  <svg viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="22" height="16"><path d="M1 13 C4 13 4 3 8 3 C12 3 10 11 14 8 C16 6 18 4 21 3"/></svg>
+                </button>
+                <button class="gc-ctype" data-type="line" title="Line">
+                  <svg viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="22" height="16"><polyline points="1,13 6,6 11,10 16,3 21,6"/></svg>
+                </button>
+                <button class="gc-ctype" data-type="bar" title="Bar">
+                  <svg viewBox="0 0 22 16" fill="currentColor" width="22" height="16"><rect x="1" y="8" width="4" height="7" rx="1"/><rect x="7" y="4" width="4" height="11" rx="1"/><rect x="13" y="1" width="4" height="14" rx="1"/><rect x="17" y="6" width="4" height="9" rx="1"/></svg>
+                </button>
+                <button class="gc-ctype" data-type="area" title="Area">
+                  <svg viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="22" height="16"><path d="M1 13 C4 13 4 3 8 3 C12 3 10 11 14 8 C16 6 18 4 21 3"/><path d="M1 13 C4 13 4 3 8 3 C12 3 10 11 14 8 C16 6 18 4 21 3 L21 15 L1 15 Z" fill="currentColor" opacity="0.18" stroke="none"/></svg>
+                </button>
               </div>
-              <div class="g-star-canvas-wrap">
-                <canvas id="starChart"></canvas>
+              <div class="gc-breakdown-area">
+                <span class="gc-breakdown-label">Compare by</span>
+                <div class="gc-breakdown-btns" id="gcBreakdownBtns">
+                  <button class="gc-bdown active" data-bd="none">None</button>
+                  <button class="gc-bdown" data-bd="version">Version</button>
+                  <button class="gc-bdown" data-bd="country">Country</button>
+                  <button class="gc-bdown" data-bd="os">OS</button>
+                  <button class="gc-bdown" data-bd="device">Device</button>
+                  <button class="gc-bdown" data-bd="campaign">Campaign</button>
+                </div>
               </div>
             </div>
 
-            <!-- Legend -->
-            <div class="g-legend" id="gLegend"></div>
-          </div>
+            <!-- Stats bar -->
+            <div class="gc-stats" id="gcStats"></div>
+
+            <!-- Chart canvas -->
+            <div class="gc-chart-area">
+              <canvas id="gcCanvas"></canvas>
+            </div>
+
+            <!-- Clickable legend -->
+            <div class="gc-legend" id="gcLegend"></div>
+
+          </div><!-- .gc-card -->
 
         </div><!-- .app-detail-content -->
-      </div><!-- .app-detail-layout -->
-    </div><!-- .main -->
-  </div><!-- .layout -->
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-logo">O</div>
     <nav class="footer-nav"><span class="footer-link">Contact</span><span class="footer-link">API V2</span><span class="footer-link">API V3</span><span class="footer-link">Legal Notices</span></nav>
     <span class="footer-copy">© Orange SA 2026 — All rights reserved</span>
   </footer>
-</div><!-- .shell -->
+</div>
 
-<!-- ============================================================ -->
-<!-- STYLES -->
-<!-- ============================================================ -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- STYLES                                                         -->
+<!-- ══════════════════════════════════════════════════════════════ -->
 <style>
-/* === APP DETAIL CONTENT === */
-.app-detail-content {
-  overflow-y: auto;
-  padding: 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+.gc-page { overflow-y: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
 
-/* === PLATFORM TABS === */
-.g-plat-tabs {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.g-plat-btn {
-  font-size: 12px;
-  padding: 5px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.15s;
-  font-weight: 500;
-}
-.g-plat-btn:hover { border-color: var(--orange); color: var(--orange); }
-.g-plat-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+/* ── Platform tabs ── */
+.gc-plat { display: flex; gap: 6px; flex-wrap: wrap; }
+.gc-plat-btn { padding: 5px 14px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 12px; font-weight: 600; cursor: pointer; transition: all .13s; }
+.gc-plat-btn:hover { border-color: var(--orange); color: var(--orange); }
+.gc-plat-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
 
-/* === CONTROLS PANEL === */
-.g-controls {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: visible;
+/* ── Metrics checklist ── */
+.gc-metrics-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; display: flex; align-items: flex-start; gap: 14px; }
+.gc-metrics-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); padding-top: 3px; white-space: nowrap; flex-shrink: 0; }
+.gc-metrics-grid { display: flex; flex-wrap: wrap; gap: 2px 4px; }
+.gc-metric-item {
+  display: flex; align-items: center; gap: 7px;
+  padding: 5px 11px; border-radius: 6px; cursor: pointer;
+  user-select: none; transition: background .13s;
+  font-size: 12.5px; font-weight: 500; color: var(--text-muted);
 }
-.ctrl-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 16px;
-  flex-wrap: wrap;
+.gc-metric-item:hover { background: var(--bg); }
+.gc-metric-item.checked { color: var(--text); }
+.gc-metric-check {
+  width: 15px; height: 15px; border-radius: 4px; border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .13s; background: transparent;
 }
-.ctrl-row + .ctrl-row { border-top: 1px solid var(--border); }
-.ctrl-lbl {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  min-width: 44px;
-  flex-shrink: 0;
+.gc-metric-item.checked .gc-metric-check {
+  border-color: var(--metric-color, var(--orange));
+  background: var(--metric-color, var(--orange));
 }
+.gc-metric-check svg { display: none; }
+.gc-metric-item.checked .gc-metric-check svg { display: block; }
+.gc-metric-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--metric-color, #aaa); flex-shrink: 0; opacity: 0; transition: opacity .13s; }
+.gc-metric-item.checked .gc-metric-dot { opacity: 1; }
 
-/* --- DATE --- */
-.date-presets { display: flex; gap: 3px; }
-.range-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 5px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.13s;
-  font-weight: 500;
-}
-.range-btn:hover { border-color: var(--orange); color: var(--orange); }
-.range-btn.active { background: var(--orange); color: #fff; border-color: var(--orange); }
-.date-custom-wrap {
-  display: none;
-  align-items: center;
-  gap: 6px;
-}
-.date-custom-wrap.open { display: flex; }
-.date-custom-wrap input[type="date"] {
-  padding: 4px 8px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 12px;
-  color: var(--text);
-  background: var(--bg);
-  cursor: pointer;
-}
-.date-arrow { font-size: 12px; color: var(--text-muted); }
-.date-display {
-  font-size: 12px;
-  color: var(--text-muted);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 4px 10px;
-  white-space: nowrap;
-}
-.g-export-btn { margin-left: auto; white-space: nowrap; }
+/* ── Chart card ── */
+.gc-card { padding: 0; overflow: visible; }
 
-/* --- FILTERS --- */
-.ctrl-filters { flex-wrap: wrap; }
-.f-wrap { position: relative; }
-.f-trigger {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-  font-size: 12px;
-  color: var(--text);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.13s;
-  font-weight: 500;
+/* Header top: metric chips + date controls */
+.gc-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px 12px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+.gc-active-chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; min-height: 28px; }
+.gc-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 20px; font-size: 12.5px; font-weight: 600;
+  border: 1.5px solid var(--chip-color); color: var(--chip-color);
+  background: color-mix(in srgb, var(--chip-color) 10%, transparent);
 }
-.f-trigger:hover { border-color: var(--orange); }
-.f-trigger.active-filter {
-  border-color: var(--orange);
-  color: var(--orange);
-  background: rgba(255,121,0,0.06);
-}
-.f-trigger.active-filter svg { stroke: var(--orange); }
-.f-chev { flex-shrink: 0; transition: transform 0.15s; }
-.f-trigger.open .f-chev { transform: rotate(180deg); }
+.gc-chip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--chip-color); }
+.gc-chip-rm { cursor: pointer; opacity: .55; font-size: 14px; line-height: 1; margin-left: 2px; }
+.gc-chip-rm:hover { opacity: 1; }
+.gc-no-metric { font-size: 12px; color: var(--text-muted); font-style: italic; }
 
-/* Filter dropdowns — fixed position set via JS */
-.f-dropdown {
-  position: fixed;
-  z-index: 500;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
-  display: none;
+/* Date area */
+.gc-date-area { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.gc-period-btns { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.gc-period { padding: 4px 11px; font-size: 12px; font-weight: 600; border: none; background: transparent; color: var(--text-muted); cursor: pointer; transition: all .13s; border-right: 1px solid var(--border); }
+.gc-period:last-child { border-right: none; }
+.gc-period:hover { color: var(--orange); }
+.gc-period.active { background: var(--orange); color: #fff; }
+.gc-date-picker {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px;
+  font-size: 12px; color: var(--text); cursor: pointer; background: var(--card-bg);
+  transition: border-color .13s; white-space: nowrap;
 }
-.f-dropdown.open { display: block; }
+.gc-date-picker:hover { border-color: var(--orange); }
+.gc-date-picker.custom-active { border-color: var(--orange); color: var(--orange); }
+.gc-date-chev { transition: transform .15s; flex-shrink: 0; }
+.gc-date-picker.open .gc-date-chev { transform: rotate(180deg); }
+.gc-date-inputs {
+  display: none; align-items: center; gap: 6px;
+  padding: 4px 10px; border: 1px solid var(--orange); border-radius: 6px;
+  background: var(--card-bg); font-size: 12px;
+}
+.gc-date-inputs.open { display: flex; }
+.gc-date-inputs input[type="date"] { border: none; background: transparent; font-size: 12px; color: var(--text); cursor: pointer; outline: none; }
+.gc-date-clear { border: none; background: none; cursor: pointer; color: var(--text-muted); font-size: 16px; line-height: 1; padding: 0 2px; }
+.gc-date-clear:hover { color: var(--orange); }
 
-/* Country dropdown */
-.f-country-dd { width: 260px; }
-.fdd-top {
-  padding: 10px 12px 8px;
-  border-bottom: 1px solid var(--border);
-}
-.fdd-search {
-  width: 100%;
-  padding: 6px 10px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 12px;
-  color: var(--text);
-  background: var(--bg);
-  outline: none;
-}
-.fdd-search:focus { border-color: var(--orange); }
-.fdd-quick {
-  display: flex;
-  gap: 12px;
-  margin-top: 7px;
-}
-.fdd-q {
-  font-size: 11px;
-  color: var(--orange);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-  font-weight: 600;
-}
-.fdd-q:hover { opacity: 0.7; }
-.fdd-list {
-  max-height: 230px;
-  overflow-y: auto;
-  padding: 4px 0;
-}
-.fdd-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 12px;
-  cursor: pointer;
-  font-size: 13px;
-  color: var(--text);
-  transition: background 0.1s;
-}
-.fdd-item:hover { background: var(--bg); }
-.fdd-item input[type="checkbox"] {
-  accent-color: var(--orange);
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-}
-.fdd-flag { font-size: 15px; flex-shrink: 0; }
-.fdd-name { flex: 1; }
-.fdd-share { font-size: 11px; color: var(--text-muted); }
-.fdd-no-result { padding: 14px 12px; font-size: 12px; color: var(--text-muted); text-align: center; }
+/* Controls row: chart type + breakdown */
+.gc-card-controls { display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; border-bottom: 1px solid var(--border); gap: 12px; flex-wrap: wrap; }
+.gc-chart-types { display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 7px; padding: 2px; gap: 1px; }
+.gc-ctype { width: 34px; height: 28px; display: flex; align-items: center; justify-content: center; border: none; background: transparent; border-radius: 5px; cursor: pointer; color: var(--text-muted); transition: all .13s; }
+.gc-ctype:hover { background: rgba(0,0,0,.05); color: var(--text); }
+.gc-ctype.active { background: var(--card-bg); color: var(--orange); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 
-/* Simple dropdown */
-.f-simple-dd { min-width: 170px; }
-.f-simple-item {
-  padding: 8px 14px;
-  font-size: 13px;
-  color: var(--text);
-  cursor: pointer;
-  transition: background 0.1s;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.f-simple-item:first-child { border-radius: 8px 8px 0 0; padding-top: 10px; }
-.f-simple-item:last-child { border-radius: 0 0 8px 8px; padding-bottom: 10px; }
-.f-simple-item:hover { background: var(--bg); }
-.f-simple-item.selected { color: var(--orange); font-weight: 600; }
-.f-simple-item.selected::after { content: '✓'; margin-left: auto; font-size: 12px; }
+/* Breakdown */
+.gc-breakdown-area { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.gc-breakdown-label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.gc-breakdown-btns { display: flex; gap: 4px; flex-wrap: wrap; }
+.gc-bdown { padding: 4px 12px; border-radius: 5px; border: 1px solid var(--border); background: transparent; font-size: 12px; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: all .13s; }
+.gc-bdown:hover { border-color: var(--orange); color: var(--orange); }
+.gc-bdown.active { background: var(--orange); color: #fff; border-color: var(--orange); }
 
-/* Active filter chips */
-.active-chips { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
-.a-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255,121,0,0.1);
-  color: var(--orange);
-  border: 1px solid rgba(255,121,0,0.3);
-  border-radius: 4px;
-  padding: 3px 8px;
-  font-size: 11px;
-  font-weight: 600;
-}
-.a-chip-rm {
-  cursor: pointer;
-  opacity: 0.6;
-  font-size: 13px;
-  line-height: 1;
-  margin-left: 1px;
-}
-.a-chip-rm:hover { opacity: 1; }
+/* Stats bar */
+.gc-stats { display: flex; border-bottom: 1px solid var(--border); overflow-x: auto; }
+.gc-stat { flex: 1; min-width: 120px; padding: 12px 18px; border-right: 1px solid var(--border); }
+.gc-stat:last-child { border-right: none; }
+.gc-stat-name { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; }
+.gc-stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.gc-stat-val { font-size: 22px; font-weight: 700; color: var(--text); line-height: 1.15; }
+.gc-stat-trend { font-size: 11.5px; font-weight: 600; margin-top: 3px; }
+.gc-stat-trend.up { color: #198754; }
+.gc-stat-trend.dn { color: #dc3545; }
+.gc-stat-sub { font-size: 10.5px; color: var(--text-muted); margin-top: 1px; }
 
-/* --- KPI PILLS --- */
-.ctrl-kpi { align-items: flex-start; }
-.kpi-pills {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  flex: 1;
-}
-.kpi-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1.5px solid var(--border);
-  background: transparent;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.13s;
-  white-space: nowrap;
+/* Chart canvas */
+.gc-chart-area { position: relative; height: 300px; padding: 16px 16px 8px; }
+
+/* Clickable legend */
+.gc-legend { display: flex; gap: 6px; padding: 12px 18px; flex-wrap: wrap; border-top: 1px solid var(--border); align-items: center; }
+.gc-leg-item {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 12px; border-radius: 20px; cursor: pointer;
+  border: 1.5px solid var(--leg-color, #ccc);
+  background: color-mix(in srgb, var(--leg-color, #ccc) 8%, transparent);
+  font-size: 12px; font-weight: 500; color: var(--text);
+  transition: opacity .15s, transform .1s;
   user-select: none;
 }
-.kpi-pill:hover { border-color: var(--text-muted); color: var(--text); }
-.kpi-pill.active {
-  color: var(--text);
-  background: var(--card-bg);
-  border-color: transparent;
-  box-shadow: 0 0 0 1.5px currentColor;
-}
-.kpi-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.kpi-hint {
-  font-size: 11px;
-  color: var(--text-muted);
-  align-self: center;
-  font-style: italic;
-  white-space: nowrap;
-}
+.gc-leg-item:hover { transform: translateY(-1px); }
+.gc-leg-item.hidden { opacity: .35; background: transparent; }
+.gc-leg-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--leg-color, #ccc); flex-shrink: 0; }
+.gc-leg-val { font-size: 11px; color: var(--text-muted); margin-left: 2px; }
 
-/* === CHART CARD === */
-.g-card { overflow: visible; }
-.g-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 18px;
-  flex-wrap: wrap;
-}
-.g-card-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-}
-.g-card-actions { display: flex; align-items: center; gap: 8px; }
-
-/* Chart type buttons */
-.chart-type-group {
-  display: flex;
-  gap: 1px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  padding: 2px;
-}
-.ctb {
-  width: 36px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  border-radius: 5px;
-  cursor: pointer;
-  color: var(--text-muted);
-  transition: all 0.13s;
-}
-.ctb:hover { background: rgba(0,0,0,0.05); color: var(--text); }
-.ctb.active {
-  background: var(--card-bg);
-  color: var(--orange);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-}
-
-/* KPI summary bar */
-.g-summary {
-  display: flex;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-}
-.g-sum-item {
-  flex: 1;
-  min-width: 120px;
-  padding: 12px 18px;
-  border-right: 1px solid var(--border);
-}
-.g-sum-item:last-child { border-right: none; }
-.g-sum-lbl {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-.g-sum-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.g-sum-val { font-size: 22px; font-weight: 700; color: var(--text); line-height: 1.1; }
-.g-sum-trend { font-size: 11px; margin-top: 3px; font-weight: 600; }
-.g-sum-trend.up { color: #198754; }
-.g-sum-trend.dn { color: #dc3545; }
-.g-sum-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-
-/* Main chart area */
-.g-chart-wrap {
-  position: relative;
-  height: 320px;
-  padding: 16px 16px 8px;
-}
-.g-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: 200px;
-  color: var(--text-muted);
-  font-size: 13px;
-}
-.g-empty svg { opacity: 0.3; }
-
-/* Star distribution */
-.g-star-wrap { padding: 0 16px 16px; }
-.g-star-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  padding: 10px 0 8px;
-  border-top: 1px solid var(--border);
-  margin-top: 4px;
-}
-.g-star-canvas-wrap { height: 160px; }
-
-/* Legend */
-.g-legend {
-  display: flex;
-  gap: 18px;
-  padding: 10px 18px;
-  border-top: 1px solid var(--border);
-  flex-wrap: wrap;
-}
-.g-leg-item {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.g-leg-line {
-  width: 20px;
-  height: 2.5px;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-/* === RESPONSIVE === */
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .app-detail-content { padding: 14px 14px; }
-  .g-card-header { padding: 12px 14px; }
-  .g-sum-item { padding: 10px 12px; min-width: 100px; }
-  .g-sum-val { font-size: 18px; }
-  .g-chart-wrap { height: 240px; padding: 10px 8px 6px; }
-  .g-star-canvas-wrap { height: 130px; }
-  .g-export-btn { display: none; }
-  .ctrl-row { padding: 10px 12px; }
+  .gc-page { padding: 14px; }
+  .gc-card-top, .gc-card-controls { padding: 12px 14px; }
+  .gc-stat { padding: 10px 12px; min-width: 100px; }
+  .gc-stat-val { font-size: 18px; }
+  .gc-chart-area { height: 220px; padding: 10px 8px 6px; }
+  .gc-breakdown-area { justify-content: flex-start; }
+  .gc-date-area { justify-content: flex-start; }
+  .gc-metrics-grid { gap: 2px; }
+  .gc-metric-item { padding: 5px 8px; font-size: 12px; }
 }
 @media (max-width: 480px) {
-  .g-plat-btn { font-size: 11px; padding: 4px 8px; }
-  .kpi-pill { font-size: 11px; padding: 4px 9px; }
-  .ctb { width: 30px; height: 26px; }
+  .gc-plat-btn { font-size: 11px; padding: 4px 9px; }
+  .gc-card-controls { flex-direction: column; align-items: flex-start; }
+  .gc-breakdown-area { width: 100%; }
 }
 </style>
 
-<!-- ============================================================ -->
-<!-- SCRIPT -->
-<!-- ============================================================ -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- SCRIPT                                                         -->
+<!-- ══════════════════════════════════════════════════════════════ -->
 <script>
 (function () {
 'use strict';
 
-/* ── DATA ─────────────────────────────────────────────────────── */
-
-// 365 daily dates for 2025
-const DATES = [];
-const D0 = new Date('2025-01-01');
-for (let i = 0; i < 365; i++) {
-  const d = new Date(D0);
+/* ──────────────────────────────────────────────────────────────
+   DATA
+────────────────────────────────────────────────────────────── */
+// 365 days of dates
+const DATES = Array.from({ length: 365 }, (_, i) => {
+  const d = new Date('2025-01-01');
   d.setDate(d.getDate() + i);
-  DATES.push(d);
-}
+  return d;
+});
 
-function rnd(base, variance, len, trend) {
+function genSeries(base, variance, len, trend) {
   let v = base;
-  return Array.from({ length: len }, (_, i) => {
+  return Array.from({ length: len }, () => {
     v += (Math.random() - 0.47) * variance + (trend || 0);
     return Math.max(0, Math.round(v));
   });
 }
 
-const KPI = {
-  downloads:    { label: 'Downloads',         color: '#ff7900', base: 285000,   var: 28000,  trend: 60,   scale: 'K' },
-  uninstalls:   { label: 'Uninstalls',        color: '#dc3545', base: 11800,    var: 1400,   trend: 8,    scale: 'K' },
-  still_inst:   { label: 'Still Installed',   color: '#198754', base: 17600000, var: 90000,  trend: 180,  scale: 'M' },
-  updates:      { label: 'Updates',           color: '#6f42c1', base: 192000,   var: 19000,  trend: 35,   scale: 'K' },
-  store_visits: { label: 'Store Page Visits', color: '#0d6efd', base: 218000,   var: 23000,  trend: 45,   scale: 'K' },
-  active_users: { label: 'Active Users',      color: '#0070c0', base: 1870000,  var: 58000,  trend: 110,  scale: 'M' },
-  sessions:     { label: 'Sessions',          color: '#17a2b8', base: 5600000,  var: 190000, trend: 210,  scale: 'M' },
-  star_dist:    { label: 'Star Distribution', color: '#ffc107', base: null,     var: null,   trend: null, scale: '', special: true },
-  rating_count: { label: 'Rating Count',      color: '#6c757d', base: 27500,    var: 2600,   trend: 75,   scale: 'K' },
-  crashes:      { label: 'Crashes',           color: '#fd7e14', base: 3500,     var: 420,    trend: -3,   scale: 'K' },
-  errors:       { label: 'Errors',            color: '#e83e8c', base: 8400,     var: 950,    trend: -6,   scale: 'K' },
+const KPI_CFG = {
+  downloads:    { label: 'Downloads',         color: '#ff7900', base: 285000,  var: 28000,  trend: 60,   scale: 'K' },
+  active_users: { label: 'Active Users',       color: '#0070c0', base: 1870000, var: 58000,  trend: 110,  scale: 'M' },
+  sessions:     { label: 'Sessions',           color: '#17a2b8', base: 5600000, var: 190000, trend: 210,  scale: 'M' },
+  still_inst:   { label: 'Still Installed',    color: '#198754', base: 17600000,var: 90000,  trend: 180,  scale: 'M' },
+  uninstalls:   { label: 'Uninstalls',         color: '#dc3545', base: 11800,   var: 1400,   trend: 8,    scale: 'K' },
+  updates:      { label: 'Updates',            color: '#6f42c1', base: 192000,  var: 19000,  trend: 35,   scale: 'K' },
+  store_visits: { label: 'Store Page Visits',  color: '#0d6efd', base: 218000,  var: 23000,  trend: 45,   scale: 'K' },
+  rating_count: { label: 'Rating Count',       color: '#6c757d', base: 27500,   var: 2600,   trend: 75,   scale: 'K' },
+  star_dist:    { label: 'Star Distribution',  color: '#ffc107', base: null,    var: null,   trend: null, scale: '',  special: true },
+  crashes:      { label: 'Crashes',            color: '#fd7e14', base: 3500,    var: 420,    trend: -3,   scale: 'K' },
+  errors:       { label: 'Errors',             color: '#e83e8c', base: 8400,    var: 950,    trend: -6,   scale: 'K' },
 };
 
-// Pre-generate raw data
+// Pre-generate full year data for each KPI
 const RAW = {};
-Object.entries(KPI).forEach(([key, cfg]) => {
-  if (!cfg.special) {
-    RAW[key] = rnd(cfg.base, cfg.var, 365, cfg.trend);
-  }
+Object.entries(KPI_CFG).forEach(([k, c]) => {
+  if (c.special) return;
+  RAW[k] = genSeries(c.base, c.var, 365, c.trend);
 });
-// Star distribution: array of [1★%,2★%,3★%,4★%,5★%]
-RAW.star_dist = Array.from({ length: 365 }, () => {
-  const a = [4 + Math.random() * 2, 6 + Math.random() * 2, 12 + Math.random() * 3, 28 + Math.random() * 4, 50 + Math.random() * 5];
-  const t = a.reduce((s, x) => s + x, 0);
-  return a.map(x => +(x / t * 100).toFixed(1));
+// Star distribution: [1★%, 2★%, 3★%, 4★%, 5★%]
+RAW.star_dist = DATES.map(() => {
+  const a = [4+Math.random()*2, 6+Math.random()*2, 12+Math.random()*3, 28+Math.random()*4, 50+Math.random()*5];
+  const t = a.reduce((s,x) => s+x, 0);
+  return a.map(x => +(x/t*100).toFixed(1));
 });
 
-const COUNTRIES = [
-  { code: 'FR', name: 'France',        flag: '🇫🇷', share: 0.35 },
-  { code: 'ES', name: 'Spain',         flag: '🇪🇸', share: 0.18 },
-  { code: 'BE', name: 'Belgium',       flag: '🇧🇪', share: 0.08 },
-  { code: 'RO', name: 'Romania',       flag: '🇷🇴', share: 0.07 },
-  { code: 'MA', name: 'Morocco',       flag: '🇲🇦', share: 0.06 },
-  { code: 'SN', name: 'Senegal',       flag: '🇸🇳', share: 0.04 },
-  { code: 'CI', name: "Côte d'Ivoire", flag: '🇨🇮', share: 0.04 },
-  { code: 'CM', name: 'Cameroon',      flag: '🇨🇲', share: 0.03 },
-  { code: 'TN', name: 'Tunisia',       flag: '🇹🇳', share: 0.03 },
-  { code: 'EG', name: 'Egypt',         flag: '🇪🇬', share: 0.02 },
-  { code: 'JO', name: 'Jordan',        flag: '🇯🇴', share: 0.02 },
-  { code: 'ML', name: 'Mali',          flag: '🇲🇱', share: 0.02 },
-  { code: 'BF', name: 'Burkina Faso',  flag: '🇧🇫', share: 0.01 },
-  { code: 'GN', name: 'Guinea',        flag: '🇬🇳', share: 0.01 },
-  { code: 'SK', name: 'Slovakia',      flag: '🇸🇰', share: 0.01 },
-  { code: 'PL', name: 'Poland',        flag: '🇵🇱', share: 0.01 },
-  { code: 'MD', name: 'Moldova',       flag: '🇲🇩', share: 0.01 },
-  { code: 'SL', name: 'Sierra Leone',  flag: '🇸🇱', share: 0.01 },
-  { code: 'LR', name: 'Liberia',       flag: '🇱🇷', share: 0.005 },
-  { code: 'MG', name: 'Madagascar',    flag: '🇲🇬', share: 0.005 },
-];
-const VERSIONS  = ['All Versions', 'v12.12.4', 'v12.12.0', 'v12.11.2', 'v12.11.0', 'v12.10.5'];
-const OS_LIST   = ['All OS', '🤖 Android', '🍎 iOS', '📱 Huawei'];
-const DEVICES   = ['All Devices', 'Phone', 'Tablet'];
-const CAMPAIGNS = ['No Campaign', 'Q1 2025 Launch', 'Spring Promo', 'Orange Days', 'Back to School'];
-
-/* ── STATE ──────────────────────────────────────────────────────  */
-const ST = {
-  kpis:      ['downloads', 'active_users'],
-  chartType: 'spline',
-  preset:    '90d',
-  dateFrom:  '2025-01-01',
-  dateTo:    '2025-12-31',
-  platform:  'all',
-  countries: [],
-  version:   'All Versions',
-  os:        'All OS',
-  device:    'All Devices',
-  campaign:  'No Campaign',
+// Breakdown dimension data
+const BREAKDOWN = {
+  version: [
+    { label: 'v12.12.4', color: '#ff7900', share: 0.45 },
+    { label: 'v12.12.0', color: '#0070c0', share: 0.25 },
+    { label: 'v12.11.2', color: '#198754', share: 0.15 },
+    { label: 'v12.11.0', color: '#6f42c1', share: 0.10 },
+    { label: 'v12.10.5', color: '#e83e8c', share: 0.05 },
+  ],
+  country: [
+    { label: '🇫🇷 France',  color: '#ff7900', share: 0.35 },
+    { label: '🇪🇸 Spain',   color: '#0070c0', share: 0.18 },
+    { label: '🇧🇪 Belgium', color: '#198754', share: 0.08 },
+    { label: '🇷🇴 Romania', color: '#6f42c1', share: 0.07 },
+    { label: '🇲🇦 Morocco', color: '#e83e8c', share: 0.06 },
+  ],
+  os: [
+    { label: '🤖 Android', color: '#198754', share: 0.60 },
+    { label: '🍎 iOS',      color: '#6c757d', share: 0.35 },
+    { label: '📱 Huawei',  color: '#0070c0', share: 0.05 },
+  ],
+  device: [
+    { label: '📱 Phone',  color: '#ff7900', share: 0.87 },
+    { label: '💻 Tablet', color: '#0070c0', share: 0.13 },
+  ],
+  campaign: [
+    { label: '🟠 Q1 2025 Launch', color: '#ff7900', share: 0.22 },
+    { label: '🌸 Spring Promo',   color: '#0070c0', share: 0.18 },
+    { label: '⚡ Orange Days',    color: '#198754', share: 0.15 },
+    { label: '🎒 Back to School', color: '#6f42c1', share: 0.12 },
+    { label: '🌿 Organic',        color: '#6c757d', share: 0.33 },
+  ],
 };
 
-/* ── HELPERS ─────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────
+   STATE
+────────────────────────────────────────────────────────────── */
+const ST = {
+  kpis:        ['downloads'],   // checked KPIs
+  chartType:   'spline',
+  period:      '30d',           // '7d'|'30d'|'90d'|'1y'|'custom'
+  customFrom:  null,
+  customTo:    null,
+  platform:    'all',
+  breakdown:   'none',
+  hiddenSeries: [],             // indices of hidden chart datasets
+};
+
+/* ──────────────────────────────────────────────────────────────
+   HELPERS
+────────────────────────────────────────────────────────────── */
 function fmt(v, scale) {
-  if (scale === 'M') return (v / 1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
-  if (scale === 'K') return v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1000 ? (v / 1000).toFixed(0) + 'k' : String(v);
+  if (scale === 'M') return (v/1e6).toFixed(1) + 'M';
+  if (scale === 'K') return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1000 ? (v/1000).toFixed(0)+'k' : String(v);
   return String(v);
 }
 function fmtFull(v, scale) {
-  if (scale === 'M') return (v / 1e6).toFixed(1) + 'M';
-  if (scale === 'K') return v >= 1e6 ? (v / 1e6).toFixed(2) + 'M' : v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v.toLocaleString();
+  if (scale === 'M') return (v/1e6).toFixed(2).replace(/\.?0+$/,'') + 'M';
+  if (scale === 'K') return v >= 1000 ? (v/1000).toFixed(1)+'k' : v.toLocaleString();
   return v.toLocaleString();
 }
-function fmtDate(d) {
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-}
-function fmtDateRange(a, b) {
-  const mo = { month: 'short', day: 'numeric' };
-  const yr = a.getFullYear() === b.getFullYear() ? '' : ', ' + b.getFullYear();
-  return a.toLocaleDateString('en-US', mo) + ' → ' + b.toLocaleDateString('en-US', { ...mo, year: 'numeric' });
+function fmtD(d, short) {
+  return d.toLocaleDateString('en-US', short ? {month:'short',day:'numeric'} : {month:'short',day:'numeric',year:'numeric'});
 }
 
-/* ── DATE RANGE ─────────────────────────────────────────────── */
+function platformMult() {
+  return { all: 1, android: 0.60, ios: 0.35, huawei: 0.05 }[ST.platform] || 1;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   DATE RANGE
+────────────────────────────────────────────────────────────── */
 function getRange() {
-  if (ST.preset === 'custom') {
-    const from = new Date(ST.dateFrom);
-    const to   = new Date(ST.dateTo);
-    let si = DATES.findIndex(d => d >= from);
-    let ei = DATES.findIndex(d => d > to) - 1;
-    if (si < 0) si = 0;
-    if (ei < 0) ei = DATES.length - 1;
+  if (ST.period === 'custom' && ST.customFrom && ST.customTo) {
+    const from = new Date(ST.customFrom), to = new Date(ST.customTo);
+    let si = DATES.findIndex(d => d >= from); if (si < 0) si = 0;
+    let ei = DATES.findIndex(d => d > to) - 1; if (ei < 0) ei = DATES.length - 1;
     return [si, Math.min(ei, DATES.length - 1)];
   }
-  const map = { '7d': 7, '30d': 30, '90d': 90, '1y': 365 };
-  const days = map[ST.preset] || 90;
-  const ei = Math.min(days - 1, DATES.length - 1);
-  return [0, ei];
+  const n = { '7d': 7, '30d': 30, '90d': 90, '1y': 365 }[ST.period] || 30;
+  return [0, Math.min(n - 1, DATES.length - 1)];
 }
 
-/* ── FILTER MULTIPLIER ──────────────────────────────────────── */
-function multiplier() {
-  let m = 1;
-  if (ST.countries.length > 0) {
-    m *= ST.countries.reduce((s, code) => {
-      const c = COUNTRIES.find(x => x.code === code);
-      return s + (c ? c.share : 0);
-    }, 0);
+// Reduce points for readability based on range length
+function getLabels(si, ei) {
+  const total = ei - si + 1;
+  const dates = DATES.slice(si, ei + 1);
+  if (total <= 31) return { labels: dates.map(d => fmtD(d, true)), step: 1 };
+  if (total <= 90) {
+    // Weekly
+    return {
+      labels: dates.map((d, i) => i % 7 === 0 ? fmtD(d, true) : ''),
+      step: 1,
+    };
   }
-  const osM = { 'All OS': 1, '🤖 Android': 0.60, '🍎 iOS': 0.35, '📱 Huawei': 0.05 };
-  m *= osM[ST.os] || 1;
-  const devM = { 'All Devices': 1, 'Phone': 0.87, 'Tablet': 0.13 };
-  m *= devM[ST.device] || 1;
-  const platM = { all: 1, android: 0.60, ios: 0.35, huawei: 0.05 };
-  m *= platM[ST.platform] || 1;
-  // Campaign spike: multiply by 1.25 during campaign period
-  if (ST.campaign !== 'No Campaign') m *= 1.25;
-  return m;
+  // Monthly
+  return {
+    labels: dates.map(d => d.getDate() === 1 ? d.toLocaleDateString('en-US',{month:'short',year:'2-digit'}) : ''),
+    step: 1,
+  };
 }
 
-/* ── RENDER ─────────────────────────────────────────────────── */
-let mainChart = null;
-let starChart  = null;
+/* ──────────────────────────────────────────────────────────────
+   CHART
+────────────────────────────────────────────────────────────── */
+let chart = null;
 
-function renderAll() {
-  renderDateDisplay();
-  renderChart();
-  renderSummary();
-  renderLegend();
-  renderActiveChips();
+function buildDatasets(si, ei) {
+  const pm = platformMult();
+  const total = ei - si + 1;
+  const isBar   = ST.chartType === 'bar';
+  const isArea  = ST.chartType === 'area';
+  const tension = ST.chartType === 'spline' ? 0.4 : 0;
+  const isStarDist = ST.kpis.length === 1 && ST.kpis[0] === 'star_dist';
+
+  // ── Star distribution: special stacked bar ──
+  if (isStarDist) {
+    const slice = RAW.star_dist.slice(si, ei + 1);
+    const colors = ['#dc3545','#fd7e14','#ffc107','#8bc34a','#198754'];
+    return ['1 ★','2 ★','3 ★','4 ★','5 ★'].map((lbl, i) => ({
+      label: lbl,
+      data: slice.map(d => d[i]),
+      backgroundColor: colors[i] + 'CC',
+      stack: 'star', type: 'bar',
+      borderRadius: i === 4 ? 3 : 0,
+      borderWidth: 0,
+    }));
+  }
+
+  // ── Breakdown mode ──
+  if (ST.breakdown !== 'none') {
+    const dims = BREAKDOWN[ST.breakdown] || [];
+    const primaryKpi = ST.kpis[0]; // only use first checked KPI
+    const cfg = KPI_CFG[primaryKpi];
+    return dims.map(dim => {
+      const raw = RAW[primaryKpi].slice(si, ei + 1).map(v => Math.round(v * pm * dim.share * 1.05));
+      return {
+        label: dim.label,
+        data: raw,
+        borderColor: dim.color,
+        backgroundColor: isBar ? dim.color + 'CC' : isArea ? dim.color + '22' : 'transparent',
+        fill: isArea, tension: isBar ? 0 : tension,
+        pointRadius: 0, pointHoverRadius: 5,
+        borderWidth: isBar ? 0 : 2.2, borderRadius: isBar ? 4 : 0,
+        type: isBar ? 'bar' : 'line',
+      };
+    });
+  }
+
+  // ── Multi-KPI mode ──
+  return ST.kpis.filter(k => k !== 'star_dist').map((key, idx) => {
+    const cfg = KPI_CFG[key];
+    const raw = RAW[key].slice(si, ei + 1).map(v => Math.round(v * pm));
+    return {
+      label: cfg.label,
+      data: raw,
+      borderColor: cfg.color,
+      backgroundColor: isBar ? cfg.color + 'CC' : isArea ? cfg.color + '22' : 'transparent',
+      fill: isArea, tension: isBar ? 0 : tension,
+      pointRadius: 0, pointHoverRadius: 5,
+      borderWidth: isBar ? 0 : 2.2, borderRadius: isBar ? 4 : 0,
+      yAxisID: idx === 0 ? 'y' : 'y1',
+      type: isBar ? 'bar' : 'line',
+    };
+  });
 }
 
-function renderDateDisplay() {
-  const [si, ei] = getRange();
-  document.getElementById('dateDisplay').textContent = fmtDateRange(DATES[si], DATES[ei]);
+function buildScales(datasets) {
+  const isStarDist = ST.kpis.length === 1 && ST.kpis[0] === 'star_dist';
+  const base = {
+    x: {
+      grid: { color: 'rgba(0,0,0,0.04)', drawTicks: false },
+      ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 10, font: { size: 11 }, color: '#aaa', padding: 6 },
+      border: { dash: [4, 4] },
+    },
+  };
+  if (isStarDist) {
+    base.y = { stacked: true, max: 100, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { font: { size: 11 }, color: '#aaa', callback: v => v + '%', maxTicksLimit: 6 }, border: { display: false } };
+    return base;
+  }
+  if (ST.breakdown !== 'none') {
+    base.y = { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { font: { size: 11 }, color: '#aaa', maxTicksLimit: 6, callback: v => fmt(v, KPI_CFG[ST.kpis[0]]?.scale || 'K') }, border: { display: false } };
+    return base;
+  }
+  // Multi-KPI: left axis for kpis[0], right for kpis[1]
+  const kpis = ST.kpis.filter(k => k !== 'star_dist');
+  kpis.forEach((key, i) => {
+    const id = i === 0 ? 'y' : 'y1';
+    base[id] = {
+      position: i === 0 ? 'left' : 'right',
+      grid: i === 0 ? { color: 'rgba(0,0,0,0.05)' } : { drawOnChartArea: false },
+      ticks: { font: { size: 11 }, color: KPI_CFG[key].color, maxTicksLimit: 6, callback: v => fmt(v, KPI_CFG[key].scale) },
+      border: { display: false },
+    };
+  });
+  return base;
 }
 
 function renderChart() {
   const [si, ei] = getRange();
-  const m = multiplier();
-  const labels = DATES.slice(si, ei + 1).map(fmtDate);
-  const mainKPIs = ST.kpis.filter(k => k !== 'star_dist');
-  const showStar = ST.kpis.includes('star_dist');
-  const wrap = document.getElementById('mainChartWrap');
-  const empty = document.getElementById('gEmpty');
+  const { labels } = getLabels(si, ei);
+  const datasets = buildDatasets(si, ei);
+  const scales = buildScales(datasets);
+  const isStarDist = ST.kpis.length === 1 && ST.kpis[0] === 'star_dist';
 
-  // Destroy old
-  if (mainChart) { mainChart.destroy(); mainChart = null; }
+  // Restore hidden state
+  datasets.forEach((ds, i) => { if (ST.hiddenSeries.includes(i)) ds.hidden = true; });
 
-  if (mainKPIs.length === 0 && !showStar) {
-    wrap.style.display = 'none';
-    empty.style.display = '';
-  } else {
-    wrap.style.display = '';
-    empty.style.display = 'none';
-  }
+  if (chart) { chart.destroy(); chart = null; }
 
-  if (mainKPIs.length > 0) {
-    // Build datasets
-    const isBar   = ST.chartType === 'bar';
-    const isArea  = ST.chartType === 'area';
-    const tension = ST.chartType === 'spline' ? 0.4 : 0;
-
-    const datasets = mainKPIs.map((key, idx) => {
-      const cfg = KPI[key];
-      const data = RAW[key].slice(si, ei + 1).map(v => Math.round(v * m));
-      return {
-        label: cfg.label,
-        data,
-        borderColor: cfg.color,
-        backgroundColor: isBar ? cfg.color + 'CC' : isArea ? cfg.color + '28' : 'transparent',
-        fill: isArea,
-        tension: isBar ? 0 : tension,
-        pointRadius: 0,
-        pointHoverRadius: 5,
-        borderWidth: isBar ? 0 : 2.2,
-        borderRadius: isBar ? 4 : 0,
-        yAxisID: idx === 0 ? 'y' : 'y1',
-        type: isBar ? 'bar' : 'line',
-        order: idx,
-      };
-    });
-
-    // Build Y axes
-    const scales = {
-      x: {
-        grid: { color: 'rgba(0,0,0,0.04)' },
-        ticks: { maxTicksLimit: 10, font: { size: 11 }, color: '#999' },
-      },
-    };
-    mainKPIs.forEach((key, idx) => {
-      const cfg = KPI[key];
-      const id = idx === 0 ? 'y' : 'y1';
-      scales[id] = {
-        position: idx === 0 ? 'left' : 'right',
-        grid: idx === 0 ? { color: 'rgba(0,0,0,0.04)' } : { drawOnChartArea: false },
-        ticks: {
-          font: { size: 11 },
-          color: cfg.color,
-          maxTicksLimit: 6,
-          callback: v => fmt(v, cfg.scale),
-        },
-      };
-    });
-
-    const ctx = document.getElementById('mainChart');
-    mainChart = new Chart(ctx, {
-      type: isBar ? 'bar' : 'line',
-      data: { labels, datasets },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        animation: { duration: 300 },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: '#1c1c1c',
-            titleColor: '#fff',
-            bodyColor: '#ccc',
-            padding: 10,
-            cornerRadius: 6,
-            callbacks: {
-              label: ctx => {
-                const key = mainKPIs[ctx.datasetIndex];
-                const cfg = KPI[key];
-                return `  ${cfg.label}: ${fmtFull(ctx.raw, cfg.scale)}`;
-              },
+  const ctx = document.getElementById('gcCanvas');
+  chart = new Chart(ctx, {
+    type: (ST.chartType === 'bar' || isStarDist) ? 'bar' : 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: { duration: 350 },
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1c1c1c', titleColor: '#eee', bodyColor: '#ccc',
+          padding: 10, cornerRadius: 6, displayColors: true, boxWidth: 10, boxHeight: 10,
+          callbacks: {
+            label: ctx => {
+              const v = ctx.raw;
+              if (isStarDist) return `  ${ctx.dataset.label}: ${v.toFixed(1)}%`;
+              if (ST.breakdown !== 'none') return `  ${ctx.dataset.label}: ${fmtFull(v, KPI_CFG[ST.kpis[0]]?.scale || 'K')}`;
+              const key = ST.kpis.filter(k => k !== 'star_dist')[ctx.datasetIndex];
+              return key ? `  ${KPI_CFG[key].label}: ${fmtFull(v, KPI_CFG[key].scale)}` : `  ${v}`;
             },
           },
         },
-        scales,
       },
-    });
-  }
+      scales,
+    },
+  });
 
-  // Star distribution
-  renderStarChart(showStar, si, ei, labels);
-
-  // Chart title
-  updateChartTitle(mainKPIs, showStar);
+  renderLegend(datasets);
+  renderStats(si, ei);
 }
 
-function renderStarChart(show, si, ei, labels) {
-  const wrap = document.getElementById('starDistWrap');
-  if (starChart) { starChart.destroy(); starChart = null; }
-  if (!show) { wrap.style.display = 'none'; return; }
-  wrap.style.display = '';
-  const data = RAW.star_dist.slice(si, ei + 1);
-  const colors = ['#dc3545', '#fd7e14', '#ffc107', '#90c97a', '#198754'];
-  const ctx = document.getElementById('starChart');
-  starChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: ['1 ★', '2 ★', '3 ★', '4 ★', '5 ★'].map((lbl, i) => ({
-        label: lbl,
-        data: data.map(d => d[i]),
-        backgroundColor: colors[i] + 'BB',
-        stack: 'star',
-        borderRadius: i === 4 ? 3 : 0,
-      })),
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 300 },
-      plugins: {
-        legend: {
-          display: true,
-          position: 'right',
-          labels: { font: { size: 11 }, color: '#999', boxWidth: 12, padding: 8 },
-        },
-        tooltip: {
-          mode: 'index',
-          intersect: false,
-          backgroundColor: '#1c1c1c',
-          titleColor: '#fff',
-          bodyColor: '#ccc',
-          padding: 8,
-          callbacks: { label: ctx => `  ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%` },
-        },
-      },
-      scales: {
-        x: { stacked: true, grid: { display: false }, ticks: { maxTicksLimit: 8, font: { size: 10 }, color: '#999' } },
-        y: { stacked: true, max: 100, grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { font: { size: 10 }, color: '#999', callback: v => v + '%', maxTicksLimit: 6 } },
-      },
-    },
+/* ──────────────────────────────────────────────────────────────
+   LEGEND (clickable)
+────────────────────────────────────────────────────────────── */
+function renderLegend(datasets) {
+  const el = document.getElementById('gcLegend');
+  if (!datasets || datasets.length === 0) { el.innerHTML = ''; return; }
+  el.innerHTML = datasets.map((ds, i) => {
+    const hidden = ST.hiddenSeries.includes(i) ? 'hidden' : '';
+    const color = ds.borderColor || (Array.isArray(ds.backgroundColor) ? ds.backgroundColor[0] : ds.backgroundColor) || '#aaa';
+    const cleanColor = String(color).replace(/[0-9a-fA-F]{2}$/, '').replace('CC','').replace('22','');
+
+    // Get total value for display
+    const total = ds.data.reduce((s, v) => s + (v || 0), 0);
+    const isStarDist = ST.kpis.length === 1 && ST.kpis[0] === 'star_dist';
+    const valStr = isStarDist ? ds.data[ds.data.length-1]?.toFixed(1)+'%' : fmtFull(total, ST.breakdown !== 'none' ? KPI_CFG[ST.kpis[0]]?.scale : (KPI_CFG[ST.kpis.filter(k=>k!=='star_dist')[i]]?.scale || 'K'));
+
+    return `<div class="gc-leg-item ${hidden}" data-idx="${i}" style="--leg-color:${cleanColor}">
+      <span class="gc-leg-dot"></span>
+      <span>${ds.label}</span>
+      <span class="gc-leg-val">${valStr}</span>
+    </div>`;
+  }).join('');
+
+  el.querySelectorAll('.gc-leg-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const i = parseInt(item.dataset.idx);
+      if (ST.hiddenSeries.includes(i)) {
+        ST.hiddenSeries = ST.hiddenSeries.filter(x => x !== i);
+        item.classList.remove('hidden');
+      } else {
+        ST.hiddenSeries.push(i);
+        item.classList.add('hidden');
+      }
+      if (chart && chart.data.datasets[i]) {
+        chart.data.datasets[i].hidden = !chart.data.datasets[i].hidden;
+        chart.update('none');
+      }
+    });
   });
 }
 
-function updateChartTitle(mainKPIs, showStar) {
-  const all = [...mainKPIs, ...(showStar ? ['star_dist'] : [])];
-  const title = all.length === 0 ? 'Performance Analysis'
-    : all.map(k => KPI[k].label).join(' & ');
-  document.getElementById('gCardTitle').textContent = title;
-}
+/* ──────────────────────────────────────────────────────────────
+   STATS BAR
+────────────────────────────────────────────────────────────── */
+function renderStats(si, ei) {
+  const el = document.getElementById('gcStats');
+  const pm = platformMult();
+  const isStarDist = ST.kpis.length === 1 && ST.kpis[0] === 'star_dist';
 
-function renderSummary() {
-  const [si, ei] = getRange();
-  const m = multiplier();
-  const all = ST.kpis;
-  const el = document.getElementById('gSummary');
-  if (all.length === 0) { el.innerHTML = ''; return; }
+  if (ST.kpis.length === 0) { el.innerHTML = ''; return; }
 
-  el.innerHTML = all.map(key => {
-    const cfg = KPI[key];
+  const items = ST.kpis.map(key => {
+    const cfg = KPI_CFG[key];
     if (key === 'star_dist') {
       const slice = RAW.star_dist.slice(si, ei + 1);
       const last = slice[slice.length - 1];
-      const avg = last.reduce((s, v, i) => s + v * (i + 1), 0) / 100;
+      const avg = last.reduce((s,v,i) => s+v*(i+1), 0) / 100;
       const prev = slice[Math.max(0, slice.length - 8)];
-      const avgPrev = prev.reduce((s, v, i) => s + v * (i + 1), 0) / 100;
-      const diff = (avg - avgPrev).toFixed(2);
-      const up = diff >= 0;
-      return `<div class="g-sum-item">
-        <div class="g-sum-lbl"><span class="g-sum-dot" style="background:${cfg.color}"></span>${cfg.label}</div>
-        <div class="g-sum-val">${avg.toFixed(2)} ★</div>
-        <div class="g-sum-trend ${up ? 'up' : 'dn'}">${up ? '▲' : '▼'} ${Math.abs(diff)} vs prev. week</div>
+      const avgPrev = prev.reduce((s,v,i) => s+v*(i+1), 0) / 100;
+      const diff = avg - avgPrev;
+      return `<div class="gc-stat">
+        <div class="gc-stat-name"><span class="gc-stat-dot" style="background:${cfg.color}"></span>${cfg.label}</div>
+        <div class="gc-stat-val">${avg.toFixed(2)} ★</div>
+        <div class="gc-stat-trend ${diff >= 0 ? 'up' : 'dn'}">${diff >= 0 ? '▲' : '▼'} ${Math.abs(diff).toFixed(2)}</div>
+        <div class="gc-stat-sub">vs prev. 7 days</div>
       </div>`;
     }
-    const slice = RAW[key].slice(si, ei + 1).map(v => Math.round(v * m));
-    const total = slice.reduce((s, v) => s + v, 0);
+    const slice = RAW[key].slice(si, ei + 1).map(v => Math.round(v * pm));
+    const total = slice.reduce((s,v) => s+v, 0);
     const last  = slice[slice.length - 1];
     const prev  = slice[Math.max(0, slice.length - 8)];
-    const pct   = prev > 0 ? ((last - prev) / prev * 100).toFixed(1) : '0.0';
+    const pct   = prev > 0 ? ((last-prev)/prev*100).toFixed(1) : '0.0';
     const up    = parseFloat(pct) >= 0;
-    return `<div class="g-sum-item">
-      <div class="g-sum-lbl"><span class="g-sum-dot" style="background:${cfg.color}"></span>${cfg.label}</div>
-      <div class="g-sum-val">${fmtFull(total, cfg.scale)}</div>
-      <div class="g-sum-trend ${up ? 'up' : 'dn'}">${up ? '▲' : '▼'} ${Math.abs(pct)}%</div>
-      <div class="g-sum-sub">vs prev. 7 days</div>
+    return `<div class="gc-stat">
+      <div class="gc-stat-name"><span class="gc-stat-dot" style="background:${cfg.color}"></span>${cfg.label}</div>
+      <div class="gc-stat-val">${fmtFull(total, cfg.scale)}</div>
+      <div class="gc-stat-trend ${up ? 'up' : 'dn'}">${up ? '▲' : '▼'} ${Math.abs(pct)}%</div>
+      <div class="gc-stat-sub">vs prev. 7 days</div>
     </div>`;
-  }).join('');
-}
-
-function renderLegend() {
-  const el = document.getElementById('gLegend');
-  const mainKPIs = ST.kpis.filter(k => k !== 'star_dist');
-  const showStar = ST.kpis.includes('star_dist');
-  if (mainKPIs.length === 0 && !showStar) { el.innerHTML = ''; return; }
-
-  const items = [
-    ...mainKPIs.map(k => `<div class="g-leg-item">
-      <span class="g-leg-line" style="background:${KPI[k].color}"></span>
-      ${KPI[k].label}
-    </div>`),
-    ...(showStar ? [`<div class="g-leg-item">
-      <span class="g-leg-line" style="background:#ffc107"></span>
-      Star Distribution
-    </div>`] : []),
-  ];
+  });
   el.innerHTML = items.join('');
 }
 
-function renderActiveChips() {
-  const chips = [];
-  if (ST.countries.length > 0) {
-    const labels = ST.countries.map(code => {
-      const c = COUNTRIES.find(x => x.code === code);
-      return c ? c.flag + ' ' + c.name : code;
-    });
-    if (labels.length <= 2) {
-      labels.forEach((lbl, i) => {
-        chips.push(`<span class="a-chip">${lbl} <span class="a-chip-rm" data-rm-country="${ST.countries[i]}">×</span></span>`);
-      });
-    } else {
-      chips.push(`<span class="a-chip">${labels[0]} +${labels.length - 1} <span class="a-chip-rm" data-rm-all-countries>×</span></span>`);
-    }
+/* ──────────────────────────────────────────────────────────────
+   ACTIVE METRIC CHIPS (above chart)
+────────────────────────────────────────────────────────────── */
+function renderMetricChips() {
+  const el = document.getElementById('activeMetricChips');
+  if (ST.kpis.length === 0) {
+    el.innerHTML = '<span class="gc-no-metric">Select at least one metric ↓</span>';
+    return;
   }
-  if (ST.version !== 'All Versions') {
-    chips.push(`<span class="a-chip">${ST.version} <span class="a-chip-rm" data-rm-filter="version">×</span></span>`);
-  }
-  if (ST.os !== 'All OS') {
-    chips.push(`<span class="a-chip">${ST.os} <span class="a-chip-rm" data-rm-filter="os">×</span></span>`);
-  }
-  if (ST.device !== 'All Devices') {
-    chips.push(`<span class="a-chip">${ST.device} <span class="a-chip-rm" data-rm-filter="device">×</span></span>`);
-  }
-  if (ST.campaign !== 'No Campaign') {
-    chips.push(`<span class="a-chip">⚡ ${ST.campaign} <span class="a-chip-rm" data-rm-filter="campaign">×</span></span>`);
-  }
-  document.getElementById('activeChips').innerHTML = chips.join('');
-  bindChipRemove();
-}
-
-function bindChipRemove() {
-  document.querySelectorAll('.a-chip-rm[data-rm-country]').forEach(el => {
-    el.addEventListener('click', () => {
-      const code = el.dataset.rmCountry;
-      ST.countries = ST.countries.filter(c => c !== code);
-      syncCountryCheckboxes();
-      updateCountryTrigger();
-      renderAll();
-    });
-  });
-  document.querySelectorAll('.a-chip-rm[data-rm-all-countries]').forEach(el => {
-    el.addEventListener('click', () => {
-      ST.countries = [];
-      syncCountryCheckboxes();
-      updateCountryTrigger();
-      renderAll();
-    });
-  });
-  document.querySelectorAll('.a-chip-rm[data-rm-filter]').forEach(el => {
-    el.addEventListener('click', () => {
-      const key = el.dataset.rmFilter;
-      const defaults = { version: 'All Versions', os: 'All OS', device: 'All Devices', campaign: 'No Campaign' };
-      ST[key] = defaults[key];
-      const labelEl = document.getElementById(key + 'Label');
-      if (labelEl) labelEl.textContent = defaults[key];
-      const trigger = document.getElementById(key + 'Trigger');
-      if (trigger) trigger.classList.remove('active-filter');
-      refreshSimpleDD(key);
-      renderAll();
-    });
-  });
-}
-
-/* ── KPI PILLS ──────────────────────────────────────────────── */
-function buildKPIPills() {
-  const wrap = document.getElementById('kpiPills');
-  wrap.innerHTML = Object.entries(KPI).map(([key, cfg]) => {
-    const active = ST.kpis.includes(key) ? 'active' : '';
-    const dotColor = active ? cfg.color : '#aaa';
-    return `<button class="kpi-pill ${active}" data-kpi="${key}" style="${active ? '--kpi-c:' + cfg.color : ''}">
-      <span class="kpi-dot" style="background:${dotColor}"></span>${cfg.label}
-    </button>`;
+  el.innerHTML = ST.kpis.map(key => {
+    const cfg = KPI_CFG[key];
+    return `<span class="gc-chip" style="--chip-color:${cfg.color}">
+      <span class="gc-chip-dot"></span>${cfg.label}
+      <span class="gc-chip-rm" data-rm="${key}">×</span>
+    </span>`;
   }).join('');
-
-  wrap.querySelectorAll('.kpi-pill').forEach(btn => {
+  el.querySelectorAll('.gc-chip-rm').forEach(btn => {
     btn.addEventListener('click', () => {
-      const key = btn.dataset.kpi;
-      if (ST.kpis.includes(key)) {
-        if (ST.kpis.length === 1) return; // keep at least 1
-        ST.kpis = ST.kpis.filter(k => k !== key);
-        btn.classList.remove('active');
-        btn.style.cssText = '';
-        btn.querySelector('.kpi-dot').style.background = '#aaa';
-      } else {
-        if (ST.kpis.length >= 4) {
-          document.getElementById('kpiHint').textContent = 'Max 4 KPIs at once';
-          setTimeout(() => document.getElementById('kpiHint').textContent = '', 2000);
-          return;
-        }
-        ST.kpis.push(key);
-        btn.classList.add('active');
-        const c = KPI[key].color;
-        btn.style.setProperty('--kpi-c', c);
-        btn.querySelector('.kpi-dot').style.background = c;
-      }
-      renderAll();
-    });
-  });
-}
-
-/* ── DATE CONTROLS ──────────────────────────────────────────── */
-function initDateControls() {
-  document.querySelectorAll('.range-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      ST.preset = btn.dataset.range;
-      const customWrap = document.getElementById('customDateWrap');
-      customWrap.classList.toggle('open', ST.preset === 'custom');
-      renderAll();
-    });
-  });
-
-  const from = document.getElementById('dateFrom');
-  const to   = document.getElementById('dateTo');
-  from.addEventListener('change', () => { ST.dateFrom = from.value; if (ST.preset === 'custom') renderAll(); });
-  to.addEventListener('change',   () => { ST.dateTo = to.value;     if (ST.preset === 'custom') renderAll(); });
-}
-
-/* ── PLATFORM TABS ──────────────────────────────────────────── */
-function initPlatformTabs() {
-  document.querySelectorAll('.g-plat-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.g-plat-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      ST.platform = btn.dataset.plat;
-      renderAll();
-    });
-  });
-}
-
-/* ── CHART TYPE ─────────────────────────────────────────────── */
-function initChartType() {
-  document.querySelectorAll('.ctb').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.ctb').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      ST.chartType = btn.dataset.type;
+      const key = btn.dataset.rm;
+      if (ST.kpis.length === 1) return;
+      ST.kpis = ST.kpis.filter(k => k !== key);
+      syncMetricChecklist();
+      renderMetricChips();
+      ST.hiddenSeries = [];
       renderChart();
     });
   });
 }
 
-/* ── COUNTRY FILTER ─────────────────────────────────────────── */
-function buildCountryList(filter) {
-  const list = document.getElementById('countryList');
-  const filtered = COUNTRIES.filter(c =>
-    !filter || c.name.toLowerCase().includes(filter.toLowerCase())
-  );
-  if (filtered.length === 0) {
-    list.innerHTML = '<div class="fdd-no-result">No country found</div>';
-    return;
-  }
-  list.innerHTML = filtered.map(c => {
-    const checked = ST.countries.includes(c.code);
-    const pct = (c.share * 100).toFixed(1);
-    return `<label class="fdd-item">
-      <input type="checkbox" value="${c.code}" ${checked ? 'checked' : ''} />
-      <span class="fdd-flag">${c.flag}</span>
-      <span class="fdd-name">${c.name}</span>
-      <span class="fdd-share">${pct}%</span>
+/* ──────────────────────────────────────────────────────────────
+   METRICS CHECKLIST
+────────────────────────────────────────────────────────────── */
+function buildMetricChecklist() {
+  const grid = document.getElementById('metricsGrid');
+  grid.innerHTML = Object.entries(KPI_CFG).map(([key, cfg]) => {
+    const checked = ST.kpis.includes(key) ? 'checked' : '';
+    return `<label class="gc-metric-item ${checked}" data-key="${key}" style="--metric-color:${cfg.color}">
+      <span class="gc-metric-check">
+        <svg viewBox="0 0 12 10" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="10" height="8"><polyline points="1,5 4.5,8.5 11,1.5"/></svg>
+      </span>
+      <span class="gc-metric-dot"></span>
+      ${cfg.label}
     </label>`;
   }).join('');
-  list.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', () => {
-      if (cb.checked) {
-        if (!ST.countries.includes(cb.value)) ST.countries.push(cb.value);
+
+  grid.querySelectorAll('.gc-metric-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const key = item.dataset.key;
+      if (ST.kpis.includes(key)) {
+        if (ST.kpis.length === 1) return;
+        ST.kpis = ST.kpis.filter(k => k !== key);
+        item.classList.remove('checked');
       } else {
-        ST.countries = ST.countries.filter(c => c !== cb.value);
+        if (ST.kpis.length >= 5) return; // max 5 metrics
+        ST.kpis.push(key);
+        item.classList.add('checked');
       }
-      updateCountryTrigger();
-      renderAll();
+      // Star distribution is exclusive
+      if (key === 'star_dist' && ST.kpis.includes('star_dist') && ST.kpis.length > 1) {
+        ST.kpis = ['star_dist'];
+        syncMetricChecklist();
+      } else if (key !== 'star_dist' && ST.kpis.includes('star_dist')) {
+        ST.kpis = ST.kpis.filter(k => k !== 'star_dist');
+        syncMetricChecklist();
+      }
+      ST.hiddenSeries = [];
+      renderMetricChips();
+      renderChart();
     });
   });
 }
 
-function syncCountryCheckboxes() {
-  document.querySelectorAll('#countryList input[type="checkbox"]').forEach(cb => {
-    cb.checked = ST.countries.includes(cb.value);
+function syncMetricChecklist() {
+  document.querySelectorAll('.gc-metric-item').forEach(item => {
+    item.classList.toggle('checked', ST.kpis.includes(item.dataset.key));
   });
 }
 
-function updateCountryTrigger() {
-  const lbl = document.getElementById('countryLabel');
-  const trigger = document.getElementById('countryTrigger');
-  if (ST.countries.length === 0) {
-    lbl.textContent = 'All Countries';
-    trigger.classList.remove('active-filter');
-  } else if (ST.countries.length === 1) {
-    const c = COUNTRIES.find(x => x.code === ST.countries[0]);
-    lbl.textContent = c ? c.flag + ' ' + c.name : '1 Country';
-    trigger.classList.add('active-filter');
-  } else {
-    lbl.textContent = ST.countries.length + ' Countries';
-    trigger.classList.add('active-filter');
+/* ──────────────────────────────────────────────────────────────
+   DATE CONTROLS
+────────────────────────────────────────────────────────────── */
+function updateDateLabel() {
+  const [si, ei] = getRange();
+  const a = DATES[si], b = DATES[ei];
+  const label = a.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' – ' +
+                b.toLocaleDateString('en-US',{month:'short',day:'numeric', year:'numeric'});
+  document.getElementById('gcDateLabel').textContent = label;
+}
+
+function initDateControls() {
+  // Period buttons
+  document.querySelectorAll('.gc-period').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gc-period').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ST.period = btn.dataset.period;
+      // Clear custom dates
+      ST.customFrom = null; ST.customTo = null;
+      document.getElementById('gcDateInputs').classList.remove('open');
+      document.getElementById('gcDatePicker').classList.remove('custom-active', 'open');
+      ST.hiddenSeries = [];
+      updateDateLabel();
+      renderChart();
+    });
+  });
+
+  // Date picker toggle
+  const picker = document.getElementById('gcDatePicker');
+  const inputs = document.getElementById('gcDateInputs');
+  picker.addEventListener('click', () => {
+    const wasOpen = inputs.classList.contains('open');
+    inputs.classList.toggle('open', !wasOpen);
+    picker.classList.toggle('open', !wasOpen);
+  });
+
+  // Date inputs
+  const fromEl = document.getElementById('gcFrom');
+  const toEl   = document.getElementById('gcTo');
+  function applyCustom() {
+    if (!fromEl.value || !toEl.value) return;
+    ST.customFrom = fromEl.value;
+    ST.customTo   = toEl.value;
+    ST.period = 'custom';
+    document.querySelectorAll('.gc-period').forEach(b => b.classList.remove('active'));
+    document.getElementById('gcDatePicker').classList.add('custom-active');
+    ST.hiddenSeries = [];
+    updateDateLabel();
+    renderChart();
   }
-}
+  fromEl.addEventListener('change', applyCustom);
+  toEl.addEventListener('change', applyCustom);
 
-function initCountryFilter() {
-  buildCountryList('');
-
-  const trigger = document.getElementById('countryTrigger');
-  const dropdown = document.getElementById('countryDropdown');
-
-  trigger.addEventListener('click', e => {
-    e.stopPropagation();
-    closeAllDropdowns(dropdown);
-    const open = dropdown.classList.toggle('open');
-    if (open) positionDropdown(trigger, dropdown);
-    trigger.classList.toggle('open', open);
-  });
-
-  document.getElementById('countrySearch').addEventListener('input', e => {
-    buildCountryList(e.target.value);
-  });
-  document.getElementById('countryAll').addEventListener('click', () => {
-    ST.countries = COUNTRIES.map(c => c.code);
-    buildCountryList(document.getElementById('countrySearch').value);
-    updateCountryTrigger();
-    renderAll();
-  });
-  document.getElementById('countryClear').addEventListener('click', () => {
-    ST.countries = [];
-    buildCountryList(document.getElementById('countrySearch').value);
-    updateCountryTrigger();
-    renderAll();
+  // Clear custom
+  document.getElementById('gcDateClear').addEventListener('click', () => {
+    ST.customFrom = null; ST.customTo = null;
+    ST.period = '30d';
+    document.querySelectorAll('.gc-period').forEach(b => b.classList.toggle('active', b.dataset.period === '30d'));
+    document.getElementById('gcDatePicker').classList.remove('custom-active', 'open');
+    document.getElementById('gcDateInputs').classList.remove('open');
+    ST.hiddenSeries = [];
+    updateDateLabel();
+    renderChart();
   });
 }
 
-/* ── SIMPLE FILTERS ─────────────────────────────────────────── */
-function buildSimpleDD(id, items, stateKey, triggerId, labelId) {
-  const dd = document.getElementById(id);
-  dd.innerHTML = items.map(item => {
-    const selected = ST[stateKey] === item ? 'selected' : '';
-    return `<div class="f-simple-item ${selected}" data-val="${item}">${item}</div>`;
-  }).join('');
-  dd.querySelectorAll('.f-simple-item').forEach(el => {
-    el.addEventListener('click', () => {
-      ST[stateKey] = el.dataset.val;
-      document.getElementById(labelId).textContent = el.dataset.val;
-      const trigger = document.getElementById(triggerId);
-      const isDefault = items[0] === el.dataset.val;
-      trigger.classList.toggle('active-filter', !isDefault);
-      refreshSimpleDD(stateKey);
-      closeAllDropdowns();
-      trigger.classList.remove('open');
-      renderAll();
+/* ──────────────────────────────────────────────────────────────
+   PLATFORM TABS
+────────────────────────────────────────────────────────────── */
+function initPlatformTabs() {
+  document.querySelectorAll('.gc-plat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gc-plat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ST.platform = btn.dataset.plat;
+      ST.hiddenSeries = [];
+      renderChart();
     });
   });
 }
 
-function refreshSimpleDD(stateKey) {
-  const map = {
-    version:  ['versionDropdown', VERSIONS,  'versionTrigger',  'versionLabel'],
-    os:       ['osDropdown',      OS_LIST,    'osTrigger',       'osLabel'],
-    device:   ['deviceDropdown',  DEVICES,    'deviceTrigger',   'deviceLabel'],
-    campaign: ['campaignDropdown', CAMPAIGNS, 'campaignTrigger', 'campaignLabel'],
-  };
-  const [ddId, items, tid, lid] = map[stateKey];
-  buildSimpleDD(ddId, items, stateKey, tid, lid);
-}
-
-function initSimpleFilter(wrapId, ddId, triggerId, items, stateKey, labelId) {
-  buildSimpleDD(ddId, items, stateKey, triggerId, labelId);
-  const trigger = document.getElementById(triggerId);
-  const dd = document.getElementById(ddId);
-  trigger.addEventListener('click', e => {
-    e.stopPropagation();
-    closeAllDropdowns(dd);
-    const open = dd.classList.toggle('open');
-    if (open) positionDropdown(trigger, dd);
-    trigger.classList.toggle('open', open);
+/* ──────────────────────────────────────────────────────────────
+   CHART TYPE
+────────────────────────────────────────────────────────────── */
+function initChartType() {
+  document.querySelectorAll('.gc-ctype').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gc-ctype').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ST.chartType = btn.dataset.type;
+      ST.hiddenSeries = [];
+      renderChart();
+    });
   });
 }
 
-/* ── DROPDOWN UTILS ─────────────────────────────────────────── */
-function positionDropdown(trigger, dd) {
-  const r = trigger.getBoundingClientRect();
-  dd.style.top  = (r.bottom + 4) + 'px';
-  dd.style.left = r.left + 'px';
-  // Clamp to viewport right
-  setTimeout(() => {
-    const ddR = dd.getBoundingClientRect();
-    if (ddR.right > window.innerWidth - 8) {
-      dd.style.left = (r.right - ddR.width) + 'px';
-    }
-  }, 0);
-}
-
-function closeAllDropdowns(except) {
-  document.querySelectorAll('.f-dropdown.open').forEach(el => {
-    if (el !== except) el.classList.remove('open');
-  });
-  document.querySelectorAll('.f-trigger.open').forEach(el => {
-    if (el !== except) el.classList.remove('open');
+/* ──────────────────────────────────────────────────────────────
+   BREAKDOWN
+────────────────────────────────────────────────────────────── */
+function initBreakdown() {
+  document.querySelectorAll('.gc-bdown').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gc-bdown').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ST.breakdown = btn.dataset.bd;
+      ST.hiddenSeries = [];
+      renderChart();
+    });
   });
 }
 
-document.addEventListener('click', e => {
-  if (!e.target.closest('.f-wrap')) {
-    closeAllDropdowns();
-  }
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeAllDropdowns();
-});
-
-/* ── INIT ───────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────
+   INIT
+────────────────────────────────────────────────────────────── */
 function init() {
+  buildMetricChecklist();
+  renderMetricChips();
   initPlatformTabs();
   initDateControls();
   initChartType();
-  buildKPIPills();
-  initCountryFilter();
-  initSimpleFilter('versionWrap',  'versionDropdown',  'versionTrigger',  VERSIONS,  'version',  'versionLabel');
-  initSimpleFilter('osWrap',       'osDropdown',        'osTrigger',       OS_LIST,   'os',       'osLabel');
-  initSimpleFilter('deviceWrap',   'deviceDropdown',    'deviceTrigger',   DEVICES,   'device',   'deviceLabel');
-  initSimpleFilter('campaignWrap', 'campaignDropdown',  'campaignTrigger', CAMPAIGNS, 'campaign', 'campaignLabel');
-  renderAll();
+  initBreakdown();
+  updateDateLabel();
+  renderChart();
 }
 
 init();
